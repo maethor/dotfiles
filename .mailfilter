@@ -1,0 +1,73 @@
+#SHELL="/bin/bash"
+#DEFAULT=$HOME/.maildir/
+MAILDIR=$HOME/Maildir/
+
+TO=""
+
+logfile "$HOME/Maildir/maildrop.log"
+
+###########################################################
+# Baal
+if(/^Delivered-To: baal@subiron.org/)
+	TO=INBOX.Baal
+###########################################################
+# Maethor
+if(/^Delivered-To: maethor@subiron.org/)
+	TO=INBOX.Maethor
+###########################################################
+# Guillaume
+if(/^Delivered-To: guillaume@subiron.org/)
+	TO=INBOX.guillaume
+
+###########################################################
+# Server notification mails
+#if(/^(Delivered-)?To: (.*<)?(logcheck|root)@(.*)\.(abul|lahouze|isoodon)\.(org|net)>?$/)
+#	TO=servers.$MATCH6.$MATCH5.$MATCH4
+
+#if(/^Delivered-To: xals\+server\.(.*)\.(.*)\.(.*)@rincevent\.lahouze\.org$/)
+# TO=servers.$MATCH3.$MATCH2.$MATCH1
+
+###########################################################
+# list.domain.suffix mailing lists : april.org, rmll.info
+# liste dynamique. à supprimer si tu n'en as pas besoin
+#if(/^List-Id: (.*<)?(.*)\.(.*)\.(.*)>?/)
+#	TO=$MATCH3.$MATCH2
+# pour le jour où je voudrais la comprendre ;)
+
+###########################################################
+# abul mailing lists
+if(/^List-Id: .*<(.*)\.abul\.org>/)
+	TO=INBOX.lists.$MATCH1
+
+###########################################################
+# sourceforge mailing lists
+#if(/^List-Id: .*<(.*)-(.*)\.lists\.sourceforge\.net>/)
+#	TO=sourceforge.$MATCH1.$MATCH2
+
+###########################################################
+# gentoo mailing lists
+#if(/^List-Id: .*<.*-(.*)\.gentoo\.org>/)
+#	TO=gentoo.$MATCH1
+
+###########################################################
+# TODO
+#if(/^Delivered-To: xals\+todo@rincevent\.lahouze\.org$/)
+#	TO=INBOX.TODO
+
+###########################################################
+# trashing spammed mails
+#if(/^X-Spam-Status: YES/ || /^X-Spam-Level: \*{5,}/ || /^X-CRM114-Status: SPAM/)
+#	TO=INBOX.Junk
+
+FOLDER=$MAILDIR.$TO
+
+`test -d "$FOLDER"`
+if($RETURNCODE != 0)
+{
+	`mkdir -p $FOLDER`
+	`rmdir $FOLDER`
+	`/usr/bin/maildirmake $FOLDER`
+	`echo $TO >> $MAILDIR/subscriptions`
+}
+
+to $FOLDER/
