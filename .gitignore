@@ -1,6 +1,8 @@
 *
 !.gitignore
 
+!.screenrc
+
 !.zshrc
 !.zshrc.d/*
 
