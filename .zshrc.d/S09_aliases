@@ -1,0 +1,50 @@
+#!/bin/zsh
+
+#############
+# Les alias #
+#############
+
+# Gestion du 'ls' : couleur & ne touche pas aux accents
+alias ls='ls --classify --tabsize=0 --literal --color=auto --show-control-chars --human-readable'
+
+# Alias xals
+[[ -x /usr/bin/colorgcc ]] && alias gcc="colorgcc"
+[[ -x /usr/bin/colormake ]] && alias make="colormake"
+[[ -x /usr/bin/aptitude ]] && alias aptitude="aptitude --disable-columns"
+
+# Demande confirmation avant d'écraser un fichier
+alias cp='cp --interactive'
+alias mv='mv --interactive'
+alias rm='rm --interactive'
+
+# Raccourcis pour 'ls'
+alias ll='ls -l'
+alias la='ls -a'
+alias lla='ls -la'
+
+# Quelques alias pratiques
+alias less='less --quiet'
+alias df='df --human-readable'
+alias du='du --human-readable'
+alias m='mutt -y'
+alias md='mkdir'
+alias rd='rmdir'
+alias upgrade='apt-get update && apt-get upgrade && apt-get clean'
+
+#alias persos
+alias compilegtk='gcc $(pkg-config --libs --cflags gtk+-2.0)'
+alias killgnash='killall gtk-gnash'
+alias compileada='gnatmake -gnato -gnatv'
+alias nano='nano -miA'
+alias xon='/etc/init.d/gdm start'
+alias xoff='/etc/init.d/gdm stop'
+alias cd..='cd ..'
+alias mp3='mpg123'
+alias ogg='ogg123'
+alias addnote='bash ~/.conky/notes.sh'
+#alias 12='setxkbmap fr'
+#alias 11='setxkbmap fr bepo'
+#alias 13='loadkeys fr-dvorak-bepo'
+#alias 14='loadkeys fr'
+alias trash='sudo rm -r /home/maethor/.local/share/Trash/files/*'
+

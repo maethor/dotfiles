@@ -1,0 +1,19 @@
+#!/bin/bash
+
+case "$1" in
+
+# Informations
+artist) dcop amarok player artist ;;
+title)  dcop amarok player title ;;
+album)  dcop amarok player album ;;
+year)   dcop amarok player year ;;
+genre)  dcop amarok player genre ;;
+progress)
+    curr=`dcop amarok player trackCurrentTime`
+    tot=`dcop amarok player trackTotalTime`
+    if (( $tot )); then
+        expr $curr \* 100  / $tot
+    fi
+    ;;
+
+esac 

@@ -1,0 +1,31 @@
+#!/bin/zsh
+ssh_key_manage() {
+	if [ -x "$(which keychain)" ] ; then
+		# run keychain
+		for i in $HOME/.ssh/id_[dr]sa; do keychain --nogui $i; done
+		[[ -r $HOME/.ssh-agent-$(hostname) ]] && . $HOME/.ssh-agent-$(hostname)
+		[[ -r $HOME/.keychain/$(hostname)-sh ]] &&  source $HOME/.keychain/$(hostname)-sh
+	elif [ -x "$(which ssh-agent)" ]; then
+		if [[ -r $HOME/.ssh/agent-pid ]] ; then
+			if [[ -d /proc/$(< $HOME/.ssh/agent-pid) ]] ; then
+				source $HOME/.ssh/agent
+			else 
+				ssh-agent -s > $HOME/.ssh/agent
+				source $HOME/.ssh/agent
+				echo $SSH_AGENT_PID > $HOME/.ssh/agent-pid
+				for i in $(ls $HOME/.ssh/id_[dr]sa); do ssh-add $i; done
+			fi	
+		else 
+			ssh-agent -s > $HOME/.ssh/agent
+			source $HOME/.ssh/agent
+			echo $SSH_AGENT_PID > $HOME/.ssh/agent-pid
+			for i in $(ls $HOME/.ssh/id_[dr]sa); do ssh-add $i; done
+		fi
+	fi
+}
+
+# ssh key management
+if [[ "$USER" != "root" ]]; then
+	ssh_key_manage
+fi
+
