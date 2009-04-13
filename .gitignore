@@ -1,0 +1,16 @@
+*
+!.gitignore
+
+!.zshrc
+!.zshrc.d/*
+
+!.ssh/config
+
+!.vimrc
+
+!.mailfilter
+
+!.conky/*
+!.conky.sh
+
+!.bashrc
