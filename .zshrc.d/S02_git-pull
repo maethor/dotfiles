@@ -1,6 +1,6 @@
 #!/bin/zsh
-if [ -x /usr/bin/git -a -d .git ]
-then /usr/bin/git pull
+if [ -x /usr/bin/git -a -d $HOME/.git ]
+then cd $HOME && /usr/bin/git pull && cd -
 fi
 
 
