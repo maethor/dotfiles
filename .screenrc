@@ -165,7 +165,8 @@ termcapinfo xterm*|rxvt*|kterm*|Eterm* hs:ts=\E]0;:fs=\007:ds=\E]0;\007
 # nouvelle version :
 # heure (avec secondes), nom de la machine en rouge, load de la machine
 # puis fenetres avec celle courante en jaune, le tout en fond bleu
-hardstatus alwayslastline "%{b kB}%{s gB}%c:%s%{b kB} %{b kR}%H %{b kB}%{s yB}%l%{b kB} %{b kB}%{rs Y}%-Lw%{BY}%50>%n%{R}%f%{B} %t%{YB}%+Lw%<"
+#hardstatus alwayslastline "%{b kB}%{s gB}%c:%s%{b kB} %{b kR}%H %{b kB}%{s yB}%l%{b kB} %{b kB}%{rs Y}%-Lw%{BY}%50>%n%{R}%f%{B} %t%{YB}%+Lw%<"
+caption always "%{Wb}%C:%s %{Bk} | %{Wb} %H %{Bk} | %{Wb} %l %{Bk} | %{Ck}%-w%50>%{Cb} %n %t %{-}%+w%<%{- Wk}%{Bk}"
 
 # set these terminals up to be 'optimal' instead of vt100
 termcapinfo xterm*|linux*|rxvt*|Eterm* OP

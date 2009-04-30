@@ -4,8 +4,8 @@
 ############################################
 
 # Nombre d'entrées dans l'historique
-export HISTORY=1000
-export SAVEHIST=1000
+export HISTORY=100000
+export SAVEHIST=100000
 
 # Fichier où est stocké l'historique
 export HISTFILE=$HOME/.history
