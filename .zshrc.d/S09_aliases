@@ -47,4 +47,4 @@ alias addnote='bash ~/.conky/notes.sh'
 #alias 13='loadkeys fr-dvorak-bepo'
 #alias 14='loadkeys fr'
 alias trash='sudo rm -r /home/maethor/.local/share/Trash/files/*'
-
+alias jv='/usr/lib/jvm/java-6-sun/bin/java'
