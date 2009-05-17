@@ -70,6 +70,16 @@ zstyle ':completion:*:processes-names' command 'ps -e -o comm='
 zstyle ':completion:*:descriptions' format '%U%B%d%b%u'
 zstyle ':completion:*:warnings' format '%BSorry, no match for: %d%b'
 zstyle ':completion:*:kill:*:processes' list-colors "=(#b) #([0-9]#)*=36=31"
+zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin
+				/usr/sbin /usr/bin /sbin /bin /usr/X11R6/bin
+zstyle ':completion:*' use-cache on
+zstyle ':completion:*' cache-path ~/.zsh-cache
+zstyle ':completion:*:*:cd:*' tag-order local-directories path-directories
+zstyle ':completion:*' menu select=2
+zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
+zstyle ':completion:*:rm:*' ignore-line yes
+zstyle ':completion:*:mv:*' ignore-line yes
+zstyle ':completion:*:cp:*' ignore-line yes
 
 zmodload zsh/complist
 
