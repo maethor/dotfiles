@@ -67,6 +67,11 @@ zstyle ':completion:*' max-errors 3 numeric
 zstyle ':completion:*' use-compctl false
 zstyle ':completion:*:*:kill:*:processes' list-colors "=(#b) #([0-9]#)*=36=31"
 zstyle ':completion:*:processes-names' command 'ps -e -o comm='
+zstyle ':completion:*:descriptions' format '%U%B%d%b%u'
+zstyle ':completion:*:warnings' format '%BSorry, no match for: %d%b'
+zstyle ':completion:*:kill:*:processes' list-colors "=(#b) #([0-9]#)*=36=31"
+
+zmodload zsh/complist
 
 rationalise-dot() {
 	if [[ $LBUFFER = *.. ]]; then
