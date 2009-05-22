@@ -18,6 +18,10 @@ if(/^Delivered-To: maethor@subiron.org/)
 # Guillaume
 if(/^Delivered-To: guillaume@subiron.org/)
 	TO=INBOX.guillaume
+###########################################################
+# Server notification mails
+if(/^Delivered-To: root@subiron.org/)
+	TO=INBOX.servers
 
 ###########################################################
 # Server notification mails

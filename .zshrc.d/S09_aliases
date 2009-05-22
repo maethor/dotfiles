@@ -18,10 +18,10 @@ alias mv='mv --interactive'
 #alias rm='rm --interactive'
 
 # Raccourcis pour 'ls'
-alias ll='ls -L'
+alias ll='ls -l'
 alias la='ls -a'
-alias lla='ls -La'
-alias llm='ls -La | most'
+alias lla='ls -la'
+alias llm='ls -la | most'
 
 # Quelques alias pratiques
 alias less='less --quiet'
