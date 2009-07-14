@@ -25,12 +25,18 @@ alias llm='ls -la | most'
 
 # Quelques alias pratiques
 alias less='less --quiet'
-alias df='df --human-readable'
+alias df='df -h'
+[[ -x /usr/bin/pydf ]] && alias df='pydf -h'
 alias du='du --human-readable'
 alias m='mutt -y'
 alias md='mkdir'
 alias rd='rmdir'
 alias upgrade='aptitude update && aptitude full-upgrade && apt-get clean'
+alias rsu='sudo zsh'
+alias reload='exec zsh'
+alias grep='grep --color=tty'
+alias slog='tail -n 60 /var/log/syslog'
+alias mlog='tail -n 60 /var/log/mail.log'
 
 #alias persos
 alias nano='nano -miA'
@@ -44,3 +50,10 @@ alias compileada='gnatmake -gnato -gnatv'
 alias compclass='g++ $(pkg-config --cflags gtk+-2.0) -I ~/Cpp/classes_fournies -c'
 alias compilecpp='bash /home/maethor/Cpp/compile'
 alias jv='/usr/lib/jvm/java-6-sun/bin/java'
+
+# Editor
+[[ -x /usr/bin/vim ]] && export EDITOR='vim'
+alias e=$EDITOR
+
+# Pager stuff
+[[ -x /usr/bin/most ]] && export PAGER='most' && alias more='most' && alias less='most'
