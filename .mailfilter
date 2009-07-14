@@ -22,6 +22,10 @@ if(/^Delivered-To: guillaume@subiron.org/)
 # Server notification mails
 if(/^Delivered-To: root@subiron.org/)
 	TO=INBOX.servers
+if(/^Delivered-To: logcheck@subiron.org/)
+	TO=INBOX.servers.logs
+if(/^Delivered-To: apticron@subiron.org/)
+	TO=INBOX.servers.apticron
 
 ###########################################################
 # Server notification mails

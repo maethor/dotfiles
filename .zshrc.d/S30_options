@@ -7,13 +7,19 @@
 unsetopt beep
 unsetopt hist_beep
 unsetopt list_beep
-
-#unsetopt clobber		# >| doit être utilisés pour pouvoir écraser un fichier déjà existant ;
-unsetopt ignore_eof		# Ctrl+D est équivalent à 'logout'
-#setopt print_exit_value	# Affiche le code de sortie si différent de '0'
-#unsetopt rm_star_silent	# Demande confirmation pour 'rm *'
-#setopt correct			# Correction orthographique des commandes (Désactivé car, contrairement à ce que dit le "man", il essaye de corriger les commandes avant de les hasher)
-setopt nullglob			# Si on utilise des jokers dans une liste d'arguments, retire les jokers qui ne correspondent à rien au lieu de donner une erreur
-setopt auto_cd			# /usr/local est équivalent à cd /usr/local
-setopt notify			# indique le status des taches de fond immédiatement
-
+# >| doit être utilisés pour pouvoir écraser un fichier déjà existant ;
+# le fichier ne sera pas écrasé avec '>'
+# unsetopt clobber
+# Ctrl+D est équivalent à 'logout'
+unsetopt ignore_eof
+# Affiche le code de sortie si différent de '0'
+setopt print_exit_value
+# Demande confirmation pour 'rm *'
+# unsetopt rm_star_silent
+# Correction orthographique des commandes
+# Désactivé car, contrairement à ce que dit le "man", il essaye de
+# corriger les commandes avant de les hasher
+#setopt correct
+# Si on utilise des jokers dans une liste d'arguments, retire les jokers
+# qui ne correspondent à rien au lieu de donner une erreur
+setopt nullglob
