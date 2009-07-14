@@ -1,0 +1,61 @@
+reset all
+unhook *
+unhdr_order *
+ignore *
+
+set nomove
+set folder=imaps://subiron.org/
+
+set spoolfile=imaps://subiron.org/INBOX
+
+set imap_user=maethor
+#set imap_pass = '##############'
+set imap_delim_chars="/."
+set imap_check_subscribed="yes"
+set imap_list_subscribed="yes"
+mailboxes !
+
+set mail_check=300
+
+set locale=fr_FR.UTF-8
+set charset=utf-8
+
+# set mbox_type=Maildir
+set postponed==INBOX/Drafts
+
+set copy=yes
+set record==INBOX/Sent
+
+set sort=threads
+#set sort=reverse-threads
+set sort_aux=last-date-received
+
+set header_cache=~/.mutt_cache
+set edit_headers=yes
+
+set strict_threads=yes
+set editor=/usr/bin/vim
+
+set hostname ="subiron.org"
+set realname ="Guillaume Subiron"
+set from="baal@subiron.org"
+set reply_self=yes
+
+set signature=~/.signature
+
+# mutt alias with abook
+#set alias_file=~/.mutt-alias
+#source ~/.mutt-alias
+set query_command= "abook --mutt-query '%s'"
+macro index,pager A "<pipe-message>abook --add-email-quiet<return>" "add the sender address to abook"
+
+# mutt sidebar settings
+set sidebar_width=45
+set sidebar_visible=yes
+set sidebar_delim='|'
+
+bind index,pager \CP sidebar-prev
+bind index,pager \CN sidebar-next
+bind index,pager \CO sidebar-open
+macro index,pager B "<enter-command>toggle sidebar_visible<return>"
+color sidebar_new yellow default
