@@ -6,8 +6,6 @@
 !.zshrc
 !.zshrc.d/*
 
-!.ssh/config
-
 !.vimrc
 
 !.mailfilter
