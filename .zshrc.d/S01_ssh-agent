@@ -26,6 +26,6 @@ ssh_key_manage() {
 
 # ssh key management
 if [[ "$USER" != "root" ]]; then
-	if [[ -z "SSH_AUTH_SOCK" ]]; then ssh_key_manage; fi
+	ssh_key_manage
 fi
 
