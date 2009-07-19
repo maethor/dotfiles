@@ -12,7 +12,7 @@ alias ls='ls --classify --tabsize=0 --literal --color=auto --show-control-chars 
 [[ -x /usr/bin/colormake ]] && alias make="colormake"
 [[ -x /usr/bin/aptitude ]] && alias aptitude="aptitude --disable-columns"
 
-# Demande confirmation avant d'écraser un fichier
+# Demande confirmation avant d écraser un fichier
 alias cp='cp --interactive'
 alias mv='mv --interactive'
 #alias rm='rm --interactive'
@@ -42,7 +42,7 @@ alias mlog='tail -n 60 /var/log/mail.log'
 alias nano='nano -miA'
 alias cd..='cd ..'
 alias addnote='bash ~/.conky/notes.sh'
-alias empty-trash='sudo rm -r /home/maethor/.local/share/Trash/files/*'
+alias empty-trash='sudo rm -r ~/.local/share/Trash/files/*'
 
 #alias de compilations
 alias compilegtk='gcc $(pkg-config --libs --cflags gtk+-2.0)'
