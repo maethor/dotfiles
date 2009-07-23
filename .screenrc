@@ -210,3 +210,9 @@ termcapinfo xterm*|linux*|rxvt*|Eterm* ti@:te@
 sorendition =s WB 
 msgwait 3
 bell "^GBell in window %"
+
+# ------------------------------------------------------------------------------
+# SSH AGENT OPTIONS
+# ------------------------------------------------------------------------------
+
+setenv SSH_AUTH_SOCK $SSH_AUTH_SOCK

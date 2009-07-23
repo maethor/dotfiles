@@ -5,7 +5,7 @@
 #############
 
 # Gestion du 'ls' : couleur & ne touche pas aux accents
-alias ls='ls --classify --tabsize=0 --literal --color=auto --show-control-chars --human-readable'
+alias ls="ls --classify --tabsize=0 --literal --color=auto --show-control-chars --human-readable"
 
 # Alias xals
 [[ -x /usr/bin/colorgcc ]] && alias gcc="colorgcc"
@@ -13,47 +13,47 @@ alias ls='ls --classify --tabsize=0 --literal --color=auto --show-control-chars 
 [[ -x /usr/bin/aptitude ]] && alias aptitude="aptitude --disable-columns"
 
 # Demande confirmation avant d écraser un fichier
-alias cp='cp --interactive'
-alias mv='mv --interactive'
-#alias rm='rm --interactive'
+alias cp="cp --interactive"
+alias mv="mv --interactive"
+#alias rm="rm --interactive"
 
 # Raccourcis pour 'ls'
-alias ll='ls -l'
-alias la='ls -a'
-alias lla='ls -la'
-alias llm='ls -la | most'
+alias ll="ls -l"
+alias la="ls -a"
+alias lla="ls -la"
+alias llm="ls -la | most"
 
 # Quelques alias pratiques
-alias less='less --quiet'
-alias df='df -h'
-[[ -x /usr/bin/pydf ]] && alias df='pydf -h'
-alias du='du --human-readable'
-alias m='mutt -y'
-alias md='mkdir'
-alias rd='rmdir'
-alias upgrade='aptitude update && aptitude full-upgrade && apt-get clean'
-alias rsu='sudo zsh'
-alias reload='exec zsh'
-alias grep='grep --color=tty'
-alias slog='tail -n 60 /var/log/syslog'
-alias mlog='tail -n 60 /var/log/mail.log'
+alias less="less --quiet"
+alias df="df -h"
+[[ -x /usr/bin/pydf ]] && alias df="pydf -h"
+alias du="du --human-readable"
+alias m="mutt -y"
+alias md="mkdir"
+alias rd="rmdir"
+alias upgrade="aptitude update && aptitude safe-upgrade && apt-get clean"
+alias rsu="sudo zsh"
+alias reload="exec zsh"
+alias grep="grep --color=tty"
+alias slog="tail -n 60 /var/log/syslog"
+alias mlog="tail -n 60 /var/log/mail.log"
 
 #alias persos
-alias nano='nano -miA'
-alias cd..='cd ..'
-alias addnote='bash ~/.conky/notes.sh'
-alias empty-trash='sudo rm -r ~/.local/share/Trash/files/*'
+alias nano="nano -miA"
+alias cd..="cd .."
+alias addnote="bash $HOME/.conky/notes.sh"
+alias empty-trash="sudo rm -r $HOME/.local/share/Trash/files/*"
 
 #alias de compilations
 alias compilegtk='gcc $(pkg-config --libs --cflags gtk+-2.0)'
-alias compileada='gnatmake -gnato -gnatv'
+alias compileada="gnatmake -gnato -gnatv"
 alias compclass='g++ $(pkg-config --cflags gtk+-2.0) -I ~/Cpp/classes_fournies -c'
-alias compilecpp='bash /home/maethor/Cpp/compile'
-alias jv='/usr/lib/jvm/java-6-sun/bin/java'
+alias compilecpp="bash /home/maethor/Cpp/compile"
+alias jv="/usr/lib/jvm/java-6-sun/bin/java"
 
 # Editor
-[[ -x /usr/bin/vim ]] && export EDITOR='vim'
+[[ -x /usr/bin/vim ]] && export EDITOR="vim"
 alias e=$EDITOR
 
 # Pager stuff
-[[ -x /usr/bin/most ]] && export PAGER='most' && alias more='most' && alias less='most'
+[[ -x /usr/bin/most ]] && export PAGER="most" && alias more="most" && alias less="most"
