@@ -25,15 +25,27 @@ ssh_key_manage() {
 }
 
 # ssh key management
-if [[ "$USER" != "root" ]]; then                                 
-        export SSH_STATIC_AUTH_SOCK="/tmp/ssh-agent-$USER"       
+#if [[ "$USER" != "root" ]]; then                                 
+#        export SSH_STATIC_AUTH_SOCK="/tmp/ssh-agent-$USER"       
+#
+#	if [[ -z "$SSH_AUTH_SOCK" ]];                            
+#        then ssh_key_manage;                                     
+#        elif [[ "$SSH_AUTH_SOCK" != "$SSH_STATIC_AUTH_SOCK" ]]   
+#        then ln -sf "$SSH_AUTH_SOCK" "$SSH_STATIC_AUTH_SOCK"     
+#	        export SSH_AUTH_SOCK="$SSH_STATIC_AUTH_SOCK"     
+#        fi                                                       
+#        unset SSH_STATIC_AUTH_SOCK                               
+#fi                                                               
 
-	if [[ -z "$SSH_AUTH_SOCK" ]];                            
-        then ssh_key_manage;                                     
-        elif [[ "$SSH_AUTH_SOCK" != "$SSH_STATIC_AUTH_SOCK" ]]   
-        then ln -sf "$SSH_AUTH_SOCK" "$SSH_STATIC_AUTH_SOCK"     
-	        export SSH_AUTH_SOCK="$SSH_STATIC_AUTH_SOCK"     
-        fi                                                       
-        unset SSH_STATIC_AUTH_SOCK                               
-fi                                                               
+if [[ "$USER" != "root" ]]; then
+    export SSH_STATIC_AUTH_SOCK="/tmp/ssh-agent-$USER"
+
+    key=`ssh-add -l`
+    if [[ "$?" = 0 ]];
+    then ln -sf "$SSH_AUTH_SOCK" "$SSH_STATIC_AUTH_SOCK"
+        export SSH_AUTH_SOCK="$SSH_STATIC_AUTH_SOCK"
+    else
+    ssh_key_manage;
+    fi
+fi
 
