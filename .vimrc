@@ -87,3 +87,14 @@ endif " has("autocmd")
 " file it was loaded from, thus the changes you made.
 command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
 	 	\ | wincmd p | diffthis
+
+set tabstop=4
+
+" Be nice and quiet
+set noerrorbells
+set visualbell
+set t_vb=
+
+" text width (usually for mails
+set textwidth=70
+

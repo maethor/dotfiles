@@ -1,51 +1,69 @@
 #!/bin/zsh
-ssh_key_manage() {
-	if [ -x "$(which keychain)" ] ; then
-		# run keychain
-		for i in $HOME/.ssh/id_[dr]sa; do keychain --nogui $i; done
-		[[ -r $HOME/.ssh-agent-$(hostname) ]] && . $HOME/.ssh-agent-$(hostname)
+SSH_STATIC_AUTH_SOCK="/tmp/ssh-agent-$USER"
+
+launch_keychain() {
+	if [[ -x "$(which keychain)" ]]; then
+		[[ -r $HOME/.ssh/id_rsa ]] && keychain --nogui $HOME/.ssh/id_rsa
+		[[ -r $HOME/.ssh/id_dsa ]] && keychain --nogui $HOME/.ssh/id_dsa
+
+		[[ -r $HOME/.ssh-agent-$(hostname) ]] && source $HOME/.ssh-agent-$(hostname)
 		[[ -r $HOME/.keychain/$(hostname)-sh ]] &&  source $HOME/.keychain/$(hostname)-sh
-	elif [ -x "$(which ssh-agent)" ]; then
-		if [[ -r $HOME/.ssh/agent-pid ]] ; then
-			if [[ -d /proc/$(< $HOME/.ssh/agent-pid) ]] ; then
-				source $HOME/.ssh/agent
-			else 
-				ssh-agent -s > $HOME/.ssh/agent
-				source $HOME/.ssh/agent
-				echo $SSH_AGENT_PID > $HOME/.ssh/agent-pid
-				for i in $(ls $HOME/.ssh/id_[dr]sa); do ssh-add $i; done
-			fi	
-		else 
-			ssh-agent -s > $HOME/.ssh/agent
-			source $HOME/.ssh/agent
-			echo $SSH_AGENT_PID > $HOME/.ssh/agent-pid
-			for i in $(ls $HOME/.ssh/id_[dr]sa); do ssh-add $i; done
+	fi
+}
+
+launch_ssh_agent() {
+	if [[ ! ( -r "$HOME/.ssh/agent-pid" -a -d "/proc/$(< $HOME/.ssh/agent-pid)" ) ]] ; then
+		# to test
+		ssh-agent -s > $HOME/.ssh/agent
+		echo $SSH_AGENT_PID > $HOME/.ssh/agent-pid
+		ssh-add # try to add a key, 0 on success, 1 on failure
+		[[ 1 -eq $? ]] && echo "ssh-add failed (probably no key found)"
+	fi
+	[[ -r $HOME/.ssh/agent ]] && source $HOME/.ssh/agent
+}
+
+launch_agent() {
+	if [[ -x "$(which keychain)" ]]; then launch_keychain
+	elif [[ -x "$(which ssh-agent)" ]]; then launch_ssh_agent
+	fi
+}
+
+check_key() {
+	if [[ -x "$(which ssh-add)" ]]; then
+		# "ssh-add -l" return codes:
+	       	# 0: one or more keys were found.
+	       	# 1: no key was found.
+	       	# 2: agent could not be contacted.
+
+		ssh-add -l > /dev/null;
+		ret=$?
+		if [[ 0 -eq $ret ]] ; then
+			# nothing to do.
+		elif [[ 1 -eq $ret ]] ; then
+			# agent exists but no key found
+			ssh-add # try to add a key, 0 on success, 1 on failure
+			[[ 1 -eq $? ]] && echo "ssh-add failed (probably no key found)"
+		else
+			# agent does not exist (no keychain)
+			launch_agent
 		fi
 	fi
 }
 
+update_link() {
+	[[ -n "$SSH_AUTH_SOCK" ]] && [[ "$SSH_AUTH_SOCK" != "$SSH_STATIC_AUTH_SOCK" ]] && ln -sf "$SSH_AUTH_SOCK" "$SSH_STATIC_AUTH_SOCK"
+	export SSH_AUTH_SOCK="$SSH_STATIC_AUTH_SOCK"
+}
+
 # ssh key management
-#if [[ "$USER" != "root" ]]; then                                 
-#        export SSH_STATIC_AUTH_SOCK="/tmp/ssh-agent-$USER"       
-#
-#	if [[ -z "$SSH_AUTH_SOCK" ]];                            
-#        then ssh_key_manage;                                     
-#        elif [[ "$SSH_AUTH_SOCK" != "$SSH_STATIC_AUTH_SOCK" ]]   
-#        then ln -sf "$SSH_AUTH_SOCK" "$SSH_STATIC_AUTH_SOCK"     
-#	        export SSH_AUTH_SOCK="$SSH_STATIC_AUTH_SOCK"     
-#        fi                                                       
-#        unset SSH_STATIC_AUTH_SOCK                               
-#fi                                                               
-
 if [[ "$USER" != "root" ]]; then
-    export SSH_STATIC_AUTH_SOCK="/tmp/ssh-agent-$USER"
+	[[ -r "$SSH_STATIC_AUTH_SOCK" ]] && export SSH_AUTH_SOCK="$SSH_STATIC_AUTH_SOCK"
 
-    key=`ssh-add -l`
-    if [[ "$?" = 0 ]];
-    then ln -sf "$SSH_AUTH_SOCK" "$SSH_STATIC_AUTH_SOCK"
-        export SSH_AUTH_SOCK="$SSH_STATIC_AUTH_SOCK"
-    else
-    ssh_key_manage;
-    fi
+	# trying to launch keychain if exists, to found potential running agents
+	[[ -z "$SSH_AUTH_SOCK" ]] && [[ -x "$(which keychain)" ]] && launch_keychain
+
+	check_key
+
+	update_link
 fi
 
