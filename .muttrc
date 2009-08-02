@@ -34,7 +34,7 @@ set header_cache=~/.mutt_cache
 set edit_headers=yes
 
 set strict_threads=yes
-set editor=/usr/bin/vim
+set editor="/usr/bin/vim -c 'set textwidth=70'"
 
 set hostname ="subiron.org"
 set realname ="Guillaume Subiron"
