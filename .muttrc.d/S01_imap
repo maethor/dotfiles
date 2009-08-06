@@ -1,0 +1,24 @@
+# to avoid moving mails to mbox
+set nomove
+
+# mys default imaps folder on subiron.org
+set folder=imaps://subiron.org/
+
+set spoolfile=imaps://subiron.org/INBOX
+
+set imap_delim_chars="/."
+set imap_check_subscribed="yes"
+set imap_list_subscribed="yes"
+
+set hostname="subiron.org"
+set realname ="Guillaume Subiron"
+set from="baal@subiron.org"
+set reply_self=yes
+set imap_user=maethor
+#set imap_pass = '##############'
+
+set signature=~/.signature
+
+mailboxes !
+
+set mail_check=300

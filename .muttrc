@@ -1,3 +1,14 @@
+# Sourcing all executable files into $HOME/.muttrc.d
+source "/bin/run-parts --test $HOME/.muttrc.d | xargs cat |"
+
+set locale=fr_FR.UTF-8
+set charset=utf-8
+
+set postponed==INBOX/Drafts
+
+set copy=yes
+set record==INBOX/Sent
+
 reset all
 unhook *
 unhdr_order *
@@ -5,49 +16,37 @@ ignore *
 
 set nomove
 set folder=imaps://subiron.org/
+set mark_old=no
 
-set spoolfile=imaps://subiron.org/INBOX
-
-set imap_user=maethor
-#set imap_pass = '##############'
-set imap_delim_chars="/."
-set imap_check_subscribed="yes"
-set imap_list_subscribed="yes"
-mailboxes !
-
-set mail_check=300
-
-set locale=fr_FR.UTF-8
-set charset=utf-8
-
-# set mbox_type=Maildir
-set postponed==INBOX/Drafts
-
-set copy=yes
-set record==INBOX/Sent
-
+# Sorting
 set sort=threads
 #set sort=reverse-threads
 set sort_aux=last-date-received
+set strict_threads=yes
 
 set header_cache=~/.mutt_cache
 set edit_headers=yes
+ignore *
+unignore From To Cc Subject Date Reply-To X-Mailer User-Agent X-Approved-By List-Id
 
-set strict_threads=yes
 set editor="/usr/bin/vim -c 'set textwidth=70'"
+set fast_reply=yes
+set pager_stop
 
-set hostname ="subiron.org"
-set realname ="Guillaume Subiron"
-set from="baal@subiron.org"
-set reply_self=yes
+unset beep
+set beep_new
 
-set signature=~/.signature
+# PGP stuff
+set pgp_replysign
+set pgp_replyencrypt
+set pgp_replysignencrypted
+set pgp_verify_sig
 
 # mutt alias with abook
 #set alias_file=~/.mutt-alias
 #source ~/.mutt-alias
 set query_command= "abook --mutt-query '%s'"
-macro index,pager A "<pipe-message>abook --add-email-quiet<return>" "add the sender address to abook"
+#macro index,pager A "<pipe-message>abook --add-email-quiet<return>" "add the sender address to abook"
 
 # mutt sidebar settings
 set sidebar_width=35
@@ -58,4 +57,5 @@ bind index,pager \CP sidebar-prev
 bind index,pager \CN sidebar-next
 bind index,pager \CO sidebar-open
 macro index,pager B "<enter-command>toggle sidebar_visible<return>"
-color sidebar_new yellow default
+
+push V
