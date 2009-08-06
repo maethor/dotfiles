@@ -1,0 +1,10 @@
+# mutt sidebar settings
+set sidebar_width=35
+set sidebar_visible=yes
+set sidebar_delim='|'
+
+bind index,pager \CP sidebar-prev
+bind index,pager \CN sidebar-next
+bind index,pager \CO sidebar-open
+macro index,pager B "<enter-command>toggle sidebar_visible<return>"
+
