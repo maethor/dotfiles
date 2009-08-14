@@ -32,9 +32,8 @@ alias m="mutt -y"
 alias md="mkdir"
 alias rd="rmdir"
 alias upgrade="aptitude update && aptitude safe-upgrade && apt-get clean"
-#alias rsu="su -c zsh"
-#[[ -x /usr/bin/sudo ]] && alias rsu="sudo zsh"
-if [ -x /usr/bin/sudo ] ; then alias rsu="sudo zsh" ; else rsu="su -c zsh" ; fi
+alias rsu="su -c zsh" 
+if [ -x /usr/bin/sudo ] ; then alias rsu="sudo zsh" ; fi
 alias reload="exec zsh"
 alias grep="grep --color=tty"
 alias slog="tail -n 60 /var/log/syslog"
