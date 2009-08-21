@@ -8,23 +8,26 @@ logfile "$HOME/Maildir/maildrop.log"
 
 ###########################################################
 # Baal
-if(/^Delivered-To: baal@subiron.org/)
+if(/^Delivered-To: baal@subiron\.org/)
 	TO=INBOX.Baal
+
 ###########################################################
 # Maethor
-if(/^Delivered-To: maethor@subiron.org/)
+if(/^Delivered-To: maethor@subiron\.org/)
 	TO=INBOX.Maethor
+
 ###########################################################
 # Guillaume
-if(/^Delivered-To: guillaume@subiron.org/)
+if(/^Delivered-To: guillaume@subiron\.org/)
 	TO=INBOX.guillaume
+
 ###########################################################
 # Server notification mails
-if(/^Delivered-To: root@subiron.org/)
+if(/^Delivered-To: root@subiron\.org/)
 	TO=INBOX.servers
-if(/^Delivered-To: logcheck@subiron.org/)
+if(/^Delivered-To: logcheck@subiron\.org/)
 	TO=INBOX.servers.logs
-if(/^Delivered-To: apticron@subiron.org/)
+if(/^Delivered-To: apticron@subiron\.org/)
 	TO=INBOX.servers.apticron
 
 ###########################################################
@@ -38,24 +41,13 @@ if(/^Delivered-To: apticron@subiron.org/)
 ###########################################################
 # list.domain.suffix mailing lists : april.org, rmll.info
 # liste dynamique. à supprimer si tu n'en as pas besoin
-#if(/^List-Id: (.*<)?(.*)\.(.*)\.(.*)>?/)
-#	TO=$MATCH3.$MATCH2
-# pour le jour où je voudrais la comprendre ;)
+if(/^List-Id: (.*<)?(.*)\.(.*)\.(.*)>?/)
+	TO=INBOX.$MATCH3.$MATCH2
 
 ###########################################################
 # abul mailing lists
 if(/^List-Id: .*<(.*)\.abul\.org>/)
 	TO=INBOX.lists.$MATCH1
-
-###########################################################
-# sourceforge mailing lists
-#if(/^List-Id: .*<(.*)-(.*)\.lists\.sourceforge\.net>/)
-#	TO=sourceforge.$MATCH1.$MATCH2
-
-###########################################################
-# gentoo mailing lists
-#if(/^List-Id: .*<.*-(.*)\.gentoo\.org>/)
-#	TO=gentoo.$MATCH1
 
 ###########################################################
 # TODO
