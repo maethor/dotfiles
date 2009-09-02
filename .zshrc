@@ -1,3 +1,11 @@
+#                                 
+# Zsh configuration file          
+# Since 2009,  maethor <maethor@subiron.org>
+#                                         
+#  This file is distributed in the hope that it will be useful,
+#  but WITHOUT ANY WARRANTY                                    
+#                                                      
+
 #!/bin/zsh
 setopt extendedglob
 

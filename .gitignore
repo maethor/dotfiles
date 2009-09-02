@@ -5,6 +5,7 @@
 !.screenrc
 
 !.zshrc
+!.zshenv
 !.zshrc.d/*
 
 !.vimrc

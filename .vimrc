@@ -1,3 +1,11 @@
+"                                 
+" Vim configuration file          
+" Since 2009,  maethor <maethor@subiron.org>
+"                                         
+"  This file is distributed in the hope that it will be useful,
+"  but WITHOUT ANY WARRANTY                                    
+"                                                      
+
 " Use Vim settings, rather then Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
 set nocompatible
