@@ -7,56 +7,43 @@ TO=""
 logfile "$HOME/Maildir/maildrop.log"
 
 ###########################################################
-# Baal
-if(/^Delivered-To: baal@subiron\.org/)
-	TO=INBOX.Baal
-
-###########################################################
-# Maethor
-if(/^Delivered-To: maethor@subiron\.org/)
-	TO=INBOX.Maethor
-
-###########################################################
-# Guillaume
-if(/^Delivered-To: guillaume@subiron\.org/)
-	TO=INBOX.guillaume
+# Persos
+if(/^Delivered-To: (baal|maethor|guillaume)@(jarvis\.)?subiron\.org/)
+	TO=INBOX.$MATCH1
 
 ###########################################################
 # Server notification mails
-if(/^Delivered-To: root@subiron\.org/)
-	TO=INBOX.servers
-if(/^Delivered-To: logcheck@subiron\.org/)
-	TO=INBOX.servers.logs
-if(/^Delivered-To: apticron@subiron\.org/)
-	TO=INBOX.servers.apticron
-if(/^Delivered-To: root@xanadu.open-lux.com/)
-    TO=INBOX.aquilenet.servers
-if(/^Delivered-To: root@aquilenet.fr/)
-    TO=INBOX.aquilenet.servers
+if(/^(Delivered-)?To: (.*<)?(logcheck|root|apticron)@(.*)\.(open-lux|aquilenet|subiron)\.(org|fr|com)>?$/)
+	TO=servers.$MATCH5.$MATCH4
 
-###########################################################
-# Server notification mails
-#if(/^(Delivered-)?To: (.*<)?(logcheck|root)@(.*)\.(abul|lahouze|isoodon)\.(org|net)>?$/)
-#	TO=servers.$MATCH6.$MATCH5.$MATCH4
-
-#if(/^Delivered-To: xals\+server\.(.*)\.(.*)\.(.*)@rincevent\.lahouze\.org$/)
-# TO=servers.$MATCH3.$MATCH2.$MATCH1
+if(/^Delivered-To: maethor\+server\.(.*)\.(.*)\.(.*)@jarvis\.subiron\.org$/)
+ TO=servers.$MATCH3.$MATCH2.$MATCH1
 
 ###########################################################
 # list.domain.suffix mailing lists : april.org, rmll.info
 # liste dynamique. à supprimer si tu n'en as pas besoin
 if(/^List-Id: (.*<)?(.*)\.(.*)\.(.*)>?/)
-	TO=INBOX.$MATCH3.$MATCH2
+	TO=lists.$MATCH3.$MATCH2
 
 ###########################################################
 # abul mailing lists
 if(/^List-Id: .*<(.*)\.abul\.org>/)
-	TO=INBOX.lists.$MATCH1
+	TO=lists.abul.$MATCH1
+
+###########################################################
+# aquilenet mailing lists
+if(/^List-Id: .*<(.*)\.listes.aquilenet.fr>/)
+    TO=lists.aquilenet.$MATCH1
+
+###########################################################
+# Aquilenet
+if(/^Delivered-To: maethor\+aquilenet@(jarvis\.)?.subiron.org$/)
+    TO=INBOX.Aquilenet
 
 ###########################################################
 # TODO
-#if(/^Delivered-To: xals\+todo@rincevent\.lahouze\.org$/)
-#	TO=INBOX.TODO
+if(/^Delivered-To: maethor\+todo@(jarvis\.)?subiron\.org$/)
+	TO=INBOX.TODO
 
 ###########################################################
 # trashing spammed mails
