@@ -29,6 +29,10 @@ if(/^Delivered-To: logcheck@subiron\.org/)
 	TO=INBOX.servers.logs
 if(/^Delivered-To: apticron@subiron\.org/)
 	TO=INBOX.servers.apticron
+if(/^Delivered-To: root@xanadu.open-lux.com/)
+    TO=INBOX.aquilenet.servers
+if(/^Delivered-To: root@aquilenet.fr/)
+    TO=INBOX.aquilenet.servers
 
 ###########################################################
 # Server notification mails
