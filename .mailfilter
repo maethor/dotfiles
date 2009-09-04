@@ -21,7 +21,7 @@ if(/^Delivered-To: maethor\+aquilenet@(jarvis\.)?subiron.org$/)
 ## SERVERS NOTIFICATION MAILS
 
 ## Generic
-if(/^(Delivered-)?To: (.*<)?(logcheck|root|apticron)@(.*)\.(open-lux|aquilenet)\.(org|fr|com)>?$/)
+if(/^(Delivered-)?To: (.*<)?(sysop|logcheck|root|apticron)@(.*)\.(open-lux|aquilenet)\.(org|fr|com)>?$/)
 	TO=servers.$MATCH5.$MATCH4
 
 ## Temporary subiron.org
