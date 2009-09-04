@@ -40,7 +40,7 @@ set beep_new
 
 set hostname="subiron.org"
 set realname ="Guillaume Subiron"
-set from="baal@subiron.org"
+set from="maethor@subiron.org"
 set reply_self=yes
 
 set signature=~/.signature
