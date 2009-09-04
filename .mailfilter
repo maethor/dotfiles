@@ -6,52 +6,58 @@ TO=""
 
 logfile "$HOME/Maildir/maildrop.log"
 
-###########################################################
-# Persos
+###----------------------------------------------------------
+## PERSOS
+
+## Simple Adresses
 if(/^Delivered-To: (baal|maethor|guillaume)@(jarvis\.)?subiron\.org/)
 	TO=INBOX.$MATCH1
 
-###########################################################
-# Server notification mails
+## Aquilenet
+if(/^Delivered-To: maethor\+aquilenet@(jarvis\.)?subiron.org$/)
+    TO=INBOX.aquilenet
+
+###----------------------------------------------------------
+## SERVERS NOTIFICATION MAILS
+
+## Generic
 if(/^(Delivered-)?To: (.*<)?(logcheck|root|apticron)@(.*)\.(open-lux|aquilenet)\.(org|fr|com)>?$/)
 	TO=servers.$MATCH5.$MATCH4
 
+## Temporary subiron.org
 if(/^(Delivered-)?To: (.*<)?(logcheck|root|apticron)@subiron\.org>?$/)
 	TO=servers.subiron.jarvis
 
-if(/^Delivered-To: maethor\+server\.(.*)\.(.*)\.(.*)@jarvis\.subiron\.org$/)
- TO=servers.$MATCH3.$MATCH2.$MATCH1
+###----------------------------------------------------------
+## MAILING LISTS
 
-###########################################################
-# list.domain.suffix mailing lists : april.org, rmll.info
-# liste dynamique. à supprimer si tu n'en as pas besoin
+## lists.domain.suffix mailing lists
 if(/^List-Id: (.*<)?(.*)\.(.*)\.(.*)>?/)
 	TO=lists.$MATCH3.$MATCH2
 
-###########################################################
 # abul mailing lists
 if(/^List-Id: .*<(.*)\.abul\.org>/)
 	TO=lists.abul.$MATCH1
 
-###########################################################
 # aquilenet mailing lists
 if(/^List-Id: .*<(.*)\.listes.aquilenet.fr>/)
     TO=lists.aquilenet.$MATCH1
 
-###########################################################
-# Aquilenet
-if(/^Delivered-To: maethor\+aquilenet@(jarvis\.)?subiron.org$/)
-    TO=INBOX.Aquilenet
+###----------------------------------------------------------
+## TODO
 
-###########################################################
-# TODO
 if(/^Delivered-To: maethor\+todo@(jarvis\.)?subiron\.org$/)
 	TO=INBOX.TODO
 
-###########################################################
+###----------------------------------------------------------
+## SPAM
+
 # trashing spammed mails
 #if(/^X-Spam-Status: YES/ || /^X-Spam-Level: \*{5,}/ || /^X-CRM114-Status: SPAM/)
 #	TO=INBOX.Junk
+
+###----------------------------------------------------------
+## CREATE MAILDIR IF THE FOLDER DOESN'T EXIST
 
 FOLDER=$MAILDIR.$TO
 
