@@ -13,8 +13,11 @@ if(/^Delivered-To: (baal|maethor|guillaume)@(jarvis\.)?subiron\.org/)
 
 ###########################################################
 # Server notification mails
-if(/^(Delivered-)?To: (.*<)?(logcheck|root|apticron)@(.*)\.(open-lux|aquilenet|subiron)\.(org|fr|com)>?$/)
+if(/^(Delivered-)?To: (.*<)?(logcheck|root|apticron)@(.*)\.(open-lux|aquilenet)\.(org|fr|com)>?$/)
 	TO=servers.$MATCH5.$MATCH4
+
+if(/^(Delivered-)?To: (.*<)?(logcheck|root|apticron)@subiron\.org>?$/)
+	TO=servers.subiron.jarvis
 
 if(/^Delivered-To: maethor\+server\.(.*)\.(.*)\.(.*)@jarvis\.subiron\.org$/)
  TO=servers.$MATCH3.$MATCH2.$MATCH1
@@ -37,7 +40,7 @@ if(/^List-Id: .*<(.*)\.listes.aquilenet.fr>/)
 
 ###########################################################
 # Aquilenet
-if(/^Delivered-To: maethor\+aquilenet@(jarvis\.)?.subiron.org$/)
+if(/^Delivered-To: maethor\+aquilenet@(jarvis\.)?subiron.org$/)
     TO=INBOX.Aquilenet
 
 ###########################################################
