@@ -48,9 +48,6 @@ alias empty-trash="sudo rm -r $HOME/.local/share/Trash/files/*"
 #alias de compilations
 alias compilegtk='gcc $(pkg-config --libs --cflags gtk+-2.0)'
 alias compileada="gnatmake -gnato -gnatv"
-alias compclass='g++ $(pkg-config --cflags gtk+-2.0) -I ~/Cpp/classes_fournies -c'
-alias compilecpp="bash /home/maethor/Cpp/compile"
-alias jv="/usr/lib/jvm/java-6-sun/bin/java"
 
 # Editor
 [[ -x /usr/bin/vim ]] && export EDITOR="vim"
