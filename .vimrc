@@ -65,8 +65,12 @@ set statusline+=%<%P                            " file position
 
 set showmode
 
+set foldmethod=syntax                           " Activer les replis
+set foldlevel=100                               " Ouvrir tout les replis par defaut
+
 " Bindkeys
 imap <c-space> <c-x><c-o>
+nmap <c-s-space> zR
+nnoremap <space> za
 nmap <c-s> :w<CR>
 imap <c-s> <Esc>:w<CR>a
-nnoremap <space> za
