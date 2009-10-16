@@ -1,0 +1,5 @@
+set header_cache=~/.mutt_cache
+set edit_headers=yes
+ignore *
+unignore From To Cc Subject Date Reply-To X-Mailer User-Agent X-Approved-By List-Id
+

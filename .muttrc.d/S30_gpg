@@ -1,0 +1,6 @@
+# PGP stuff
+set pgp_replysign
+set pgp_replyencrypt
+set pgp_replysignencrypted
+set pgp_verify_sig
+

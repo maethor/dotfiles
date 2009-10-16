@@ -1,4 +1,4 @@
-#                                 
+#
 # Mutt configuration file          
 # Since 2009,  maethor <maethor@subiron.org>
 #                                         
@@ -14,45 +14,19 @@ source "/bin/run-parts --test $HOME/.muttrc.d | xargs cat |"
 set locale=fr_FR.UTF-8
 set charset=utf-8
 
-set postponed==INBOX/Drafts
-
-set copy=yes
-set record==INBOX/Sent
 set mark_old=no
-
-set index_format="(%2E) [%Z]  %-30.30D  %-30.30L  %s"
-# Sorting
-set sort=threads
-#set sort=reverse-threads
-set sort_aux=last-date-received
-set strict_threads=yes
-set collapse_unread=no
-folder-hook . "push <collapse-all>"
-
-set header_cache=~/.mutt_cache
-set edit_headers=yes
-ignore *
-unignore From To Cc Subject Date Reply-To X-Mailer User-Agent X-Approved-By List-Id
+set pager_stop
 
 set editor="/usr/bin/vim -c 'set textwidth=70'"
-set fast_reply=yes
-set pager_stop
+set autoedit=yes
+set copy=yes
+set record==INBOX/Sent
+set postponed==INBOX/Drafts
 
 unset beep
 set beep_new
 
-set hostname="subiron.org"
-set realname ="Guillaume Subiron"
-set from="maethor@subiron.org"
-set reply_self=yes
-
 set signature=~/.signature
-
-# PGP stuff
-set pgp_replysign
-set pgp_replyencrypt
-set pgp_replysignencrypted
-set pgp_verify_sig
 
 # mutt alias with abook
 #set alias_file=~/.mutt-alias
