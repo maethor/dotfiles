@@ -1,9 +1,14 @@
+# Index format (number of messages in the thread | tags | date/hour | Sender | Subject)
 set index_format="(%2E) [%Z]  %-29.32D  %-30.30L  %s"
-# Sorting
+
+# Sorting: Group by thread
 set sort=threads
-#set sort=reverse-threads
-set sort_aux=last-date-received
 set strict_threads=yes
-set collapse_unread=no
 folder-hook . "push <collapse-all>"
+
+# Sorting: don't group threads who contains unread message
+set collapse_unread=no
+
+# Sorting: Try by date
+set sort_aux=last-date-received
 

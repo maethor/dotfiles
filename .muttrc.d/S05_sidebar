@@ -1,10 +1,15 @@
-# mutt sidebar settings
+# Mutt sidebar settings
 set sidebar_width=35
 set sidebar_visible=yes
 set sidebar_delim='|'
 
+# Mutt sidebar shortcuts
+# ^C+P : Select the previous box
 bind index,pager \CP sidebar-prev
+# ^C+N : Select the next box
 bind index,pager \CN sidebar-next
+# ^C+O : Open the selected box
 bind index,pager \CO sidebar-open
+# B : Hide the sidebar
 macro index,pager B "<enter-command>toggle sidebar_visible<return>"
 

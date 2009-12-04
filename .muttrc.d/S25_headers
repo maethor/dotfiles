@@ -1,6 +1,11 @@
+# Keep a cache of all headers and body
 set header_cache=~/.muttrc.d/cache/headers
 set message_cachedir=~/.muttrc.d/cache/body/
+
+# Allow to edit the header
 set edit_headers=yes
+
+# Don't print all header's lines
 ignore *
 unignore From To Cc Subject Date Reply-To X-Mailer User-Agent X-Approved-By List-Id
 

@@ -1,3 +1,4 @@
+# Mutt colors
 color attachment brightgreen default
 color sidebar_new brightyellow default
 color error brightwhite red   # errors yell at you in red
@@ -26,11 +27,12 @@ color quoted    green default
 #color quoted6   red default
 #color quoted7   cyan default
 
-#  Colorize smileys:  :-)  ;-)  :-/  :-(
+# Colorize smileys:  :-)  ;-)  :-/  :-(
 color body  brightyellow default "[;:]-[)/(|]"
 color body  brightyellow default "[;:][)/(|]"
 color body  green default "[[:alpha:]]\+://[^ ]*"
 
+# Index colors
 color index brightyellow default ~N      # New
 color index yellow default ~O              # Old
 color index magenta default ~F

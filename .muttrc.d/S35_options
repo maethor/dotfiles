@@ -1,36 +1,53 @@
+# Many others Mutt's options
+
+# Locale et Charset in utf-8
 set locale=fr_FR.UTF-8
 set charset=utf-8
 set send_charset=utf-8
 
+# Html viewer (because some people don't know how to send mails...)
 alternative_order test/enriched text/plain text/html
 auto_view text/html
 
+# Don't make a distinction between new messages et old unread messages
 set mark_old=no
+
+# Don't move to the next message when I invoke next-page at the end of a message
 set pager_stop
+
+# Print 6 index line at the top of the pager
 set pager_index_lines=6
 
+# Define vim as editor to write messages, because vim is the best editor of all times :)
 set editor="/usr/bin/vim -c 'set textwidth=70'"
-#set autoedit=yes
-unset fast_reply
-set copy=yes
-set record==INBOX/Sent
-set postponed==INBOX/Drafts
-set recall=no
 
+# Don't ask me the subject when I reply to a message
+set fast_reply
+# Always include the original message in a reply and set a funny intro
 set include=yes
 set attribution="Le %d, %n claviotta :"
 
+# Keep a copy of the message sent
+set copy=yes
+set record==INBOX/Sent
+# Keep drafts but don't ask me if I want recall a postponed message when I compose a new message
+set postponed==INBOX/Drafts
+set recall=no
+
+# Don't beep !
 unset beep
-set beep_new
+unset beep_new
 
-set signature=~/.signature
+# Define certificate file
 set certificate_file=~/.muttrc.d/certificates
-
-# mutt alias with abook
+# Define alias file
 set alias_file=~/.muttrc.d/aliases
 source ~/.muttrc.d/aliases
 set reverse_alias
+
+# mutt alias with abook
 #set query_command= "abook --mutt-query '%s'"
 #macro index,pager A "<pipe-message>abook --add-email-quiet<return>" "add the sender address to abook"
 
+# Print Mutt's version when all config's files are loaded
 push V

@@ -1,3 +1,4 @@
+# All identity variables
 set hostname="subiron.org"
 set realname ="Guillaume Subiron"
 set use_envelope_from
@@ -6,3 +7,5 @@ set from="maethor@subiron.org"
 set reply_self=yes
 alternates "maethor@subiron.org|guillaume@subiron.org|baal@subiron.org"
 
+# Include signature
+set signature=~/.signature

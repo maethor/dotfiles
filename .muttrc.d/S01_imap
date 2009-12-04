@@ -1,7 +1,7 @@
-# to avoid moving mails to mbox
+# Avoid moving mails to mbox
 set nomove
 
-# mys default imaps folder on subiron.org
+# Mys default imaps folder on subiron.org
 set folder=imaps://subiron.org/
 set spoolfile=imaps://subiron.org/INBOX
 set imap_user=maethor
@@ -13,4 +13,5 @@ set imap_list_subscribed="yes"
 
 mailboxes !
 
+# Check boxes every 90 seconds
 set mail_check=90
