@@ -30,6 +30,8 @@ color quoted    green default
 # Colorize smileys:  :-)  ;-)  :-/  :-(
 color body  brightyellow default "[;:]-[)/(|]"
 color body  brightyellow default "[;:][)/(|]"
+
+# Colorize addresses
 color body  green default "[[:alpha:]]\+://[^ ]*"
 
 # Index colors

@@ -1,5 +1,3 @@
 # Reset all variables
 reset all
-unhook *
-unhdr_order *
 
