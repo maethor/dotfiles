@@ -16,6 +16,7 @@
 
 !.muttrc
 !.muttrc.d/*
+.muttrc.d/cache/*
 
 !.signature
 !.forward

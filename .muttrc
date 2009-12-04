@@ -11,27 +11,3 @@
 # Sourcing all executable files into $HOME/.muttrc.d
 source "/bin/run-parts --test $HOME/.muttrc.d | xargs cat |"
 
-set locale=fr_FR.UTF-8
-set charset=utf-8
-
-set mark_old=no
-set pager_stop
-
-set editor="/usr/bin/vim -c 'set textwidth=70'"
-set autoedit=yes
-set copy=yes
-set record==INBOX/Sent
-set postponed==INBOX/Drafts
-
-unset beep
-set beep_new
-
-set signature=~/.signature
-
-# mutt alias with abook
-#set alias_file=~/.mutt-alias
-#source ~/.mutt-alias
-set query_command= "abook --mutt-query '%s'"
-#macro index,pager A "<pipe-message>abook --add-email-quiet<return>" "add the sender address to abook"
-
-push V

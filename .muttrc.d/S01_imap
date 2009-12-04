@@ -3,9 +3,7 @@ set nomove
 
 # mys default imaps folder on subiron.org
 set folder=imaps://subiron.org/
-
 set spoolfile=imaps://subiron.org/INBOX
-
 set imap_user=maethor
 #set imap_pass = '##############'
 
@@ -15,4 +13,4 @@ set imap_list_subscribed="yes"
 
 mailboxes !
 
-set mail_check=300
+set mail_check=90

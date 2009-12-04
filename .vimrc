@@ -68,6 +68,9 @@ set showmode
 set foldmethod=syntax                           " Activer les replis
 set foldlevel=100                               " Ouvrir tout les replis par defaut
 
+" Completion
+set omnifunc=synthaxcomplete#Complete
+
 " Bindkeys
 imap <c-space> <c-x><c-o>
 nmap <c-s-space> zR

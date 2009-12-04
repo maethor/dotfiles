@@ -1,0 +1,34 @@
+set locale=fr_FR.UTF-8
+set charset=utf-8
+set send_charset=utf-8
+
+alternative_order test/enriched text/plain text/html
+auto_view text/html
+
+set mark_old=no
+set pager_stop
+set pager_index_lines=6
+
+set editor="/usr/bin/vim -c 'set textwidth=70'"
+set autoedit=yes
+unset fast_reply
+set copy=yes
+set record==INBOX/Sent
+set postponed==INBOX/Drafts
+
+set include=yes
+set attribution="Le %d, %n claviotta :"
+
+unset beep
+set beep_new
+
+set signature=~/.signature
+
+# mutt alias with abook
+set alias_file=~/.muttrc.d/aliases
+source ~/.muttrc.d/aliases
+set reverse_alias
+#set query_command= "abook --mutt-query '%s'"
+#macro index,pager A "<pipe-message>abook --add-email-quiet<return>" "add the sender address to abook"
+
+push V

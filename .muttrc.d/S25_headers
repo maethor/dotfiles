@@ -1,4 +1,5 @@
-set header_cache=~/.mutt_cache
+set header_cache=~/.muttrc.d/cache/headers
+set message_cachedir=~/.muttrc.d/cache/body/
 set edit_headers=yes
 ignore *
 unignore From To Cc Subject Date Reply-To X-Mailer User-Agent X-Approved-By List-Id
