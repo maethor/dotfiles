@@ -10,11 +10,12 @@ set pager_stop
 set pager_index_lines=6
 
 set editor="/usr/bin/vim -c 'set textwidth=70'"
-set autoedit=yes
+#set autoedit=yes
 unset fast_reply
 set copy=yes
 set record==INBOX/Sent
 set postponed==INBOX/Drafts
+set recall=no
 
 set include=yes
 set attribution="Le %d, %n claviotta :"
@@ -23,6 +24,7 @@ unset beep
 set beep_new
 
 set signature=~/.signature
+set certificate_file=~/.muttrc.d/certificates
 
 # mutt alias with abook
 set alias_file=~/.muttrc.d/aliases

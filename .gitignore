@@ -15,8 +15,7 @@
 !.bashrc
 
 !.muttrc
-!.muttrc.d/*
-.muttrc.d/cache/*
+!.muttrc.d/S*
 
 !.signature
 !.forward
