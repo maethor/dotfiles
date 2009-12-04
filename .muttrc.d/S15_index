@@ -1,4 +1,4 @@
-set index_format="(%2E) [%Z]  %-30.30D  %-30.30L  %s"
+set index_format="(%2E) [%Z]  %-29.29D  %-30.30L  %s"
 # Sorting
 set sort=threads
 #set sort=reverse-threads
