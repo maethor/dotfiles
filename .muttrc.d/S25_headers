@@ -10,6 +10,6 @@ ignore *
 unignore From To Cc Subject Date Reply-To X-Mailer User-Agent X-Approved-By List-Id #X-DSPAM-Result X-Greylist
 
 # Define order
-unhdr_order*
+unhdr_order *
 hdr_order From To Cc Subject Date Reply-To X-Mailer User-Agent X-Approved-By List-Id #X-DSPAM-Result X-Greylist
 
