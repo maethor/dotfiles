@@ -17,6 +17,10 @@ if(/^Delivered-To: (baal|maethor|guillaume)@(jarvis\.)?subiron\.org/)
 if(/^Delivered-To: maethor\+aquilenet@(jarvis\.)?subiron.org$/)
     TO=INBOX.aquilenet
 
+## IUT Bayonne
+if(/^Delivered-To: gsubiron@iutbayonne\.univ-pau\.fr/)
+    TO=INBOX.guillaume
+
 ###----------------------------------------------------------
 ## SERVERS NOTIFICATION MAILS
 
@@ -38,6 +42,10 @@ if(/^List-Id: .*<(.*)\.abul\.org>/)
 # aquilenet mailing lists
 if(/^List-Id: .*<(.*)\.listes.aquilenet.fr>/)
     TO=lists.aquilenet.$MATCH1
+
+# IUT Bayonne mailing lists
+if(/^List-Id: .*<(.*)\.iutbayonne.univ-pau.fr>/)
+    TO=lists.iutbayonne.$MATCH1
 
 ###----------------------------------------------------------
 ## TODO
