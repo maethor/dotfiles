@@ -10,7 +10,7 @@ logfile "$HOME/Maildir/maildrop.log"
 ## PERSOS
 
 ## Simple Adresses
-if(/^Delivered-To: (baal|maethor|guillaume)@(jarvis\.)?subiron\.org/)
+if(/^Delivered-To: (iut|baal|maethor|guillaume)@(jarvis\.)?subiron\.org/)
 	TO=INBOX.$MATCH1
 
 ## Aquilenet
@@ -19,7 +19,7 @@ if(/^Delivered-To: maethor\+aquilenet@(jarvis\.)?subiron.org$/)
 
 ## IUT Bayonne
 if(/^Delivered-To: gsubiron@iutbayonne\.univ-pau\.fr/)
-    TO=INBOX.guillaume
+    TO=INBOX.iut
 
 ###----------------------------------------------------------
 ## SERVERS NOTIFICATION MAILS
