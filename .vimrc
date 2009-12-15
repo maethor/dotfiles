@@ -76,4 +76,4 @@ imap <c-space> <c-x><c-o>
 nmap <c-s-space> zR
 nnoremap <space> za
 nmap <c-s> :w<CR>
-imap <c-s> <Esc>:w<CR>a
+imap <c-s> <c-o>:w<CR>
