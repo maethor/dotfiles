@@ -57,8 +57,8 @@ if(/^Delivered-To: maethor\+todo@(jarvis\.)?subiron\.org$/)
 ## SPAM
 
 # trashing spammed mails
-#if(/^X-Spam-Status: YES/ || /^X-Spam-Level: \*{5,}/ || /^X-CRM114-Status: SPAM/)
-#	TO=INBOX.Junk
+if(/^X-Spam-Status: YES/ || /^X-Spam-Level: \*{5,}/ || /^X-CRM114-Status: SPAM/)
+	TO=INBOX.Junk
 
 ###----------------------------------------------------------
 ## CREATE MAILDIR IF THE FOLDER DOESN'T EXIST
