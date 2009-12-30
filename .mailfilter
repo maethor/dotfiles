@@ -57,7 +57,7 @@ if(/^Delivered-To: maethor\+todo@(jarvis\.)?subiron\.org$/)
 ## SPAM
 
 # trashing spammed mails
-if(/^X-Spam-Flag: YES/ || /^X-Spam-Level: \*{5,}/ || /^X-CRM114-Status: SPAM/)
+if(/^X-Spam-Status: YES/ || /^X-Spam-Level: \*{5,}/ || /^X-CRM114-Status: SPAM/)
 	TO=INBOX.Junk
 
 ###----------------------------------------------------------
