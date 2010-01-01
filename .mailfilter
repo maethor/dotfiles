@@ -60,6 +60,14 @@ if(/^Delivered-To: maethor\+todo@(jarvis\.)?subiron\.org$/)
 if(/^X-Spam-Status: YES/ || /^X-Spam-Level: \*{5,}/ || /^X-CRM114-Status: SPAM/)
 	TO=INBOX.Junk
 
+# spam learning
+if(^Delivered-To: maethor\+spam@(jarvis\.)?subiron\.org$/)
+    TO=Spam
+
+# ham learning
+if(^Delivered-To: maethor\+ham@(jarvis\.)?subiron\.org$/)
+    TO=Ham
+
 ###----------------------------------------------------------
 ## CREATE MAILDIR IF THE FOLDER DOESN'T EXIST
 
