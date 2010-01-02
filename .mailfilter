@@ -61,11 +61,11 @@ if(/^X-Spam-Status: YES/ || /^X-Spam-Level: \*{5,}/ || /^X-CRM114-Status: SPAM/)
 	TO=INBOX.Junk
 
 # spam learning
-if(^Delivered-To: maethor\+spam@(jarvis\.)?subiron\.org$/)
+if(/^Delivered-To: maethor\+spam@(jarvis\.)?subiron\.org$/)
     TO=Spam
 
 # ham learning
-if(^Delivered-To: maethor\+ham@(jarvis\.)?subiron\.org$/)
+if(/^Delivered-To: maethor\+ham@(jarvis\.)?subiron\.org$/)
     TO=Ham
 
 ###----------------------------------------------------------
