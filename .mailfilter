@@ -20,6 +20,8 @@ if(/^Delivered-To: maethor\+aquilenet@(jarvis\.)?subiron.org$/)
 ## IUT Bayonne
 if(/^Delivered-To: gsubiron@iutbayonne\.univ-pau\.fr/)
     TO=INBOX.iut
+if(/^Delivered-To: maethor\+iut@(jarvis\.)?subiron\.org/)
+    TO=INBOX.iut
 
 ###----------------------------------------------------------
 ## SERVERS NOTIFICATION MAILS
