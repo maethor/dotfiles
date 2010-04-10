@@ -56,6 +56,12 @@ if(/^Delivered-To: maethor\+todo@(jarvis\.)?subiron\.org$/)
 	TO=INBOX.TODO
 
 ###----------------------------------------------------------
+## Register
+
+if(/^Delivered-To: maethor\+register@(jarvis\.)?subiron\.org$/)
+	TO=INBOX.register
+
+###----------------------------------------------------------
 ## SPAM
 
 # trashing spammed mails
