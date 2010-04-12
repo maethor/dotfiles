@@ -3,17 +3,43 @@ set nomove
 
 unhook *
 
+# @home
+account-hook "imaps://subiron.org/" \
+            'set imap_user=maethor'
+
+folder-hook "imaps://subiron.org/" \
+            'set folder="imaps://subiron.org/INBOX" \
+            spoolfile="imaps://subiron.org/INBOX" \
+            hostname="subiron.org" \
+            from="maethor@subiron.org" \
+            smtp_url="smtps://maethor@subiron.org:465" \
+            smtp_pass="$imap_pass" ; \
+            unset smtp_authenticators' 
+
+# @ldd
+account-hook "imaps://imap.ldd.fr/" \
+            'set imap_user=guillaume'
+
+folder-hook "imaps://imap.ldd.fr/" \
+            'set folder="imaps://imap.ldd.fr/INBOX" \
+            spoolfile="imaps://imap.ldd.fr/INBOX" \
+            hostname="ldd.fr" \
+            from="guillaume@ldd.fr" \
+            smtp_url="smtps://maethor@smtp.ldd.fr:465" \
+            smtp_pass="$imap_pass" ; \
+            smtp_authenticators="plain"'
+
+
+
+mailboxes "imaps://imap.ldd.fr/INBOX" "imaps://subiron.org/INBOX"
+
 # Mys default imaps folder on subiron.org
 set folder=imaps://subiron.org/
 set spoolfile=imaps://subiron.org/INBOX
-set imap_user=maethor
-#set imap_pass = '##############'
 
 set imap_delim_chars="/."
 set imap_check_subscribed="yes"
 set imap_list_subscribed="yes"
-
-mailboxes !
 
 # Check boxes every 90 seconds
 set mail_check=90
