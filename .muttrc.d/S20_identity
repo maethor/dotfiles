@@ -5,7 +5,7 @@ set use_envelope_from
 set envelope_from_address="maethor@subiron.org"
 set from="maethor@subiron.org"
 set reply_self=yes
-alternates '^(maethor|guillaume|baal)@subiron\.org|guillaume@ldd\.fri$'
+alternates '^(maethor|guillaume|baal)@subiron\.org|guillaume@ldd\.fr$'
 set reverse_name # use my address as it appears in the message
 
 # Include signature
