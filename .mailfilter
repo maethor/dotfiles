@@ -23,6 +23,10 @@ if(/^Delivered-To: gsubiron@iutbayonne\.univ-pau\.fr/)
 if(/^Delivered-To: maethor\+iut@(jarvis\.)?subiron\.org/)
     TO=INBOX.iut
 
+## LDD
+if(/^Delivered-To: guillaume@ldd\.fr/)
+    TO=INBOX.ldd
+
 ###----------------------------------------------------------
 ## SERVERS NOTIFICATION MAILS
 
@@ -48,6 +52,14 @@ if(/^List-Id: .*<(.*)\.listes.aquilenet.fr>/)
 # IUT Bayonne mailing lists
 if(/^List-Id: .*<(.*)\.iutbayonne.univ-pau.fr>/)
     TO=lists.iutbayonne.$MATCH1
+
+# LDD mailing lists
+if(^/List-Id: .*<(.*)\.listes\.ldd\.fr>/)
+    TO=lists.ldd.$MATCH1
+
+# Libre-entreprise mailing lists
+if(^/List-Id: .*<(.*)\.listes\.libre-entreprise\.org>/)
+    TO=lists.libre-entreprise.$MATCH1
 
 ###----------------------------------------------------------
 ## TODO
