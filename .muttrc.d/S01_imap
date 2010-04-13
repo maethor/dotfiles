@@ -26,11 +26,11 @@ folder-hook "imaps://imap.ldd.fr/" \
             hostname="ldd.fr" \
             from="guillaume@ldd.fr" \
             smtp_url="smtps://maethor@smtp.ldd.fr:25" \
-            #smtp_pass="$imap_pass" ; \
-            #smtp_authenticators="PLAIN"'
+            smtp_pass="$imap_pass" ; \
+            smtp_authenticators="PLAIN"'
 
-#mailboxes "imaps://imap.ldd.fr/INBOX" "imaps://subiron.org/INBOX"
-mailboxes "imaps://subiron.org/INBOX"
+mailboxes "imaps://imap.ldd.fr/INBOX" "imaps://subiron.org/INBOX"
+#mailboxes "imaps://subiron.org/INBOX"
 
 # Mys default imaps folder on subiron.org
 set folder=imaps://subiron.org/
