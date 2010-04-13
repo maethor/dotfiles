@@ -54,11 +54,11 @@ if(/^List-Id: .*<(.*)\.iutbayonne.univ-pau.fr>/)
     TO=lists.iutbayonne.$MATCH1
 
 # LDD mailing lists
-if(^/List-Id: .*<(.*)\.listes\.ldd\.fr>/)
+if(^/List-Id: .*<(.*)\.listes.ldd.fr>/)
     TO=lists.ldd.$MATCH1
 
 # Libre-entreprise mailing lists
-if(^/List-Id: .*<(.*)\.listes\.libre-entreprise\.org>/)
+if(^/List-Id: .*<(.*)\.listes.libre-entreprise.org>/)
     TO=lists.libre-entreprise.$MATCH1
 
 ###----------------------------------------------------------
