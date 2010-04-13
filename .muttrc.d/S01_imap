@@ -26,7 +26,8 @@ folder-hook "imaps://imap.ldd.fr/" \
             hostname="ldd.fr" \
             from="guillaume@ldd.fr" \
             smtp_url="smtps://maethor@smtp.ldd.fr:465" \
-            smtp_pass="$imap_pass" ;'
+            smtp_pass="$imap_pass" ; \
+            smtp_authenticators="PLAIN"'
 
 #mailboxes "imaps://imap.ldd.fr/INBOX" "imaps://subiron.org/INBOX"
 mailboxes "imaps://subiron.org/INBOX"
