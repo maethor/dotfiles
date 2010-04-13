@@ -25,7 +25,7 @@ folder-hook "imaps://imap.ldd.fr/" \
             spoolfile="imaps://imap.ldd.fr/INBOX" \
             hostname="ldd.fr" \
             from="guillaume@ldd.fr" \
-            smtp_url="smtp://maethor@smtp.ldd.fr:25" \
+            smtp_url="smtps://maethor@smtp.ldd.fr:25" \
             #smtp_pass="$imap_pass" ; \
             #smtp_authenticators="PLAIN"'
 
