@@ -20,6 +20,8 @@ if(/^Delivered-To: maethor\+aquilenet@(jarvis\.)?subiron.org$/)
 ## Euskalug
 if(/^Delivered-To: maethor\+euskalug@(jarvis\.)?subiron.org$/)
     TO=INBOX.euskalug
+if(/^Delivered-To: (.*)@euskalug\.org$/)
+    TO=INBOX.euskalug
 
 ## IUT Bayonne
 if(/^Delivered-To: gsubiron@iutbayonne\.univ-pau\.fr/)
