@@ -18,7 +18,7 @@ if(/^Delivered-To: maethor\+aquilenet@(jarvis\.)?subiron.org$/)
     TO=INBOX.aquilenet
 
 ## Euskalug
-if(/^Delivered-To: maethor\+euskalug@(jarvis\.)?subiron.org$/)
+if(/^Delivered-To: guillaume\+euskalug@(jarvis\.)?subiron.org$/)
     TO=INBOX.euskalug
 if(/^Delivered-To: (.*)@euskalug\.org$/)
     TO=INBOX.euskalug
