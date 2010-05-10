@@ -34,6 +34,13 @@ if(/^Delivered-To: guillaume@ldd\.fr/)
     TO=INBOX.ldd
 
 ###----------------------------------------------------------
+## WEB
+
+## Vente privee
+if(/^Delivered-From: invitation@venteprivee\.com/$)
+    TO=INBOX.vp
+
+###----------------------------------------------------------
 ## SERVERS NOTIFICATION MAILS
 
 ## Generic
