@@ -37,7 +37,11 @@ if(/^Delivered-To: guillaume@ldd\.fr/)
 ## WEB
 
 ## Vente privee
-if(/^Delivered-From: invitation@venteprivee\.com/$)
+if(/^Delivered-From: invitation@venteprivee.com$/)
+    TO=INBOX.vp
+if(/^Delivered-By: gsubiron@gmail.com$/)
+    TO=INBOX.vp
+if(/^Delivered-To: maethor\+vp@(jarvis\.)?subiron.org$/)
     TO=INBOX.vp
 
 ###----------------------------------------------------------
