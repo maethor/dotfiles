@@ -33,16 +33,18 @@ if(/^Delivered-To: maethor\+iut@(jarvis\.)?subiron\.org/)
 if(/^Delivered-To: guillaume@ldd\.fr/)
     TO=INBOX.ldd
 
+## Rising Light
+if(/^From: redmine@isoodon\.org$/)
+    TO=INBOX.rl
+
 ###----------------------------------------------------------
 ## WEB
 
 ## Vente privee
-if(/^Delivered-From: invitation@venteprivee.com$/)
-    TO=INBOX.vp
-if(/^Delivered-By: gsubiron@gmail.com$/)
-    TO=INBOX.vp
 if(/^Delivered-To: maethor\+vp@(jarvis\.)?subiron.org$/)
     TO=INBOX.vp
+if(/^From: .*invitation@venteprivee.com/)
+    TO=INBOX.rl
 
 ###----------------------------------------------------------
 ## SERVERS NOTIFICATION MAILS
