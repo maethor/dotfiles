@@ -44,7 +44,7 @@ if(/^From: redmine@isoodon\.org$/)
 if(/^Delivered-To: maethor\+vp@(jarvis\.)?subiron.org$/)
     TO=INBOX.vp
 if(/^From: .*invitation@venteprivee.com/)
-    TO=INBOX.rl
+    TO=INBOX.vp
 
 ###----------------------------------------------------------
 ## SERVERS NOTIFICATION MAILS
