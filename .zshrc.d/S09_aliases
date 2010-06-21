@@ -1,51 +1,42 @@
 #!/bin/zsh
 
-#############
-# Les alias #
-#############
+###########
+# Aliases #
+###########
 
-# Gestion du 'ls' : couleur & ne touche pas aux accents
+# Color & humain-readable
 alias ls="ls --classify --tabsize=0 --literal --color=auto --show-control-chars --human-readable"
-
-# Alias xals
+alias grep="grep --color=tty"
+alias du="du --human-readable"
+alias df="df -h"
+[[ -x /usr/bin/pydf ]] && alias df="pydf -h"
 [[ -x /usr/bin/colorgcc ]] && alias gcc="colorgcc"
 [[ -x /usr/bin/colormake ]] && alias make="colormake"
 [[ -x /usr/bin/aptitude ]] && alias aptitude="aptitude --disable-columns"
 
-# Demande confirmation avant d écraser un fichier
+# Confirmation before overwriting a file
 alias cp="cp --interactive"
 alias mv="mv --interactive"
 #alias rm="rm --interactive"
 
-# Raccourcis pour 'ls'
+# 'ls' aliases
 alias ll="ls -l"
 alias la="ls -a"
 alias lla="ls -la"
 alias llm="ls -la | most"
 
-# Quelques alias pratiques
+# Misc Aliases
 alias less="less --quiet"
-alias df="df -h"
-[[ -x /usr/bin/pydf ]] && alias df="pydf -h"
-alias du="du --human-readable"
 alias m="mutt -y"
-alias md="mkdir"
-alias rd="rmdir"
-alias upgrade="aptitude update && aptitude safe-upgrade && apt-get clean"
 alias rsu="su -c zsh" 
 if [ -x /usr/bin/sudo ] ; then alias rsu="sudo zsh" ; fi
 alias reload="exec zsh"
-alias grep="grep --color=tty"
 alias slog="tail -n 60 /var/log/syslog"
 alias mlog="tail -n 60 /var/log/mail.log"
-
-#alias persos
 alias nano="nano -miA"
 alias cd..="cd .."
-alias addnote="bash $HOME/.conky/notes.sh"
-alias empty-trash="sudo rm -r $HOME/.local/share/Trash/files/*"
 
-#alias de compilations
+# Compilation aliases
 alias compilegtk='gcc $(pkg-config --libs --cflags gtk+-2.0)'
 alias compileada="gnatmake -gnato -gnatv"
 
