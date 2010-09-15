@@ -82,6 +82,7 @@ alias 12='setxkbmap fr'
 alias 11='setxkbmap fr bepo'
 alias 13='loadkeys fr-dvorak-bepo'
 alias 14='loadkeys fr'
+alias reload='exec zsh'
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
