@@ -30,6 +30,7 @@ set mouse=a
 set autoindent		" always set autoindenting on
 
 "set foldmethod=indent
+filetype plugin indent on
 
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
