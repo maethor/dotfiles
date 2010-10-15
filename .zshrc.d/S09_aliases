@@ -39,6 +39,7 @@ alias cd..="cd .."
 # Compilation aliases
 alias compilegtk='gcc $(pkg-config --libs --cflags gtk+-2.0)'
 alias compileada="gnatmake -gnato -gnatv"
+alias gcc99="gcc -std=c99"
 
 # Editor
 [[ -x /usr/bin/vim ]] && export EDITOR="vim"
