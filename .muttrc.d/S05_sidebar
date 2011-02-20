@@ -2,6 +2,7 @@
 set sidebar_width=35
 set sidebar_visible=yes
 set sidebar_delim='|'
+set sidebar_sort=no
 
 # Mutt sidebar shortcuts
 # ^C+P : Select the previous box

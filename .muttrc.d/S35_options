@@ -29,9 +29,9 @@ set attribution="Le %d, %n claviotta :"
 
 # Keep a copy of the message sent
 set copy=yes
-set record==INBOX/Sent
+set record==Sent
 # Keep drafts but don't ask me if I want recall a postponed message when I compose a new message
-set postponed==INBOX/Drafts
+set postponed==Drafts
 set recall=no
 
 # Don't beep !
