@@ -8,5 +8,8 @@ set reply_self=yes
 alternates "maethor@subiron.org|guillaume@subiron.org|baal@subiron.org"
 set reverse_name # use my address as it appears in the message
 
+# Hooks
+send-hook membres@ffdn.org my_hdr From: Guillaume Subiron <bureau@aquilenet.fr>
+
 # Include signature
 set signature=~/.signature
