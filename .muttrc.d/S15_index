@@ -1,5 +1,5 @@
 # Index format (number of messages in the thread | tags | date/hour | Sender | Subject)
-set index_format="(%2E) [%Z]  %-29.32D  %-30.30L  %s"
+set index_format="(%2E) [%Z]  %-29.32D  %-20.25L  %s"
 
 # Sorting: Group by thread
 set sort=threads
