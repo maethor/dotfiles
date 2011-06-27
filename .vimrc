@@ -80,5 +80,5 @@ nmap <c-s> :w<CR>
 imap <c-s> <c-o>:w<CR>
 
 " MUTT
-au BufRead ~/.tmp/mutt* set tw=72
-au BufEnter ~/.tmp/mutt* so ~/.vim/mutt.colors
+au BufRead /tmp/mutt* set tw=72
+au BufEnter /tmp/mutt* so ~/.vim/muttcolors.vim
