@@ -9,7 +9,7 @@ alternates "maethor@subiron.org|guillaume@subiron.org|baal@subiron.org"
 set reverse_name # use my address as it appears in the message
 
 # Hooks
-send-hook membres@ffdn.org my_hdr From: Guillaume Subiron <bureau@aquilenet.fr>
+#send-hook membres@ffdn.org my_hdr From: Guillaume Subiron <bureau@aquilenet.fr> # Fonctionne, mais change aussi l'adresse pour les futurs messages.
 
 # Include signature
 set signature=~/.signature
