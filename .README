@@ -1,0 +1,4 @@
+Don't forget to launch theses commands after each git clone, and each git pull if .gitmodule is modified or if you want to update submodules :
+
+git submodule init
+git submodule update
