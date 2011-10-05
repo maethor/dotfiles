@@ -4,7 +4,10 @@
 "                                         
 "  This file is distributed in the hope that it will be useful,
 "  but WITHOUT ANY WARRANTY                                    
-"                                                      
+"
+
+" Pathogen
+call pathogen#infect()
 
 " Use Vim settings, rather then Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
@@ -12,6 +15,12 @@ set nocompatible
 
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
+
+let mapleader = ","
+
+" Spell check
+nmap <silent> <leader>s = :set spell!<CR>
+set spelllang=fr_fr 
 
 if has("vms")
   set nobackup		" do not keep a backup file, use versions instead
@@ -24,10 +33,12 @@ set showcmd		" display incomplete commands
 set incsearch		" do incremental searching
 set wildmenu	" show autocomplete menus
 set background=dark
-"set number
+set number
+highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=Black gui=NONE guifg=DarkGrey guibg=NONE
 syn on 
 set mouse=a
 set autoindent		" always set autoindenting on
+"colorscheme desert
 
 "set foldmethod=indent
 filetype plugin indent on
@@ -46,6 +57,10 @@ set shiftwidth=4
 set tabstop=4
 set expandtab
 set smarttab
+
+" Soft wrapping
+set wrap linebreak nolist
+set showbreak=…
 
 " Be nice and quiet
 set noerrorbells
@@ -79,6 +94,30 @@ nnoremap <space> za
 nmap <c-s> :w<CR>
 imap <c-s> <c-o>:w<CR>
 
-" MUTT
-au BufRead /tmp/mutt* set tw=72
-au BufEnter /tmp/mutt* so ~/.vim/muttcolors.vim
+" vimrc
+if has("autocmd")
+    autocmd bufwritepost .vimrc source $MYVIMRC
+endif
+
+nmap <leader>v :tabedit $MYVIMRC<CR>
+
+" Gundo
+nnoremap <F5> :GundoToggle<CR>
+
+" HexHightlight
+if exists('*HexHighlight()')
+    nmap <leader>h :call HexHighlight()<Return>
+endif
+
+
+" MUTT 
+
+"Par 
+"if has("par") 
+    set formatprg=par 
+"endif 
+
+if has("autocmd")
+    au BufRead /tmp/mutt* set tw=72 formatoptions+=a
+    au BufEnter /tmp/mutt* so ~/.vim/muttcolors.vim
+endif
