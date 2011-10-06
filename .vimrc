@@ -54,6 +54,12 @@ set tabstop=4
 set expandtab
 set smarttab
 
+if has("autocmd")
+    autocmd FileType make setlocal ts=4 sts=4 sw=4 noexpandtab
+    autocmd FileType yaml setlocal ts=2 sts=2 sw=2 noexpandtab
+    autocmd FileType tex setlocal ts=2 sts=2 sw=2 noexpandtab
+end
+
 set grepprg=grep\ -rnH\ --exclude='.*.swp'\ --exclude='*~'\ --exclude=tags
 
 
