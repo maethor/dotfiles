@@ -1,0 +1,26 @@
+## Use column mode for listing songs
+playlist_display_mode = "columns"
+browser_display_mode = "columns"
+search_engine_display_mode = "columns"
+
+## Colums to use
+#song_columns_list_format = "(20)[cyan]{a} (5f)[white]{y} (20)[magenta]{b} (8f)[green]{n} (42)[]{t|f} $R(7)[red]{l}"
+song_columns_list_format = "(4f)[green]{n} (42)[]{t|f} (22)[white]{a} (5f)[cyan]{y} (22)[magenta]{b} $R(7f)[red]{l}"
+
+now_playing_prefix = "$b> "
+now_playing_suffix = " <$/b"
+
+## Use alternative user interface
+user_interface = "alternative"
+
+## Don't display header line
+#header_visibility = "no"
+
+## Use autocenter
+autocenter_mode = "yes"
+
+## Progressbar look
+progressbar_look = "━┫"
+
+## Set music dir for tag editor
+mpd_music_dir = "/media/Musique/maethor/Musique"
