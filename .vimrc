@@ -10,6 +10,9 @@
 " This must be first, because it changes other options as a side effect.
 set nocompatible
 
+" Ztemplate configuration
+let g:template_email="maethor+vim@subiron.org"
+
 " Pathogen plugin manager
 call pathogen#infect()
 
@@ -70,9 +73,7 @@ if &t_Co > 2 || has("gui_running")
   set hlsearch
 endif
 
-if !has("gui_running") && $DISPLAY == '' || !has("gui")
-  set mouse=a
-endif
+set mouse=a
 
 
 " Soft wrapping
@@ -91,6 +92,7 @@ set statusline+=%-3.3n\                         " buffer number
 set statusline+=%f\                             " filename
 set statusline+=%h%m%r%w                        " status flags
 set statusline+=\[%{strlen(&ft)?&ft:'none'}]    " file type
+set statusline+=\ \ \ %{fugitive#statusline()}\       " git branch
 set statusline+=%=                              " right align remainder
 set statusline+=0x%-8B                          " character value
 set statusline+=%-14(%l,%c%V%)                  " line, character
