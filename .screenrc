@@ -4,6 +4,11 @@
 # SCREEN SETTINGS
 # ------------------------------------------------------------------------------
 
+#term "rxvt-256color"
+term "screen-256color"
+
+encoding UTF-8
+
 startup_message off
 #nethack on
 

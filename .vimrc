@@ -119,14 +119,15 @@ nmap <c-s> :w<CR>
 imap <c-s> <c-o>:w<CR>
 
 " vimrc
+nmap <leader>v :tabedit $MYVIMRC<CR>
 if has("autocmd")
     autocmd bufwritepost .vimrc source $MYVIMRC
 endif
 
-nmap <leader>v :tabedit $MYVIMRC<CR>
-
 " Gundo
-nnoremap <F5> :GundoToggle<CR>
+if exists("g:loaded_gundo")
+    nnoremap <F5> :GundoToggle<CR>
+endif
 
 " HexHightlight
 if exists('*HexHighlight()')
@@ -134,13 +135,12 @@ if exists('*HexHighlight()')
 endif
 
 
-" MUTT 
-
 "Par 
-"if has("par") 
+if executable("par") 
     set formatprg=par 
-"endif 
+endif 
 
+" Mutt 
 if has("autocmd")
     au BufRead /tmp/mutt* set tw=72 formatoptions+=a
     au BufEnter /tmp/mutt* so ~/.vim/colors/muttcolors.vim
