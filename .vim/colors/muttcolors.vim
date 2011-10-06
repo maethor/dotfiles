@@ -1,7 +1,8 @@
-"hi mailHeaderKey ctermfg=cyan
-"hi mailHeader ctermfg=darkcyan
-hi mailSubject ctermfg=yellow ctermbg=NONE term=bold
-"hi mailEmail ctermfg=yellow cterm=underline term=underline
+hi mailHeaderKey ctermfg=cyan cterm=bold term=bold
+hi mailHeader ctermfg=darkcyan cterm=bold term=bold
+hi mailSubject ctermfg=yellow cterm=bold term=bold
+hi mailEmail ctermfg=red cterm=bold term=bold
+hi mailSignature cterm=bold term=bold
 "hi mailSignature ctermfg=darkmagenta
 "hi mailQuoted1 ctermfg=darkgreen
 "hi mailQuoted2 ctermfg=darkcyan
