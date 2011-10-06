@@ -70,8 +70,16 @@ if &t_Co > 2 || has("gui_running")
   set hlsearch
 endif
 
-set mouse=a
+" Show syntax highlighting groups for word under cursor
+nmap <C-S-P> :call <SID>SynStack()<CR>
+function! <SID>SynStack()
+    if !exists("*synstack")
+        return
+    endif
+    echo map(synstack(line('.'), col('.')), 'synIDattr(v:val,"name")')
+endfunc
 
+set mouse=a
 
 " Soft wrapping
 set wrap linebreak nolist
@@ -135,5 +143,5 @@ endif
 
 if has("autocmd")
     au BufRead /tmp/mutt* set tw=72 formatoptions+=a
-    au BufEnter /tmp/mutt* so ~/.vim/muttcolors.vim
+    au BufEnter /tmp/mutt* so ~/.vim/colors/muttcolors.vim
 endif
