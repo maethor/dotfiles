@@ -1,6 +1,6 @@
-" ztemplate.vim - Templates
-" Maintainer:   Tim Pope <vimNOSPAM@tpope.info>
-" URL:          http://tpope.us/cgi-bin/cvsweb/~checkout~/tpope/.vim/plugin/ztemplate.vim
+" ztemplate-forked.vim - Templates
+" Maintainer:          Guillaume Subiron <maethor@subiron.org> 
+" Origin developper:   Tim Pope <vimNOSPAM@tpope.info>
 " $Id$
 "
 " Loads a template based on filename/filetype.  Loosely inspired by
@@ -70,9 +70,9 @@ function! s:ReadTemplate(type,filename)
   let title    = substitute(name,'_\(.\)',' \u\1','g')
   let name     = substitute(name,'_\(.\)',' \1','g')
   silent! execute '%s/\$\(Id\|Rev\|Revision\):[^$]*\$/$\1$/g'
-  if exists("g:template_email")
+  if s:email() != ""
     call s:Replace('@AUTHOR_EMAIL@','@AUTHOR@ <@EMAIL@>')
-    call s:Replace('@EMAIL@',g:template_email)
+    call s:Replace('@EMAIL@',s:email())
   else
     call s:Replace('@AUTHOR_EMAIL@','@AUTHOR@')
   endif
@@ -108,6 +108,18 @@ function s:author()
       let g:template_author = $USER
     endif
     return g:template_author
+  endif
+endfunction
+
+function s:email()
+  if exists("g:template_email")
+    return g:template_email
+  else
+    let g:template_email = ""
+    if exists("$EMAIL")
+      let g:template_email = $EMAIL
+    endif
+    return g:template_email
   endif
 endfunction
 

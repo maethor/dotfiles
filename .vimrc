@@ -10,9 +10,6 @@
 " This must be first, because it changes other options as a side effect.
 set nocompatible
 
-" Ztemplate configuration
-let g:template_email="maethor+vim@subiron.org"
-
 " Pathogen plugin manager
 call pathogen#infect()
 
