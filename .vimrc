@@ -41,15 +41,18 @@ set background=dark
 set number
 highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=Black gui=NONE guifg=DarkGrey guibg=NONE
 syn on 
-set autoindent		" always set autoindenting on
-"colorscheme desert
 set tags+=../tags,../../tags,../../../tags,../../../../tags
 set wildignore+=*~,*.aux,tags
 set suffixes+=.dvi  " Lower priority in wildcards
 
-
+" INDENT
+set autoindent		" always set autoindenting on
 "set foldmethod=indent
 filetype plugin indent on
+set shiftwidth=4
+set tabstop=4
+set expandtab
+set smarttab
 
 set grepprg=grep\ -rnH\ --exclude='.*.swp'\ --exclude='*~'\ --exclude=tags
 
@@ -65,13 +68,6 @@ if !has("gui_running") && $DISPLAY == '' || !has("gui")
   set mouse=a
 endif
 
-" Tabs should be converted to a group of 4 spaces.
-" This is the official Python convention and 
-" I didn't find a good reason to not use it everywhere.
-set shiftwidth=4
-set tabstop=4
-set expandtab
-set smarttab
 
 " Soft wrapping
 set wrap linebreak nolist
