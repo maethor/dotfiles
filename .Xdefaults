@@ -1,8 +1,5 @@
 urxvt*modifier : mod1
 urxvt*font : xft:monospace:pixelsize=11
-rxvt.boldFont:         -xos4-terminus-bold-r-normal--14-140-72-72-c-80-iso8859-15
-urxvt.italicFont:       xft:Bitstream Vera Sans Mono:italic:autohint=true
-urxvt.boldItalicFont:   xft:Bitstream Vera Sans Mono:bold:italic:autohint=true
 urxvt*transparent : true
 urxvt*shading : 20
 urxvt*tint : black
@@ -48,9 +45,9 @@ urxvt*color14 : #4bb8fd
 urxvt*color15 : #eeeeec
 
 !  - color scheme
-urxvt.background:  black
+!urxvt.background:  black
 !#urxvt.foreground:  #8ae236
-urxvt*foreground : #18F018
+!urxvt*foreground : #18F018
 !! black + red
 !urxvt*color0:      black
 !urxvt*color1:      #cc0000
