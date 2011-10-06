@@ -5,7 +5,6 @@
 "  This file is distributed in the hope that it will be useful,
 "  but WITHOUT ANY WARRANTY                                    
 "
-"
 
 " Pathogen
 call pathogen#infect()
@@ -20,35 +19,50 @@ set backspace=indent,eol,start
 let mapleader = ","
 
 " Spell check
-nmap <silent> <leader>s = :set spell!<CR>
-set spelllang=fr_fr 
+if exists("+spelllang")
+    set spelllang=fr_fr 
+    nmap <silent> <leader>s = :set spell!<CR>
+endif
+set dictionary+=/usr/share/dict/words
 
 if has("vms")
   set nobackup		" do not keep a backup file, use versions instead
 else
   set backup		" keep a backup file
+  set backupskip+=*.tmp,crontab.*
 endif
 set history=50		" keep 50 lines of command line history
 set ruler		" show the cursor position all the time
 set showcmd		" display incomplete commands
 set incsearch		" do incremental searching
 set wildmenu	" show autocomplete menus
+set smartcase
 set background=dark
 set number
 highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=Black gui=NONE guifg=DarkGrey guibg=NONE
 syn on 
-set mouse=a
 set autoindent		" always set autoindenting on
 "colorscheme desert
+set tags+=../tags,../../tags,../../../tags,../../../../tags
+set wildignore+=*~,*.aux,tags
+set suffixes+=.dvi  " Lower priority in wildcards
+
 
 "set foldmethod=indent
 filetype plugin indent on
+
+set grepprg=grep\ -rnH\ --exclude='.*.swp'\ --exclude='*~'\ --exclude=tags
+
 
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
 if &t_Co > 2 || has("gui_running")
   syntax on
   set hlsearch
+endif
+
+if !has("gui_running") && $DISPLAY == '' || !has("gui")
+  set mouse=a
 endif
 
 " Tabs should be converted to a group of 4 spaces.

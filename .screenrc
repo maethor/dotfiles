@@ -31,7 +31,7 @@ altscreen on
 bindkey -k kb stuff "\177"
 
 # tell screen that you term can scroll
-termcapinfo xterm ti@:te@
+termcapinfo xterm*|rxvt* ti@:te@
 
 # bind Shift+PgUp/PgDn
 bindkey -m "^[[5;2~" stuff ^b
