@@ -10,7 +10,7 @@
 " This must be first, because it changes other options as a side effect.
 set nocompatible
 
-" Pathogen
+" Pathogen plugin manager
 call pathogen#infect()
 
 " allow backspacing over everything in insert mode
