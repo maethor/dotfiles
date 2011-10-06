@@ -6,12 +6,12 @@
 "  but WITHOUT ANY WARRANTY                                    
 "
 
-" Pathogen
-call pathogen#infect()
-
 " Use Vim settings, rather then Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
 set nocompatible
+
+" Pathogen
+call pathogen#infect()
 
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
