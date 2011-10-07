@@ -11,7 +11,10 @@
 set nocompatible
 
 " Pathogen plugin manager
-call pathogen#infect()
+"if exists("g:loaded_pathogen")
+  call pathogen#infect()
+  call pathogen#helptags()
+"endif
 
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
@@ -20,8 +23,8 @@ let mapleader = ","
 
 " Spell check
 if exists("+spelllang")
-    set spelllang=fr_fr 
-    nmap <silent> <leader>s = :set spell!<CR>
+  set spelllang=fr_fr
+  nmap <silent> <leader>s = :set spell!<CR>
 endif
 set dictionary+=/usr/share/dict/words
 
@@ -55,9 +58,9 @@ set expandtab
 set smarttab
 
 if has("autocmd")
-    autocmd FileType make setlocal ts=4 sts=4 sw=4 noexpandtab
-    autocmd FileType yaml setlocal ts=2 sts=2 sw=2 noexpandtab
-    autocmd FileType tex setlocal ts=2 sts=2 sw=2 noexpandtab
+  autocmd FileType make setlocal ts=4 sts=4 sw=4 noexpandtab
+  autocmd FileType yaml setlocal ts=2 sts=2 sw=2 noexpandtab
+  autocmd FileType tex setlocal ts=2 sts=2 sw=2 noexpandtab
 end
 
 set grepprg=grep\ -rnH\ --exclude='.*.swp'\ --exclude='*~'\ --exclude=tags
@@ -73,10 +76,10 @@ endif
 " Show syntax highlighting groups for word under cursor
 nmap <C-S-P> :call <SID>SynStack()<CR>
 function! <SID>SynStack()
-    if !exists("*synstack")
-        return
-    endif
-    echo map(synstack(line('.'), col('.')), 'synIDattr(v:val,"name")')
+  if !exists("*synstack")
+    return
+  endif
+  echo map(synstack(line('.'), col('.')), 'synIDattr(v:val,"name")')
 endfunc
 
 set mouse=a
@@ -121,27 +124,29 @@ imap <c-s> <c-o>:w<CR>
 " vimrc
 nmap <leader>v :tabedit $MYVIMRC<CR>
 if has("autocmd")
-    autocmd bufwritepost .vimrc source $MYVIMRC
+  autocmd bufwritepost .vimrc source $MYVIMRC
 endif
 
 " Gundo
 if exists("g:loaded_gundo")
-    nnoremap <F5> :GundoToggle<CR>
+  nnoremap <F5> :GundoToggle<CR>
 endif
 
 " HexHightlight
 if exists('*HexHighlight()')
-    nmap <leader>h :call HexHighlight()<Return>
+  nmap <leader>h :call HexHighlight()<Return>
 endif
 
 
 "Par 
 if executable("par") 
-    set formatprg=par 
+  set formatprg=par 
 endif 
 
 " Mutt 
 if has("autocmd")
-    au BufRead /tmp/mutt* set tw=72 formatoptions+=a
-    au BufEnter /tmp/mutt* so ~/.vim/colors/muttcolors.vim
+  au BufRead /tmp/mutt* set tw=72 formatoptions+=a
+  au BufEnter /tmp/mutt* so ~/.vim/colors/muttcolors.vim
 endif
+
+" vim:set ft=vim et sw=2:

@@ -52,8 +52,8 @@ setprompt () {
         colors
     fi
     for color in RED GREEN YELLOW BLUE MAGENTA CYAN WHITE; do
-        eval PR_$color='%{$terminfo[bold]$fg[${(L)color}]%}'
-        eval PR_LIGHT_$color='%{$fg[${(L)color}]%}'
+        eval PR_LIGHT_$color='%{$terminfo[bold]$fg[${(L)color}]%}'
+        eval PR_$color='%{$fg[${(L)color}]%}'
         (( count = $count + 1 ))
     done
     PR_NO_COLOUR="%{$terminfo[sgr0]%}"
@@ -108,11 +108,11 @@ setprompt () {
 
     PR_USER=""
     if [ $USER = 'root' ]
-    then PR_USER_COLOR=$PR_RED
-    else PR_USER_COLOR=$PR_GREEN
+    then PR_USER_COLOR=$PR_LIGHT_RED
+    else PR_USER_COLOR=$PR_LIGHT_GREEN
     fi
 
-    [ "$TERM" = "screen" -a -n "$WINDOW" ] && PR_OS_SCREEN="screen/$WINDOW$PR_BLUE-$PR_YELLOW"
+    [ "$TERM" = "screen" -a -n "$WINDOW" ] && PR_OS_SCREEN="screen/$WINDOW$PR_LIGHT_BLUE-$PR_LIGHT_YELLOW"
     PR_OS_PTY="$PR_OS_SCREEN$(print -P %l)"
     export PR_OS_PTY
 
@@ -120,19 +120,19 @@ setprompt () {
     # Finally, the prompt.
 PROMPT='\
 $PR_SET_CHARSET\
-$PR_BLUE$PR_SHIFT_IN$PR_ULCORNER$PR_SHIFT_OUT(\
-$PR_YELLOW%D{%Y-%m-%d}$PR_BLUE)\
+$PR_LIGHT_BLUE$PR_SHIFT_IN$PR_ULCORNER$PR_SHIFT_OUT(\
+$PR_LIGHT_YELLOW%D{%Y-%m-%d}$PR_LIGHT_BLUE)\
 $PR_SHIFT_IN$PR_HBAR$PR_SHIFT_OUT(\
-$PR_YELLOW%D{%H:%M}$PR_BLUE\
-$PR_SHIFT_IN$PR_BLUE)$PR_HBAR$PR_SHIFT_OUT(\
-$PR_YELLOW$PR_OS_PTY$PR_BLUE\
-$PR_SHIFT_IN$PR_BLUE)$PR_HBAR$PR_SHIFT_OUT\
-($PR_MAGENTA%(!.%d.%~)$PR_BLUE)\
+$PR_LIGHT_YELLOW%D{%H:%M}$PR_LIGHT_BLUE\
+$PR_SHIFT_IN$PR_LIGHT_BLUE)$PR_HBAR$PR_SHIFT_OUT(\
+$PR_LIGHT_YELLOW$PR_OS_PTY$PR_LIGHT_BLUE\
+$PR_SHIFT_IN$PR_LIGHT_BLUE)$PR_HBAR$PR_SHIFT_OUT\
+($PR_LIGHT_MAGENTA%(!.%d.%~)$PR_LIGHT_BLUE)\
 
-$PR_BLUE$PR_SHIFT_IN$PR_LLCORNER$PR_SHIFT_OUT\
-%1(j.{${PR_YELLOW}jobs$PR_BLUE:$PR_YELLOW%j$PR_BLUE}$PR_SHIFT_IN$PR_HBAR2$PR_SHIFT_OUT.)\
-%0(?..{${PR_RED}ret$PR_BLUE:$PR_YELLOW%?$PR_BLUE}$PR_SHIFT_IN$PR_HBAR2$PR_SHIFT_OUT)\
-($PR_USER_COLOR%n@%m$PR_BLUE)$PR_SHIFT_IN$PR_LRCORNER$PR_SHIFT_OUT\
+$PR_LIGHT_BLUE$PR_SHIFT_IN$PR_LLCORNER$PR_SHIFT_OUT\
+%1(j.{${PR_LIGHT_YELLOW}jobs$PR_LIGHT_BLUE:$PR_LIGHT_YELLOW%j$PR_LIGHT_BLUE}$PR_SHIFT_IN$PR_HBAR2$PR_SHIFT_OUT.)\
+%0(?..{${PR_LIGHT_RED}ret$PR_LIGHT_BLUE:$PR_LIGHT_YELLOW%?$PR_LIGHT_BLUE}$PR_SHIFT_IN$PR_HBAR2$PR_SHIFT_OUT)\
+($PR_USER_COLOR%n@%m$PR_LIGHT_BLUE)$PR_SHIFT_IN$PR_LRCORNER$PR_SHIFT_OUT\
  # $PR_NO_COLOUR'
 
 }
