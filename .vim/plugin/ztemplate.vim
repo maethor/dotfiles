@@ -54,11 +54,13 @@ function! s:ReadTemplate(type,filename)
     return
   endif
   let template = a:type
-  if ! s:TemplateFindRead(substitute(fnamemodify(a:filename,':h:t'),'\W','_','g').".".template)
-    if fnamemodify(a:filename,':h:t') != 'sbin' || ! s:TemplateFindRead("bin.".template)
-      if ! s:TemplateFindRead("skel.".template)
-        if ! s:TemplateFindRead(template)
-          return
+  if ! s:TemplateFindRead(fnamemodify(a:filename, ':t'))
+    if ! s:TemplateFindRead(substitute(fnamemodify(a:filename,':h:t'),'\W','_','g')."_".template)
+      if fnamemodify(a:filename,':h:t') != 'sbin' || ! s:TemplateFindRead("bin.".template)
+        if ! s:TemplateFindRead("skel.".template)
+          if ! s:TemplateFindRead(template)
+            return
+          endif
         endif
       endif
     endif
