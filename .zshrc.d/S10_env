@@ -1,0 +1,3 @@
+#!/bin/zsh
+
+export PATH=$PATH:$HOME/bin
