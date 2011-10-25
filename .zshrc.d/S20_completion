@@ -74,6 +74,8 @@ rationalise-dot() {
 zle -N rationalise-dot
 bindkey . rationalise-dot
 
+bindkey '^R' history-incremental-search-backward
+
 autoload -U compinit
 compinit
 
