@@ -5,7 +5,7 @@ unhook *
 
 # Mys default imaps folder on subiron.org
 set folder=imaps://imap.subiron.org/
-set spoolfile=imaps://imap.subiron.org/INBOX
+set spoolfile=imaps://imap.subiron.org/maethor
 set imap_user=maethor@subiron.org
 #set imap_pass = '##############'
 
