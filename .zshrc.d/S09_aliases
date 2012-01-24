@@ -36,6 +36,7 @@ alias slog="tail -n 60 /var/log/syslog"
 alias mlog="tail -n 60 /var/log/mail.log"
 alias nano="nano -miA"
 alias cd..="cd .."
+alias cleanup="rm -f *~"
 
 # Compilation aliases
 alias compilegtk='gcc $(pkg-config --libs --cflags gtk+-2.0)'
