@@ -186,6 +186,8 @@ if has("autocmd")
 
   " Filetype detection
   autocmd BufNewFile,BufRead *.tex set ft=tex
+  autocmd BufNewFile,BufRead *.cls set ft=tex
+  autocmd BufNewFile,BufRead *.sty set ft=tex
   autocmd BufNewFile,BufRead COMMIT_EDITMSG set ft=gitcommit
   autocmd BufNewFile,BufRead *.cup set ft=java
 
