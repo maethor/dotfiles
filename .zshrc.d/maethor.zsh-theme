@@ -12,7 +12,7 @@ HOSTNAME=`hostname`
 
 PR_USER_COLOR=""
 PROMPT_CHAR='$'
-if [ $USER = 'root' ]; then
+if [ "$USER" = "root" ]; then
     PR_USER_COLOR=$PR_LIGHT_RED
     PROMPT_CHAR='#'
 else 
@@ -45,7 +45,8 @@ $PR_LIGHT_BLUE)┘\
  $PROMPT_CHAR $PR_NO_COLOR' 
 
 function git_prompt_branch() {
-    if [ $(current_branch) != 'master' ]; then
+    if [ "$(current_branch)" = "master" ]; then
+    else
         echo "$(git_prompt_info)"
     fi
 }
