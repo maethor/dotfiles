@@ -10,7 +10,6 @@
 !.zshrc.d/S02_misc
 
 !.vimrc
-!.vim/bundle/*
 !.vim/colors/*
 !.vim/templates/*
 !.vim/plugin/*

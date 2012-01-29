@@ -40,13 +40,13 @@ $PR_USER_COLOR%n@%m\
 $PR_LIGHT_BLUE)┘\
  # $PR_NO_COLOR' 
 
-ref=$(git symbolic-ref HEAD 2> /dev/null) || return
-git_branch="${ref#refs/heads/}"
-if [ $git_branch = 'master' ]; then
-    git_branch=""
-else
-    git_branch="$(git_prompt_info)"
-fi
+function git_prompt_branch() {
+    ref=$(git symbolic-ref HEAD 2> /dev/null) || return
+    git_branch="${ref#refs/heads/}"
+    if [ $git_branch != 'master' ]; then
+        echo "$(git_prompt_info)"
+    fi
+}
 
 ZSH_THEME_GIT_PROMPT_PREFIX=" $PR_LIGHT_WHITE"
 ZSH_THEME_GIT_PROMPT_SUFFIX="$PR_NO_COLOR"
@@ -56,7 +56,7 @@ ZSH_THEME_GIT_PROMPT_CLEAN=""
 # display exitcode on the right when >0
 return_code="%(?..%{$fg[red]%}%? ↵%{$reset_color%})"
 
-RPROMPT='${return_code}$(git_prompt_status)$git_branch%{$reset_color%}'
+RPROMPT='${return_code}$(git_prompt_status)$(git_prompt_branch)%{$reset_color%}'
 
 ZSH_THEME_GIT_PROMPT_ADDED="%{$fg[green]%} ✚"
 ZSH_THEME_GIT_PROMPT_MODIFIED="%{$fg[blue]%} ✹"
