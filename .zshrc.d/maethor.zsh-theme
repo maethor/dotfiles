@@ -1,4 +1,4 @@
-# meh. Dark Blood Rewind, a new beginning.
+# maethor zsh theme 
 
 for color in RED GREEN YELLOW BLUE MAGENTA CYAN WHITE; do
     eval PR_LIGHT_$color='%{$terminfo[bold]$fg[${(L)color}]%}'
