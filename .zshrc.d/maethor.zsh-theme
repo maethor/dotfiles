@@ -11,9 +11,13 @@ PR_NO_COLOR="%{$terminfo[sgr0]%}"
 HOSTNAME=`hostname`
 
 PR_USER_COLOR=""
-if [ $USER = 'root' ]
-then PR_USER_COLOR=$PR_LIGHT_RED
-else PR_USER_COLOR=$PR_LIGHT_GREEN
+PROMPT_CHAR='$'
+if [ $USER = 'root' ]; then
+    PR_USER_COLOR=$PR_LIGHT_RED
+    PROMPT_CHAR='#'
+else 
+    PR_USER_COLOR=$PR_LIGHT_GREEN
+    PROMPT_CHAR='#'
 fi
 
 [ "$TERM" = "screen" -a -n "$WINDOW" ] && PR_OS_SCREEN="screen/$WINDOW$PR_LIGHT_BLUE-$PR_LIGHT_YELLOW"
@@ -38,7 +42,7 @@ $PR_LIGHT_BLUE}─.)\
 (\
 $PR_USER_COLOR%n@%m\
 $PR_LIGHT_BLUE)┘\
- # $PR_NO_COLOR' 
+ $PROMPT_CHAR $PR_NO_COLOR' 
 
 function git_prompt_branch() {
     if [ $(current_branch) != 'master' ]; then
