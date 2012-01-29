@@ -18,6 +18,8 @@ source $ZSH/oh-my-zsh.sh
 
 source $HOME/.zshrc.d/maethor.zsh-theme
 
+export GREP_COLOR=''
+
 if [ -d $HOME/.zshrc.d ]
 then for zshrc_file in `/bin/run-parts --test $HOME/.zshrc.d`
     do source $zshrc_file
