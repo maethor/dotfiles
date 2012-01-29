@@ -1,0 +1,9 @@
+#!/bin/zsh
+
+cd $HOME && /usr/bin/git pull && /usr/bin/git submodule init && /usr/bin/git submodule update && cd -
+
+# Color syntax
+git config color.ui true
+
+# Alias
+alias an="anigrate"

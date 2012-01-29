@@ -190,6 +190,7 @@ if has("autocmd")
   autocmd BufNewFile,BufRead *.sty set ft=tex
   autocmd BufNewFile,BufRead COMMIT_EDITMSG set ft=gitcommit
   autocmd BufNewFile,BufRead *.cup set ft=java
+  autocmd BufNewFile,BufRead *.zsh-theme set ft=zsh
 
   " Mutt 
   autocmd BufRead /tmp/mutt* set tw=72 formatoptions+=a

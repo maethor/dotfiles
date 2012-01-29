@@ -28,3 +28,6 @@
 [submodule ".vim/bundle/easymotion"]
 	path = .vim/bundle/easymotion
 	url = git://github.com/Lokaltog/vim-easymotion
+[submodule ".oh-my-zsh"]
+    path = .oh-my_zsh
+    url = https://github.com/robbyrussell/oh-my-zsh.git 

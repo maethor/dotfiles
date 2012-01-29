@@ -1,0 +1,22 @@
+#########################
+# zsh personal settings #
+#########################
+
+# full name
+NAME="Guillaume Subiron"
+DEBFULLNAME=$NAME
+
+# email address
+export EMAIL="maethor@subiron.org"
+export DEBEMAIL=$EMAIL
+
+# email address for anonymous ftp
+export EMAIL_ADDR=plop@dev.null
+
+# checking events on system (users login/logout, etc...)
+watch=(notme)
+LOGCHECK=5
+WATCHFMT="[%T] %n has %a %l from %M"
+
+# override default umask
+umask 0022
