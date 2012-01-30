@@ -6,6 +6,8 @@
 # Git coloration mode
 git config color.ui true
 
+unsetopt correct_all
+
 # Je ne veux JAMAIS de beeps
 unsetopt beep
 unsetopt hist_beep
