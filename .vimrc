@@ -66,6 +66,8 @@ function! <SID>SynStack()
   echo map(synstack(line('.'), col('.')), 'synIDattr(v:val,"name")')
 endfunc
 
+" Gotchas Keywords
+nmap <leader>g $bi:<Esc>$a:maethor:<C-R>=strftime("%y%m%d")<CR><Esc>a:
 
 "---------------"
 " Configuration "
