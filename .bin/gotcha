@@ -1,0 +1,282 @@
+#!/usr/bin/python3.2
+# -*-coding:Utf-8 -*
+
+import os
+import re
+import sys
+import getopt
+
+# Add others if needed
+keywords = ["BUG", "DEBUG", "TODO", "TRICKY", "KLUDGE", "WARNING", "COMMENT", "DOC"]
+
+class GotchasDict:
+    """A dict that can be sorted by keyword, dev name, date"""
+    def __init__(self, base={}, **data):
+        """Constructor. It can be called with no arguments (empty dict)
+        It can be initializated with :
+        -   Another GotchasDict
+        -   Values in data
+        """
+
+        self._keys = []
+        self._values = []
+        self._type = "k"
+
+        if type(base) not in (dict, GotchasDict):
+            raise TypeError("base must be a GotchasDict")
+
+        for key in base:
+            self[key] = base[key]
+        for key in data:
+            self[key] = data[key]
+
+    def __repr__(self):
+        """Representation of the GotchasDict"""
+        rep = "Sort : {0} ".format(self._type)
+        rep += "{"
+        first = True
+        for key, value in self.items():
+            if not first:
+                rep += ", "
+            else:
+                first = False
+            rep += repr(key) + ": " + repr(value)
+        rep += "}"
+        return rep
+
+    def strtype(self):
+        """returns the type of the GotchasDict"""
+        if self._type == "k":
+            return "keyword"
+        elif self._type == "d":
+            return "date"
+        elif self._type == "n":
+            return "dev's name"
+        elif self._type == "f":
+            return "file"
+
+
+    def gotchas(self):
+        """Formated representation of a GotchasDict"""
+        print("List of gotchas (sorted by {0}):".format(self.strtype()))
+        for kw in self.keys():
+            print(kw)
+            for i, elt in enumerate(self[kw]):
+                print("  {0}, line {1}, ".format(elt[0], elt[1]), end="")
+                for j, tag in enumerate(elt[2]):
+                    if type(tag) == type(1):
+                        print(":"+str(tag), end="")
+                    else:
+                        print(":"+tag, end="")
+                print("")
+
+    def __str__(self):
+        """Representation of the GotchasDict when called in print"""
+        return repr(self)
+
+    def __len__(self):
+        """Returns the size of the GotchasDict"""
+        return len(self._keys)
+
+    def __contains__(self, key):
+        """Returns True if key in in keys list"""
+        return key in self._keys
+
+    def __getitem__(self, key):
+        """Returns the value attached to the key
+        raises KeyError if key isn't in the keys list
+        """
+        if not key in self._keys:
+            raise KeyError("The key {0} isn't in this GotchasDict".format(key))
+        else:
+            i = self._keys.index(key)
+            return self._values[i]
+
+    def __setitem__(self, key, value):
+        """Method called when we want to modify a value attached to a key
+        If key doesn't exist, we add it at the end of the GotchasDict"""
+        if key in self._keys:
+            i = self._keys.index(key)
+            self._values[i] = value
+        else:
+            self._keys.append(key)
+            self._values.append(value)
+
+    def __delitem__(self, key):
+        """Method called when we want to remove a key"""
+        if not key in self._keys:
+            raise KeyError("The key {0} isn't in this GotchasDict".format(key))
+        else:
+            i = self._keys.index(key)
+            del self._keys[i]
+            del self._values[i]
+
+    def __iter__(self):
+        """returns the iterator of keys list"""
+        return iter(self._keys)
+
+    def items(self):
+        """Return a generator with couples (key, value)"""
+        for i, key in enumerate(self._keys):
+            value = self._values[i]
+            yield (key, value)
+
+    def keys(self):
+        """Returns the list of keys"""
+        return list(self._keys)
+
+    def values(self):
+        """Returns the list of values"""
+        return list(self._values)
+    
+    def sort(self):
+        """Sort the GotchasDict"""
+        sortedkeys = sorted(self._keys)
+        values = []
+        for key in sortedkeys:
+            value = self[key]
+            values.append(value)
+        self._keys = sortedkeys
+        self._values = values
+
+    def reverse(self):
+        """Reverse a GotchasDict"""
+        keys = []
+        values = []
+        for key, value in self.items():
+            keys.insert(0, key)
+            values.insert(0, value)
+        self._keys = keys
+        self._values = values
+
+    def bydate(self):
+        """return a GotchasDict sorted by date"""
+        if self._type == "d":
+            return GotchasDict(self)
+        new = GotchasDict()
+        new._type = "d"
+        for i, key in enumerate(self._keys):
+            got = self._values[i]
+            for key, value in enumerate(got):
+                date = value[2][2]
+                if date not in new._keys:
+                    new[date]= []
+                new[date].append(value)
+        new.sort()
+        new.reverse()
+        return new
+    
+    def byname(self):
+        """return a GotchasDict sorted by dev's name"""
+        if self._type == "n":
+            return GotchasDict(self)
+        new = GotchasDict()
+        new._type = "n"
+        for i, key in enumerate(self._keys):
+            got = self._values[i]
+            for key, value in enumerate(got):
+                name = value[2][1]
+                if name not in new._keys:
+                    new[name] = []
+                new[name].append(value)
+        new.sort()
+        return new
+
+    def byfile(self):
+        """returns a GotchasDict sorted by file"""
+        if self._type == "f":
+            return GotchasDict(self)
+        new = GotchasDict()
+        new._type = "f"
+        for i, key in enumerate(self._keys):
+            got = self._values[i]
+            for key, value in enumerate(got):
+                filename = value[0]
+                if filename not in new._keys:
+                    new[filename] = []
+                new[filename].append(value)
+        new.sort()
+        return new
+
+    def bykeyword(self):
+        """returns the GotchasDict sorted by keyword"""
+        if self._type == "k":
+            return GotchasDict(self)
+        new = GotchasDict()
+        for i, key in enumerate(self._keys):
+            got = self._values[i]
+            for key, value in enumerate(got):
+                keyword = value[2][0]
+                if keyword not in new._keys:
+                    new[keyword] = []
+                new[keyword].append(value)
+        new.sort()
+        return new
+                
+
+def explore_path(path):
+    for filename in os.listdir(path):
+        f = path + "/" + filename
+        if os.path.isdir(f):
+            explore_path(f)
+        parse(f)
+    gotchas.sort()
+
+def parse(path):
+    curfile = open(path, "r")
+    content = curfile.read()
+    curfile.close()
+    lines =content.split("\n")
+    for i, elt in enumerate(lines):
+        if exp_pattern.search(elt):
+            for kw in keywords:
+                if exp_keywords[kw].search(elt):
+                    gotchas[kw].append([path, i, elt.split(":")[1:]])
+
+def usage():
+    print("Usage : gotchas (-h) (-s opt or --sort=opt)")
+    print("With opt in : \n  d -- sort by date\n  f -- sort by file\n  k -- sort by keyword\n  n -- sort by dev's name")  
+
+
+try:
+    opts, args = getopt.getopt(sys.argv[1:], "hs:", ["help", "sort="])
+except getopt.GetoptError as err:
+    print(err)
+    usage()
+    sys.exit(2)
+sort = "k"
+path =(".")
+for o, a in opts:
+    if o in ("-h", "--help"):
+        usage()
+        sys.exit()
+    elif o in ("-s", "--sort"):
+        sort = a
+    else:
+        assert False, "Unhandled option"
+
+gotchas = GotchasDict()
+exp_keywords = dict()
+
+# Format : comment-char :KEYWORD:DevName:yymmdd:Comment
+str_pattern = r"^(.)*:[A-Z]*:[A-Za-z0-9_-]*:[0-9]{2}((0[0-9])|(1[0-2]))(([0-2][0-9])|(3[0-1])):(.)*$"
+exp_pattern = re.compile(str_pattern)
+
+for kw in keywords:
+    gotchas[kw] = list()
+    exp_keywords[kw] = re.compile(r"^(.)*:" + kw + r":(.)*$")
+
+explore_path(path)
+if sort == "f":
+    gotchas = gotchas.byfile()
+elif sort == "k":
+    gotchas = gotchas.bykeyword()
+elif sort == "d":
+    gotchas = gotchas.bydate()
+elif sort == "n":
+    gotchas = gotchas.byname()
+else:
+    print("{O} is not a sorting option".format(sort))
+    sys.exit(1)
+gotchas.gotchas()
+

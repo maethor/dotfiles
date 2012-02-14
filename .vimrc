@@ -67,7 +67,7 @@ function! <SID>SynStack()
 endfunc
 
 " Gotchas Keywords
-nmap <leader>g $bi:<Esc>$a:maethor:<C-R>=strftime("%y%m%d")<CR><Esc>a:
+nmap <leader>g bi:<Esc>ea:maethor:<C-R>=strftime("%y%m%d")<CR><Esc>a:<Esc>
 
 "---------------"
 " Configuration "

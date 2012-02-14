@@ -1,6 +1,6 @@
 urxvt*modifier : mod1
 urxvt*font : xft:monospace:pixelsize=11
-!urxvt*font : xft:Bitstream Vera Sans Mono:pixelsize=11:style=Roman:antialias=true
+!urxvt*font : xft:Bitstream Vera Sans Mono:pixelsize=10:style=Roman:antialias=false
 !urxvt*shading : 20
 !urxvt*tint : black
 urxvt*scrollBar : false
