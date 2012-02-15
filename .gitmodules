@@ -28,6 +28,6 @@
 [submodule ".oh-my-zsh"]
 	path = .oh-my-zsh
 	url = https://github.com/robbyrussell/oh-my-zsh.git
-[submodule ".bin/gotcha"]
-	path = .bin/gotcha
+[submodule ".bin/gotcha-repo"]
+	path = .bin/gotcha-repo
 	url = http://git.meowstars.org/cgit.cgi/gotcha
