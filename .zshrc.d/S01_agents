@@ -10,19 +10,9 @@ debug() {
 }
 
 launch_keychain() {
-    #ssh=$1
-	#agents="gpg"
-	#[ "$ssh" = "true" ] && [ -r $HOME/.ssh/id_rsa -o -r $HOME/.ssh/id_dsa ] && agents=$agents",gpg"
-##
 	if [ -x "$(which keychain)" ]; then
-		if [ "$1" = "true" ]; then
-			[ -r $HOME/.ssh/id_rsa ] && keychain --nogui --quiet --agents ssh $HOME/.ssh/id_rsa
-			[ -r $HOME/.ssh/id_dsa ] && keychain --nogui --quiet --agents ssh $HOME/.ssh/id_dsa
-		fi
+		keychain --nogui --inherit any --agents gpg,ssh
 
-		keychain --nogui --quiet --agents gpg
-
-#		[ -r $HOME/.ssh-agent-$(hostname) ] && source $HOME/.ssh-agent-$(hostname)
 		[ -r $HOME/.keychain/$(hostname)-sh ] &&  source $HOME/.keychain/$(hostname)-sh
 		[ -r $HOME/.keychain/$(hostname)-sh-gpg ] &&  source $HOME/.keychain/$(hostname)-sh-gpg
 	fi
@@ -103,8 +93,10 @@ update_ssh_link() {
 }
 
 if [ -x "$(which keychain)" ]; then
+    # Launch keuchain
+    launch_keychain
+
 	# I have keychain, I don't have to do my checks
-    launch_keychain "true"
 	update_ssh_link
 else
 	# I don't have keychain, I have to do all my checks manually
