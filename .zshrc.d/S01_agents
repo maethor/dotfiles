@@ -50,7 +50,8 @@ launch_ssh_agent() {
 launch_gpg_agent() {
 	if [ -x "$(which gpg-agent)" ]; then
 		debug "Launching GPG agent."
-       	gpg-agent --quiet --use-standard-socket --daemon 2>/dev/null
+       	gpg-agent --quiet --use-standard-socket --daemon > "$HOME/.gnupg/gpg-agent" 2>/dev/null
+        if [ -r "$HOME/.gnupg/gpg-agent" ]; then source "$HOME/.gnupg/gpg-agent"; fi
     fi
 }
 
