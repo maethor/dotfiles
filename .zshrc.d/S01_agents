@@ -16,11 +16,11 @@ launch_keychain() {
 ##
 	if [ -x "$(which keychain)" ]; then
 		if [ "$1" = "true" ]; then
-			[ -r $HOME/.ssh/id_rsa ] && keychain --agents ssh --nogui $HOME/.ssh/id_rsa
-			[ -r $HOME/.ssh/id_dsa ] && keychain --agents ssh --nogui $HOME/.ssh/id_dsa
+			[ -r $HOME/.ssh/id_rsa ] && keychain --nogui --quiet --agents ssh $HOME/.ssh/id_rsa
+			[ -r $HOME/.ssh/id_dsa ] && keychain --nogui --quiet --agents ssh $HOME/.ssh/id_dsa
 		fi
 
-		keychain --agents --nogui gpg
+		keychain --nogui --quiet --agents gpg
 
 #		[ -r $HOME/.ssh-agent-$(hostname) ] && source $HOME/.ssh-agent-$(hostname)
 		[ -r $HOME/.keychain/$(hostname)-sh ] &&  source $HOME/.keychain/$(hostname)-sh
@@ -104,6 +104,7 @@ update_ssh_link() {
 
 if [ -x "$(which keychain)" ]; then
 	# I have keychain, I don't have to do my checks
+    launch_keychain "true"
 	update_ssh_link
 else
 	# I don't have keychain, I have to do all my checks manually
