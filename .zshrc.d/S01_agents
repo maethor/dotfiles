@@ -11,7 +11,8 @@ debug() {
 
 launch_keychain() {
 	if [ -x "$(which keychain)" ]; then
-		keychain --nogui --inherit any --agents gpg,ssh
+		[ -r $HOME/.ssh/id_rsa ] && keychain --nogui --agents ssh,gpg $HOME/.ssh/id_rsa
+		[ -r $HOME/.ssh/id_dsa ] && keychain --nogui --agents ssh,gpg $HOME/.ssh/id_dsa
 
 		[ -r $HOME/.keychain/$(hostname)-sh ] &&  source $HOME/.keychain/$(hostname)-sh
 		[ -r $HOME/.keychain/$(hostname)-sh-gpg ] &&  source $HOME/.keychain/$(hostname)-sh-gpg
@@ -95,7 +96,7 @@ update_ssh_link() {
 
 if [ -x "$(which keychain)" ]; then
     # Launch keuchain
-    launch_keychain
+    [ -z "$SSH_AUTH_SOCK" ] && launch_keychain
 
 	# I have keychain, I don't have to do my checks
 	update_ssh_link
