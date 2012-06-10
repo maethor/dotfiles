@@ -201,7 +201,7 @@ if has("autocmd")
 
   " Indentation
   autocmd FileType make silent setlocal ts=4 sts=4 sw=4 noexpandtab
-  autocmd FileType yaml,tex,html,xhtml,xml,plaintex silent setlocal ts=2 sts=2 sw=2
+  autocmd FileType yaml,tex,html,xhtml,htmldjango,xml,plaintex silent setlocal ts=2 sts=2 sw=2
 
   " cindent
   "autocmd FileType c,cpp setlocal cindent
