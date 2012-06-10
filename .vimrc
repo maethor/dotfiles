@@ -69,6 +69,9 @@ endfunc
 " Gotchas Keywords
 nmap <leader>g bi:<Esc>ea:maethor:<C-R>=strftime("%y%m%d")<CR><Esc>a:<Esc>
 
+""" Display/Mask TagList window
+map <F8> <Esc>:TlistToggle<CR>
+
 "---------------"
 " Configuration "
 "---------------"
