@@ -1,0 +1,27 @@
+#!/usr/bin/perl
+
+my %focus_activated = ();
+
+sub on_start {
+  my($term) = @_;
+  $focus_activated{$term->vt} = 0;
+}
+sub on_focus_in {
+  my($term) = @_;
+  if ($focus_activated{$term->vt}) {
+    $term->tt_write("\033[UlFocusIn");
+  }
+}
+
+sub on_focus_out {
+  my($term) = @_;
+  if ($focus_activated{$term->vt}) {
+    $term->tt_write("\033[UlFocusOut");
+  }
+}
+
+sub on_osc_seq_perl {
+  my ($term, $osc, $resp) = @_;
+  return unless $osc =~ s/^focus;//;
+  $focus_activated{$term->vt} = $osc eq 'on'?1:0;
+}

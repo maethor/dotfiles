@@ -72,6 +72,18 @@ nmap <leader>g bi:<Esc>ea:maethor:<C-R>=strftime("%y%m%d")<CR><Esc>a:<Esc>
 """ Display/Mask TagList window
 map <F8> <Esc>:TlistToggle<CR>
 
+" Autosave when urxvt loose focus
+if !has("gui_running")
+  exe 'silent !echo -ne "\033]777;focus;on\007"'
+  set <F37>=[UlFocusIn
+  set <F36>=[UlFocusOut
+  map <F37> :bufdo checktime<CR>
+  map  <F36> :wa!<CR>
+  map! <F37> <C-O>:bufdo checktime<CR>
+  map! <F36> <C-O>:wa!<CR>
+  autocmd VimLeavePre * exe 'silent !echo -ne "\033]777;focus;off\007"'
+endif
+
 "---------------"
 " Configuration "
 "---------------"
@@ -189,6 +201,9 @@ if has("autocmd")
   " Vimrc
   "autocmd bufwritepost .vimrc source $MYVIMRC
 
+  " Open buffers in tabs
+  autocmd BufAdd,BufNewFile * nested tab sball
+
   " Filetype detection
   autocmd BufNewFile,BufRead *.tex set ft=tex
   autocmd BufNewFile,BufRead *.cls set ft=tex
@@ -215,6 +230,7 @@ if has("autocmd")
 
   " Tex textwidth
   "autocmd FileType tex setlocal tw=72 formatoptions+=a
+
 endif
 
 " vim:set ft=vim et sw=2:

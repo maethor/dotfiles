@@ -29,5 +29,6 @@
 !.forward
 
 !.Xdefaults
+!.urxvt/perl
 
 !.README

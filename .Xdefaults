@@ -1,67 +1,69 @@
-urxvt*modifier : mod1
-urxvt*font : xft:monospace:pixelsize=11
-!urxvt*font : xft:Bitstream Vera Sans Mono:pixelsize=10:style=Roman:antialias=false
-!urxvt*shading : 20
-!urxvt*tint : black
-urxvt*scrollBar : false
-!urxvt*perl-ext : tabbed
+URxvt*modifier : mod1
+URxvt*font : xft:monospace:pixelsize=11
+!URxvt*font : xft:Bitstream Vera Sans Mono:pixelsize=10:style=Roman:antialias=false
+!URxvt*shading : 20
+!URxvt*tint : black
+URxvt*scrollBar : false
+!URxvt*perl-ext : tabbed
 !URxvt.iso14755: false
 !URxvt.keysym.M-b: perl:clipboard:paste
 !URxvt.perl-ext-common: default,tabbed,clipboard
+URxvt*perl-lib : /home/maethor/.urxvt/perl
+URxvt*perl-ext-common : focus
 
-urxvt*urlLauncher : /usr/bin/chromium
+URxvt*urlLauncher : /usr/bin/chromium
 
 !  - color scheme
 URxvt.background:  black
-!#urxvt.foreground:  #8ae236
+!#URxvt.foreground:  #8ae236
 URxvt.foreground : #18F018
 
 !Colors (Tango palette)
-!urxvt*foreground : #f2f2f2
-!urxvt*background : #101010
+!URxvt*foreground : #f2f2f2
+!URxvt*background : #101010
 !! black + red
-urxvt*color0 : #101010
-urxvt*color1 : #f13a21
+URxvt*color0 : #101010
+URxvt*color1 : #f13a21
 !! green + yellow
-urxvt*color2 : #93f91d
-urxvt*color3: #ffd00a
+URxvt*color2 : #93f91d
+URxvt*color3: #ffd00a
 !! blue + purple
-urxvt*color4 : #004f9e
-!urxvt*color5 : #ec0048
-urxvt*color5 : #a020f0
+URxvt*color4 : #004f9e
+!URxvt*color5 : #ec0048
+URxvt*color5 : #a020f0
 !! cyan + white
-urxvt*color6 : #2aa7e7
-urxvt*color7 : #f2f2f2
+URxvt*color6 : #2aa7e7
+URxvt*color7 : #f2f2f2
 !! bright-black + bright-red
-urxvt*color8 : #1d202f
-urxvt*color9 : #ff3612
+URxvt*color8 : #1d202f
+URxvt*color9 : #ff3612
 !! bright-green + bright-yellow
-urxvt*color10 : #93ff00
-urxvt*color11 : #ffc005
+URxvt*color10 : #93ff00
+URxvt*color11 : #ffc005
 !! bright-blue + bright-purple
-urxvt*color12 : #0071ff
-!urxvt*color13 : #ef0051
-urxvt*color13 : #a020f0
+URxvt*color12 : #0071ff
+!URxvt*color13 : #ef0051
+URxvt*color13 : #a020f0
 !! bright-cyan + bright-white
-urxvt*color14 : #4bb8fd
-urxvt*color15 : #eeeeec
+URxvt*color14 : #4bb8fd
+URxvt*color15 : #eeeeec
 
 !Couleurs (Glacicle)
-!urxvt*color0 : rgb:2E/34/36
-!urxvt*color1 : rgb:CC/00/00
-!urxvt*color2 : rgb:4E/9A/06
-!urxvt*color3 : rgb:C4/A0/00
-!urxvt*color4 : rgb:00/00/FF
-!urxvt*color5 : rgb:74/4E/7A
-!urxvt*color6 : rgb:06/98/9A
-!urxvt*color7 : rgb:FF/FF/FF
-!urxvt*color8 : rgb:55/57/53
-!urxvt*color9 : rgb:EF/29/29
-!urxvt*color10 : rgb:8A/E2/34
-!urxvt*color11 : rgb:FC/E9/4F
-!urxvt*color12 : rgb:72/9F/CF
-!urxvt*color13 : rgb:AD/7F/A8
-!urxvt*color14 : rgb:59/BC/D9
-!urxvt*color15 : rgb:FF/FF/FF
+!URxvt*color0 : rgb:2E/34/36
+!URxvt*color1 : rgb:CC/00/00
+!URxvt*color2 : rgb:4E/9A/06
+!URxvt*color3 : rgb:C4/A0/00
+!URxvt*color4 : rgb:00/00/FF
+!URxvt*color5 : rgb:74/4E/7A
+!URxvt*color6 : rgb:06/98/9A
+!URxvt*color7 : rgb:FF/FF/FF
+!URxvt*color8 : rgb:55/57/53
+!URxvt*color9 : rgb:EF/29/29
+!URxvt*color10 : rgb:8A/E2/34
+!URxvt*color11 : rgb:FC/E9/4F
+!URxvt*color12 : rgb:72/9F/CF
+!URxvt*color13 : rgb:AD/7F/A8
+!URxvt*color14 : rgb:59/BC/D9
+!URxvt*color15 : rgb:FF/FF/FF
 
 
