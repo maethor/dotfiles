@@ -72,12 +72,20 @@ nmap <leader>g bi:<Esc>ea:maethor:<C-R>=strftime("%y%m%d")<CR><Esc>a:<Esc>
 """ Display/Mask TagList window
 map <F8> <Esc>:TlistToggle<CR>
 
+" Like bufdo, but restore the current buffer
+function! BufDo(command)
+  let currBuff=bufnr("%")
+  execute 'bufdo ' . a:command
+  execute 'buffer ' . currBuff
+endfunction
+com! -nargs=+ -complete=command Bufdo call BufDo(<q-args>)
+
 " Autosave when urxvt loose focus
 if !has("gui_running")
   exe 'silent !echo -ne "\033]777;focus;on\007"'
   set <F37>=[UlFocusIn
   set <F36>=[UlFocusOut
-  map <F37> :bufdo checktime<CR>
+  map <F37> :Bufdo checktime<CR>
   map  <F36> :wa!<CR>
   map! <F37> <C-O>:bufdo checktime<CR>
   map! <F36> <C-O>:wa!<CR>
@@ -202,7 +210,7 @@ if has("autocmd")
   "autocmd bufwritepost .vimrc source $MYVIMRC
 
   " Open buffers in tabs
-  autocmd BufAdd,BufNewFile * nested tab sball
+  "autocmd BufAdd,BufNewFile * nested tab sball
 
   " Filetype detection
   autocmd BufNewFile,BufRead *.tex set ft=tex
