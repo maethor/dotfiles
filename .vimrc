@@ -87,7 +87,7 @@ if !has("gui_running")
   set <F36>=[UlFocusOut
   map <F37> :Bufdo checktime<CR>
   map  <F36> :wa!<CR>
-  map! <F37> <C-O>:bufdo checktime<CR>
+  map! <F37> <C-O>:Bufdo checktime<CR>
   map! <F36> <C-O>:wa!<CR>
   autocmd VimLeavePre * exe 'silent !echo -ne "\033]777;focus;off\007"'
 endif
