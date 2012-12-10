@@ -158,6 +158,12 @@ set dictionary+=/usr/share/dict/words
 " Allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 
+" Yankring
+if $USER == 'root'
+  let loaded_yankring = 120
+endif
+let g:yankring_history_file = '.yankring_history'
+
 " Formatting
 "-----------
 
