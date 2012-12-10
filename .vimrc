@@ -36,9 +36,7 @@ imap <c-s> <c-o>:w<CR>
 nmap <leader>v :tabedit $MYVIMRC<CR>
 
 " Gundo
-if exists("g:loaded_gundo")
-  nnoremap <F5> :GundoToggle<CR>
-endif
+nnoremap <F4> :GundoToggle<CR>
 
 " HexHightlight
 if exists('*HexHighlight()')
@@ -91,6 +89,9 @@ if !has("gui_running")
   map! <F36> <C-O>:wa!<CR>
   autocmd VimLeavePre * exe 'silent !echo -ne "\033]777;focus;off\007"'
 endif
+
+" Get rid of hl (after a search)
+nnoremap <leader><space> :noh<cr>
 
 "---------------"
 " Configuration "
