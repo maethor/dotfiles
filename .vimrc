@@ -32,11 +32,31 @@ nnoremap <space> za
 nmap <c-s> :w<CR>
 imap <c-s> <c-o>:w<CR>
 
+" Numbers
+nmap <leader>n :setlocal number!<CR>
+nmap <leader>N :setlocal relativenumber!<CR>
+
 " Vimrc
 nmap <leader>v :tabedit $MYVIMRC<CR>
 
 " Gundo
 nnoremap <F4> :GundoToggle<CR>
+
+" Misc shortcuts
+nmap <leader>li :LoremIpsum<CR>
+
+" Select the contents of the current line, excluding indentation.
+nnoremap vv ^vg_
+
+" Sudo to write
+cnoremap w!! w !sudo tee % >/dev/null
+
+" set pastetoggle=<F6>
+nnoremap <F6> :set paste!<cr>
+
+" Toggle [i]nvisible characters
+set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮
+nnoremap <leader>i :set list!<cr>
 
 " HexHightlight
 if exists('*HexHighlight()')
