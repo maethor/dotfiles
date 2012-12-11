@@ -248,7 +248,7 @@ if has("autocmd")
   autocmd BufNewFile,BufRead *.zsh-theme set ft=zsh
 
   " Mutt 
-  autocmd BufRead /tmp/mutt* set tw=72 formatoptions+=a colorcolumn=72 spell
+  autocmd BufRead /tmp/mutt* set tw=72 formatoptions+=a spell "colorcolumn=72
   autocmd BufRead /tmp/mutt* let b:textwidth=72
   autocmd BufEnter /tmp/mutt* so ~/.vim/colors/muttcolors.vim
 
