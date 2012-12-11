@@ -1,3 +1,4 @@
+" vim: ft=vim et sw=2 foldmethod=marker
 "                                 
 " Vim configuration file          
 " Since 2009,  maethor <maethor@subiron.org>
@@ -5,9 +6,7 @@
 "  This file is distributed in the hope that it will be useful,
 "  but WITHOUT ANY WARRANTY                                    
 
-"------"
-" Init "
-"------"
+" Init {{{1
 
 " Use Vim settings, rather then Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
@@ -19,9 +18,7 @@ set nocompatible
   call pathogen#helptags()
 "endif
 
-"--------------"
-" Key bindings "
-"--------------"
+" Key bindings {{{1
 
 let mapleader = ","
 
@@ -113,9 +110,7 @@ endif
 " Get rid of hl (after a search)
 nnoremap <leader><space> :noh<cr>
 
-"---------------"
-" Configuration "
-"---------------"
+" Configuration {{{1
 
 " Backup
 if has("vms")
@@ -125,8 +120,7 @@ else
   set backupskip+=*.tmp,crontab.*
 endif
 
-" General options
-"----------------
+" General options {{{2
 
 set encoding=utf-8  " Use UTF8
 set mouse=a         " Use Mouse
@@ -153,8 +147,7 @@ set noerrorbells
 set visualbell
 set t_vb=
 
-" Editing
-"--------
+" Editing {{{2
 
 " Folding
 set foldminlines=2      " Don't fold less than 2 lines
@@ -184,8 +177,7 @@ if $USER == 'root'
 endif
 let g:yankring_history_file = '.yankring_history'
 
-" Formatting
-"-----------
+" Formatting {{{2
 
 " Indentation
 set autoindent		" Always set autoindenting on
@@ -205,9 +197,7 @@ endif
 set wrap linebreak nolist
 set showbreak=…
 
-"-------"
-" Style "
-"-------"
+" Style {{{1
 
 " Theme
 set background=dark
@@ -219,7 +209,7 @@ let g:badwolf_darkgutter = 0
 let g:badwolf_tabline = 2
 let g:badwolf_html_link_underline = 1
 let g:badwolf_css_props_highlight = 1
-colorscheme badwolf
+colorscheme maethor
 
 " Status line
 set laststatus=2
@@ -236,9 +226,7 @@ set statusline+=%<%P                            " file position
 
 set showmode
 
-"---------"
-" Autocmd "
-"---------"
+" Autocmd {{{1
 
 if has("autocmd")
   " Vimrc
@@ -275,8 +263,8 @@ if has("autocmd")
   "autocmd FileType tex setlocal tw=72 formatoptions+=a
   
   " Vim theme
-    au BufWritePost badwolf.vim color badwolf
+  au BufWritePost badwolf.vim color badwolf
+  au BufWritePost maethor.vim color maethor
 
 endif
 
-" vim:set ft=vim et sw=2:
