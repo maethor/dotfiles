@@ -471,6 +471,7 @@ call s:HL('javaScopeDecl', 'taffy', '', 'bold')
 call s:HL('javaCommentTitle', 'gravel', '')
 call s:HL('javaDocTags', 'snow', '', 'none')
 call s:HL('javaDocParam', 'dalespale', '', '')
+call s:HL('javaTypedef', 'saltwatertaffy', '', 'none')
 
 " }}}
 " LaTeX {{{

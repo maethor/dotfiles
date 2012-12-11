@@ -153,6 +153,7 @@ set t_vb=
 set foldminlines=2      " Don't fold less than 2 lines
 set foldmethod=syntax   " By default, syntax folding
 set foldlevel=100       " By default, open all folds
+let g:tex_fold_enabled=1 " tex and LaTeX folding
 
 " Completion
 set omnifunc=synthaxcomplete#Complete
