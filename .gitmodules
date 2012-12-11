@@ -43,7 +43,7 @@
 [submodule ".vim/bundle/zencoding"]
 	path = .vim/bundle/zencoding
 	url = https://github.com/mattn/zencoding-vim.git
-[submodule "/home/maethor/.vim/bundle/powerline"]
+[submodule ".vim/bundle/powerline"]
 	path = .vim/bundle/powerline
 	url = https://github.com/Lokaltog/vim-powerline.git
 [submodule ".vim/bundle/badwolf"]
