@@ -210,8 +210,10 @@ set showbreak=…
 "-------"
 
 " Theme
-set background=dark
-highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=Black gui=NONE guifg=DarkGrey guibg=NONE
+"set background=dark
+"highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=Black gui=NONE guifg=DarkGrey guibg=NONE
+"highlight ColorColumn term=bold cterm=NONE ctermfg=DarkGrey ctermbg=Black gui=NONE guifg=DarkGrey guibg=NONE
+colorscheme badwolf
 
 " Status line
 set laststatus=2
