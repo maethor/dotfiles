@@ -49,7 +49,7 @@ nmap <leader>li :LoremIpsum<CR>
 nnoremap vv ^vg_
 
 " Sudo to write
-cnoremap w!! w !sudo tee % >/dev/null
+command Wsudo w !sudo tee % >/dev/null
 
 " set pastetoggle=<F6>
 nnoremap <F6> :set paste!<cr>
@@ -210,9 +210,15 @@ set showbreak=…
 "-------"
 
 " Theme
-"set background=dark
-"highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=Black gui=NONE guifg=DarkGrey guibg=NONE
-"highlight ColorColumn term=bold cterm=NONE ctermfg=DarkGrey ctermbg=Black gui=NONE guifg=DarkGrey guibg=NONE
+set background=dark
+highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=Black gui=NONE guifg=DarkGrey guibg=NONE
+highlight ColorColumn term=bold cterm=NONE ctermfg=DarkGrey ctermbg=Black gui=NONE guifg=DarkGrey guibg=NONE
+
+" Badwolf theme
+let g:badwolf_darkgutter = 0
+let g:badwolf_tabline = 2
+let g:badwolf_html_link_underline = 1
+let g:badwolf_css_props_highlight = 1
 colorscheme badwolf
 
 " Status line
@@ -267,6 +273,9 @@ if has("autocmd")
 
   " Tex textwidth
   "autocmd FileType tex setlocal tw=72 formatoptions+=a
+  
+  " Vim theme
+    au BufWritePost badwolf.vim color badwolf
 
 endif
 
