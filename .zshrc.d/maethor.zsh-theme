@@ -59,7 +59,7 @@ ZSH_THEME_GIT_PROMPT_CLEAN=""
 # display exitcode on the right when >0
 return_code="%(?..%{$fg[red]%}%? ↵%{$reset_color%})"
 
-RPROMPT='${return_code}$(git_prompt_status)$(git_prompt_branch)$(git_prompt_ahead)%{$reset_color%}'
+RPROMPT='${return_code}$(git_prompt_status)%{$reset_color%}$(git_prompt_branch)$(git_prompt_ahead)%{$reset_color%}'
 
 ZSH_THEME_GIT_PROMPT_ADDED="%{$fg[green]%} ✚"
 ZSH_THEME_GIT_PROMPT_MODIFIED="%{$fg[blue]%} ✹"
