@@ -520,12 +520,13 @@ call s:HL('mailHeaderKey', 'lightgravel', '', '')
 call s:HL('mailHeaderEmail', 'snow', '', '')
 call s:HL('mailURL', 'toffee', '', 'underline')
 call s:HL('mailSignature', 'gravel', '', 'none')
+call s:HL('mailEmail', 'taffy', '', 'bold') 
 
-call s:HL('mailQuoted1', 'gravel', '', 'none')
-call s:HL('mailQuoted2', 'dress', '', 'none')
-call s:HL('mailQuoted3', 'dirtyblonde', '', 'none')
-call s:HL('mailQuoted4', 'orange', '', 'none')
-call s:HL('mailQuoted5', 'lime', '', 'none')
+"call s:HL('mailQuoted1', 'gravel', '', 'none')
+"call s:HL('mailQuoted2', 'dress', '', 'none')
+"call s:HL('mailQuoted3', 'dirtyblonde', '', 'none')
+"call s:HL('mailQuoted4', 'orange', '', 'none')
+"call s:HL('mailQuoted5', 'lime', '', 'none')
 
 " }}}
 " Markdown {{{
