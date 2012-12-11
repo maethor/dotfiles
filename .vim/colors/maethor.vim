@@ -80,7 +80,7 @@ let s:bwc.toffee = ['b88853', 137]
 let s:bwc.coffee    = ['c7915b', 173]
 let s:bwc.darkroast = ['88633f', 95]
 
-" }}}
+" }}} 
 " Highlighting Function {{{
 function! s:HL(group, fg, ...)
     " Arguments: group, guifg, guibg, gui, guisp
@@ -515,18 +515,20 @@ call s:HL('lispyscriptRepeat', 'dress', '', 'none')
 " Mail {{{
 
 call s:HL('mailSubject', 'orange', '', 'bold')
-call s:HL('mailHeader', 'lightgravel', '', '')
-call s:HL('mailHeaderKey', 'lightgravel', '', '')
-call s:HL('mailHeaderEmail', 'snow', '', '')
-call s:HL('mailURL', 'toffee', '', 'underline')
+call s:HL('mailHeader', 'lightgravel', '', 'bold')
+call s:HL('mailHeaderKey', 'tardis', '', 'bold')
+call s:HL('mailHeaderEmail', 'taffy', '', 'bold')
+call s:HL('mailURL', 'lime', '', 'none')
 call s:HL('mailSignature', 'gravel', '', 'none')
-call s:HL('mailEmail', 'taffy', '', 'bold') 
+call s:HL('mailEmail', 'taffy', '', 'none') 
+"call s:HL('mailTo', 'taffy', '', 'none')
+"call s:HL('mailFrom', 'taffy', '', 'none')
 
-"call s:HL('mailQuoted1', 'gravel', '', 'none')
-"call s:HL('mailQuoted2', 'dress', '', 'none')
-"call s:HL('mailQuoted3', 'dirtyblonde', '', 'none')
-"call s:HL('mailQuoted4', 'orange', '', 'none')
-"call s:HL('mailQuoted5', 'lime', '', 'none')
+call s:HL('mailQuoted1', 'lightgravel', '', 'none')
+call s:HL('mailQuoted2', 'gravel', '', 'none')
+call s:HL('mailQuoted3', 'mediumgravel', '', 'none')
+call s:HL('mailQuoted4', 'deepgravel', '', 'none')
+call s:HL('mailQuoted5', 'deepergravel', '', 'none')
 
 " }}}
 " Markdown {{{

@@ -247,7 +247,7 @@ if has("autocmd")
   " Mutt 
   autocmd BufRead /tmp/mutt* set tw=72 formatoptions+=a spell "colorcolumn=72
   autocmd BufRead /tmp/mutt* let b:textwidth=72
-  "autocmd BufEnter /tmp/mutt* so ~/.vim/colors/muttcolors.vim
+  autocmd BufEnter /tmp/mutt* so ~/.vim/colors/muttcolors.vim
 
   " Indentation
   autocmd FileType make silent setlocal ts=4 sts=4 sw=4 noexpandtab
