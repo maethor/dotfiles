@@ -266,5 +266,9 @@ if has("autocmd")
   au BufWritePost badwolf.vim color badwolf
   au BufWritePost maethor.vim color maethor
 
+  " Gotchas
+  au BufNewFile,BufRead TODO set ft=gotchas
+  au BufNewFile,BufRead BUGS set ft=gotchas
+
 endif
 

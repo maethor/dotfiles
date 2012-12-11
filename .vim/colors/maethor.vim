@@ -598,6 +598,11 @@ call s:HL('VimNotation', 'dress', '', 'none')
 call s:HL('VimBracket', 'dress', '', 'none')
 
 " }}}
+" Gotchas {{{
+
+call s:HL('gotchasGotcha', 'tardis', '', 'none')
+
+" }}}
 
 " }}}
 
