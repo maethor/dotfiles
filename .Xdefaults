@@ -8,7 +8,7 @@ URxvt*scrollBar : false
 !URxvt.iso14755: false
 !URxvt.keysym.M-b: perl:clipboard:paste
 !URxvt.perl-ext-common: default,tabbed,clipboard
-URxvt*perl-lib : /home/maethor/.urxvt/perl
+URxvt*perl-lib : /home/maethor/.urxvt/perl/ulhume
 URxvt*perl-ext-common : focus
 
 URxvt*urlLauncher : /usr/bin/chromium

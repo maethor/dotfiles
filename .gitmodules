@@ -55,3 +55,6 @@
 [submodule ".vim/bundle/csssyntax"]
 	path = .vim/bundle/csssyntax
 	url = https://github.com/ChrisYip/Better-CSS-Syntax-for-Vim.git
+[submodule ".urxvt/perl/ulhume"]
+	path = .urxvt/perl/ulhume
+	url = https://github.com/yoran-brault/urxvt.git
