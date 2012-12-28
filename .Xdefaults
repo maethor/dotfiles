@@ -66,4 +66,30 @@ URxvt*color15 : #eeeeec
 !URxvt*color14 : rgb:59/BC/D9
 !URxvt*color15 : rgb:FF/FF/FF
 
+# Les commandes
+URxvt.keysym.S-Down : perl:tab-new
+URxvt.keysym.S-Left : perl:tab-previous
+URxvt.keysym.S-Right : perl:tab-next
+URxvt.keysym.M-Left : perl:tab-move-left
+URxvt.keysym.M-Right : perl:tab-move-right
+URxvt.keysym.S-M-r : perl:tab-rename
+URxvt.keysym.S-M-j : perl:tab-jump
+URxvt.keysym.S-M-k : perl:tab-kill
 
+# Les couleurs
+!URxvt.tabs.tab-bar-fg        : 17
+!URxvt.tabs.tab-bar-bg        : 18
+!URxvt.tabs.tab-fg            : 17
+!URxvt.tabs.tab-bg            : 18
+!URxvt.tabs.tab-current-fg    : 23
+!URxvt.tabs.tab-current-bg    : 21
+!URxvt.tabs.tab-urgent-fg     : 23
+!URxvt.tabs.tab-urgent-bg     : 13
+!URxvt.tabs.tab-rename-color  : 23
+!URxvt.tabs.tab-divider-color : 2
+
+# Séparateur
+!URxvt.tabs.tab-divider        : -
+
+# Position (0 en haut, 1 en bas)
+!URxvt.tabs.tab-position      : 1

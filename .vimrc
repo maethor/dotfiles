@@ -45,11 +45,15 @@ nmap <leader>li :LoremIpsum<CR>
 " Select the contents of the current line, excluding indentation.
 nnoremap vv ^vg_
 
+" Select entire buffer
+nnoremap vaa ggvGg_
+nnoremap Vaa ggVG
+
 " Sudo to write
 command Wsudo w !sudo tee % >/dev/null
 
 " set pastetoggle=<F6>
-nnoremap <F6> :set paste!<cr>
+nnoremap <silent> <F6> :set paste!<cr>
 
 " Toggle [i]nvisible characters
 set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮
@@ -109,6 +113,9 @@ endif
 
 " Get rid of hl (after a search)
 nnoremap <leader><space> :noh<cr>
+
+" Don't move on *
+nnoremap * *<c-o>
 
 " Configuration {{{1
 
@@ -227,7 +234,7 @@ set statusline+=%<%P                            " file position
 
 set showmode
 
-" Autocmd {{{1
+" Filetype-specific {{{1
 
 if has("autocmd")
   " Vimrc
@@ -237,28 +244,26 @@ if has("autocmd")
   "autocmd BufAdd,BufNewFile * nested tab sball
 
   " Filetype detection
-  autocmd BufNewFile,BufRead *.tex set ft=tex
-  autocmd BufNewFile,BufRead *.cls set ft=tex
-  autocmd BufNewFile,BufRead *.sty set ft=tex
-  autocmd BufNewFile,BufRead COMMIT_EDITMSG set ft=gitcommit
-  autocmd BufNewFile,BufRead *.cup set ft=java
-  autocmd BufNewFile,BufRead *.zsh-theme set ft=zsh
+  au BufNewFile,BufRead *.tex setlocal ft=tex
+  au BufNewFile,BufRead *.cls setlocal ft=tex
+  au BufNewFile,BufRead *.sty setlocal ft=tex
+  au BufNewFile,BufRead COMMIT_EDITMSG setlocal ft=gitcommit
+  au BufNewFile,BufRead *.cup setlocal ft=java
+  au BufNewFile,BufRead *.zsh-theme setlocal ft=zsh
+  au BufNewFile,BufRead *.less setlocal filetype=less
 
   " Mutt 
-  autocmd BufRead /tmp/mutt* set tw=72 formatoptions+=a spell "colorcolumn=72
-  autocmd BufRead /tmp/mutt* let b:textwidth=72
-  autocmd BufEnter /tmp/mutt* so ~/.vim/colors/muttcolors.vim
+  au BufRead /tmp/mutt* set tw=72 formatoptions+=a spell "colorcolumn=72
+  au BufRead /tmp/mutt* let b:textwidth=72
+  au BufEnter /tmp/mutt* so ~/.vim/colors/muttcolors.vim
 
   " Indentation
-  autocmd FileType make silent setlocal ts=4 sts=4 sw=4 noexpandtab
-  autocmd FileType yaml,tex,html,xhtml,htmldjango,xml,plaintex silent setlocal ts=2 sts=2 sw=2
-
-  " cindent
-  "autocmd FileType c,cpp setlocal cindent
+  au FileType make silent setlocal ts=4 sts=4 sw=4 noexpandtab
+  au FileType yaml,tex,html,xhtml,htmldjango,xml,plaintex silent setlocal ts=2 sts=2 sw=2
 
   " Git: Don't jump to last position, no modeline
-  autocmd FileType gitcommit call setpos('.', [0, 1, 1, 0])
-  autocmd FileType git setlocal nomodeline
+  au FileType gitcommit call setpos('.', [0, 1, 1, 0])
+  au FileType git setlocal nomodeline
 
   " Tex textwidth
   "autocmd FileType tex setlocal tw=72 formatoptions+=a
@@ -270,6 +275,27 @@ if has("autocmd")
   " Gotchas
   au BufNewFile,BufRead TODO set ft=gotchas
   au BufNewFile,BufRead BUGS set ft=gotchas
+
+  " Directory
+  au FileType netrw set noswapfile
+
+  " CSS / Less
+  au Filetype less,css setlocal foldmethod=marker
+  au Filetype less,css setlocal foldmarker={,}
+  au Filetype less,css setlocal omnifunc=csscomplete#CompleteCSS
+  " Use <leader>S to sort properties.  Turns this:
+  au BufNewFile,BufRead *.less,*.css nnoremap <buffer> <leader>S ?{<CR>jV/\v^\s*\}?$<CR>k:sort<CR>:noh<CR>
+
+  " Make {<cr> insert a pair of brackets in such a way that the cursor is correctly
+  " positioned inside of them AND the following code doesn't get unfolded.
+  au BufNewFile,BufRead *.less,*.css inoremap <buffer> {<cr> {}<left><cr><space><space><space><space>.<cr><esc>kA<bs>
+
+  " Django / Jinja
+  " Django tags
+  au FileType jinja,htmldjango inoremap <buffer> <c-t> {%<space><space>%}<left><left><left>
+
+  " Django variables
+  au FileType jinja,htmldjango inoremap <buffer> <c-f> {{<space><space>}}<left><left><left>
 
 endif
 

@@ -49,3 +49,15 @@ alias e=$EDITOR
 
 # Pager stuff
 [[ -x /usr/bin/most ]] && export PAGER="most" && alias more="most" && alias less="most"
+
+# Pip
+
+PIP_BIN="`which pip`"
+alias pip-sys="$PIP_BIN"
+
+pip() {
+    if [ -n "$VIRTUAL_ENV" ]
+    then $PIP_BIN -E "$VIRTUAL_ENV" "$@"
+    else echo "Not currently in a venv -- use pip-sys to work system-wide."
+    fi
+}
