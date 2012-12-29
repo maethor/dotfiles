@@ -100,7 +100,7 @@ endfunction
 com! -nargs=+ -complete=command Bufdo call BufDo(<q-args>)
 
 " Autosave when urxvt loose focus
-if !has("gui_running")
+if match($TERM, '*rxvt*')
   exe 'silent !echo -ne "\033]777;focus;on\007"'
   set <F37>=[UlFocusIn
   set <F36>=[UlFocusOut
