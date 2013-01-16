@@ -58,3 +58,6 @@
 [submodule ".urxvt/perl/ulhume"]
 	path = .urxvt/perl/ulhume
 	url = https://github.com/yoran-brault/urxvt.git
+[submodule ".bin/t"]
+	path = .bin/t
+	url = https://github.com/sjl/t.git

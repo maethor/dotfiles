@@ -37,6 +37,7 @@ alias mlog="tail -n 60 /var/log/mail.log"
 alias nano="nano -miA"
 alias cd..="cd .."
 alias cleanup="rm -f *~"
+alias g="gotcha -r"
 
 # Compilation aliases
 alias compilegtk='gcc $(pkg-config --libs --cflags gtk+-2.0)'
@@ -47,8 +48,14 @@ alias gcc99="gcc -std=c99"
 [[ -x /usr/bin/vim ]] && export EDITOR="vim"
 alias e=$EDITOR
 
+# PDF viewer
+[[ -x /usr/bin/epdfview ]] && alias v="epdfview" 
+
 # Pager stuff
 [[ -x /usr/bin/most ]] && export PAGER="most" && alias more="most" && alias less="most"
+
+# Todo manager
+alias t='python ~/.bin/t/t.py --task-dir ~/Todo --list tasks'
 
 # Pip
 

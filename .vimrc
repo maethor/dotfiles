@@ -299,3 +299,6 @@ if has("autocmd")
 
 endif
 
+" Syntastic
+let g:syntastic_java_checker = 'checkstyle'
+
