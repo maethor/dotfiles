@@ -18,6 +18,12 @@ set nocompatible
   call pathogen#helptags()
 "endif
 
+" Identity
+let g:snips_author = 'Guillaume Subiron'
+let g:name = 'Guillaume Subiron'
+let g:nickname = 'maethor'
+
+
 " Key bindings {{{1
 
 let mapleader = ","
