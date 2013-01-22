@@ -57,7 +57,7 @@ termcapinfo xterm*|rxvt*|kterm*|Eterm* hs:ts=\E]0;:fs=\007:ds=\E]0;\007
 
 #caption always "%{= .d}$LOGNAME> %-W %?%{!bu}%n %t{!bu}%+W %=%{} %=%{} [%02d/%02m/%Y][%0c:%s] on %H [%l]"
 #caption always "%{Wb} %H %{Bk} : %{Wb} %l %{Bk}| %{Ck}%-w%50>%{Cb} %n %t %{-}%+w%<%{- Wk}%{Bk} | %=%{Wb} %C "
-caption always "%{Wb}$LOGNAME>%{Bk} %-w%50>%{Cb} %n %t %{-}%+w%<%{- Wk}%{Bk} | %=%{Wb} [%02d/%02m/%Y][%0c:%s] on %H [%l] "
+caption always "%{+b dy} $LOGNAME@%H %{-b wk} %-w%50>%{dB} %n %t %{-}%+w%<%{- Wk}%{Bk} %=%{wK} [%03d/%02m/%Y][%0c:%s] │ [%l] "
 
 # set these terminals up to be 'optimal' instead of vt100
 termcapinfo xterm*|linux*|rxvt*|Eterm* OP
