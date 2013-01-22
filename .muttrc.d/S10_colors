@@ -10,7 +10,7 @@ color message brightcyan default  # informational messages, not mail
 color normal white default    # plain text
 color search brightgreen default # hilite search patterns in the pager
 color signature cyan default    # signature (after "-- ") is cyan 
-color status brightyellow blue # status bar is yellow *on blue*   
+color status brightwhite blue # status bar is yellow *on blue*   
 color tilde blue default  # ~'s after message body
 color tree red default    # thread tree in index menu is red
 color underline yellow default
