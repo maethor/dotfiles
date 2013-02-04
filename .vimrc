@@ -79,7 +79,7 @@ if exists("+spelllang")
   nmap <silent> <leader>s = :set spell!<CR>
   nmap <leader>ss :set nospell<CR>
   nmap <leader>se :set spell spelllang=en<CR>
-  nmap <leader>sf :set spell spelllang=fr_fr<CR>
+  nmap <leader>sf :set spell spelllang=fr_FR<CR>
 endif
 
 " Show syntax highlighting groups for word under cursor
