@@ -14,8 +14,6 @@ color status brightwhite blue # status bar is yellow *on blue*
 color tilde blue default  # ~'s after message body
 color tree red default    # thread tree in index menu is red
 color underline yellow default
-color body magenta default "(ftp|http)://[^ ]+"  # picks up URLs
-color body magenta default [-a-z_0-9.]+@[-a-z_0-9.]+   # picks up email adress
 
 # Coloring quoted text - uncomment to color the first 7 levels:
 color quoted    green default
@@ -26,14 +24,7 @@ color quoted    green default
 #color quoted5   yellow default
 #color quoted6   red default
 #color quoted7   cyan default
-
-# Colorize smileys:  :-)  ;-)  :-/  :-(
-color body  brightyellow default "[;:]-[)/(|]"
-color body  brightyellow default "[;:][)/(|]"
-
-# Colorize addresses
-color body  green default "[[:alpha:]]\+://[^ ]*"
-
+#
 # Index colors
 color index brightyellow default ~N      # New
 color index yellow default ~O              # Old
@@ -41,3 +32,24 @@ color index magenta default ~F
 color index blue default ~T
 color index red default ~D
 
+# Shinken/Nagios alerts
+color index black  brightred  "!~N ~f \"shinken\" ~s \"DOWN\""
+color index black  brightcyan "!~N ~f \"shinken\" ~s \"UNREACHABLE\""
+color index black  green      "!~N ~f \"shinken\" ~s \"UP\""
+color index red    default    "!~N ~f \"shinken\" ~s \"PROBLEM\" ~s \"CRITICAL\""
+color index yellow default    "!~N ~f \"shinken\" ~s \"PROBLEM\" ~s\"WARNING\""
+color index green  default    "!~N ~f \"shinken\" ~s \"RECOVERY\""
+color index brightblack  brightred  "~N ~f \"shinken\" ~s \"DOWN\""
+color index brightblack  brightcyan "~N ~f \"shinken\" ~s \"UNREACHABLE\""
+color index brightblack  green      "~N ~f \"shinken\" ~s \"UP\""
+color index brightred    default    "~N ~f \"shinken\" ~s \"PROBLEM\" ~s \"CRITICAL\""
+color index brightyellow default    "~N ~f \"shinken\" ~s \"PROBLEM\" ~s\"WARNING\""
+color index brightgreen  default    "~N ~f \"shinken\" ~s \"RECOVERY\""
+
+# Colorize smileys:  :-)  ;-)  :-/  :-(
+color body  brightyellow default "[;:]-[)/(|]"
+color body  brightyellow default "[;:][)/(|]"
+
+# URL & Mail
+color body magenta default [-a-z_0-9.]+@[-a-z_0-9.]+   # picks up email adress
+color body green default "[[:alpha:]]\+://[^ ]*"  # picks up URLs
