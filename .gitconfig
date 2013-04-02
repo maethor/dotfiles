@@ -3,3 +3,5 @@
 	email = maethor@subiron.org
 	signingkey = C7C4455C
 	signingkey = maethor@subiron.org
+[alias]
+	graph = log --graph --simplify-by-decoration --pretty=format:'%d' --all
