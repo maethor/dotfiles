@@ -23,4 +23,4 @@ autocenter_mode = "yes"
 progressbar_look = "━┫"
 
 ## Set music dir for tag editor
-mpd_music_dir = "/media/Musique/maethor/Musique"
+mpd_music_dir = "/home/maethor/Musique"
