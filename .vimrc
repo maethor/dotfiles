@@ -150,7 +150,8 @@ set hidden          " Allow hidden buffers with changes
 set showmatch       " Show matching brackets when typed
 
 " Define tags path (ctags)
-set tags+=../tags,../../tags,../../../tags,../../../../tags
+set tags+=../tags,../../tags,../../../tags,../../../../../tags
+set tags+=../ctags,../../ctags,../../../ctags,../../../../../ctags
 
 " Define grep command
 set grepprg=grep\ -rnH\ --exclude='.*.swp'\ --exclude='*~'\ --exclude=tags

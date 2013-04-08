@@ -56,6 +56,10 @@ alias e=$EDITOR
 
 # Todo manager
 alias t='python ~/.bin/t/t.py --task-dir ~/Todo --list tasks'
+alias n='python ~/.bin/t/t.py --task-dir ~/Todo --list notes'
+
+# Symfony
+alias sf="php symfony"
 
 # Pip
 
