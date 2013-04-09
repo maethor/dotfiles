@@ -5,3 +5,12 @@
 	signingkey = maethor@subiron.org
 [alias]
 	graph = log --graph --simplify-by-decoration --pretty=format:'%d' --all
+[color]
+	branch = auto
+	diff = auto
+	interactive = auto
+	status = auto
+[core]
+	editor = vim
+[merge]
+	tool = vimdiff
