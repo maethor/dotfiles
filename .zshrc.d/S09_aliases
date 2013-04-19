@@ -60,15 +60,3 @@ alias n='python ~/.bin/t/t.py --task-dir ~/Todo --list notes'
 
 # Symfony
 alias sf="php symfony"
-
-# Pip
-
-PIP_BIN="`which pip`"
-alias pip-sys="$PIP_BIN"
-
-pip() {
-    if [ -n "$VIRTUAL_ENV" ]
-    then $PIP_BIN -E "$VIRTUAL_ENV" "$@"
-    else echo "Not currently in a venv -- use pip-sys to work system-wide."
-    fi
-}
