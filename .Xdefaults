@@ -13,6 +13,8 @@ URxvt*perl-ext-common : focus
 
 URxvt*urlLauncher : /usr/bin/chromium
 
+URxvt*urgentOnBell: true
+
 !  - color scheme
 URxvt.background:  black
 !#URxvt.foreground:  #8ae236
