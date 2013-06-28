@@ -1,25 +1,21 @@
 # Many others Mutt's options
 
+# Status bar
+set status_chars  = " *%A"
+set status_format = "───[ Folder: %f ]───[%r%m messages%?n? (%n new)?%?d? (%d to delete)?%?t? (%t tagged)? ]───%>─%?p?( %p postponed )?───"
+
 # Locale et Charset in utf-8
 set locale=fr_FR.UTF-8
 set charset=utf-8
 set send_charset=utf-8
 
-# Html viewer (because some people don't know how to send mails...)
-alternative_order test/enriched text/plain text/html
-auto_view text/html
-
-# Don't make a distinction between new messages et old unread messages
-set mark_old=no
-
-# Don't move to the next message when I invoke next-page at the end of a message
-set pager_stop
-
-# Print 6 index line at the top of the pager
-set pager_index_lines=6
-
 # Define vim as editor to write messages, because vim is the best editor of all times :)
 set editor="/usr/bin/vim -c 'set textwidth=70' +/^$"
+
+# Query carddav
+set query_command="pc_query -m '%s'"
+bind editor <tab> complete-query
+bind editor ^T complete
 
 # Don't ask me the subject when I reply to a message
 set fast_reply
@@ -34,9 +30,8 @@ set record==Sent
 set postponed==Drafts
 set recall=no
 
-# Don't beep !
 unset beep
-unset beep_new
+set beep_new
 
 # Define certificate file
 set certificate_file=~/.muttrc.d/certificates
