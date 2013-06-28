@@ -258,6 +258,7 @@ if has("autocmd")
   au BufNewFile,BufRead *.cup setlocal ft=java
   au BufNewFile,BufRead *.zsh-theme setlocal ft=zsh
   au BufNewFile,BufRead *.less setlocal filetype=less
+  au BufNewFile,BufRead *.j2 setlocal ft=htmldjango
 
   " Mutt 
   au BufRead /tmp/mutt* set tw=72 formatoptions+=a spell "colorcolumn=72
