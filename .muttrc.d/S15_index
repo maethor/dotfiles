@@ -1,5 +1,9 @@
 # Index format (number of messages in the thread | tags | date/hour | Sender | Subject)
-set index_format="(%2E) [%Z]  %-29.32D  %-25.25L  %s"
+set index_format="(%2E) [%Z]  %D  %-25.25L  %s"
+set date_format="%y/%m/%d %H:%M"
+
+# Don't make a distinction between new messages et old unread messages
+set mark_old=no
 
 # Sorting: Group by thread
 set sort=threads
@@ -11,4 +15,15 @@ set collapse_unread=no
 
 # Sorting: Try by date
 set sort_aux=last-date-received
+
+bind index gg first-entry
+bind index G  last-entry
+bind index <space> collapse-thread
+
+# Unset 'l'
+macro index a "<limit>all\n" "show all messages (undo limit)"
+
+# Saner copy/move dialogs
+macro index C "<copy-message>?<toggle-mailboxes>" "copy a message to a mailbox"
+macro index M "<save-message>?<toggle-mailboxes>" "move a message to a mailbox"
 

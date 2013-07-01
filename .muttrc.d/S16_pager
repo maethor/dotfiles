@@ -1,0 +1,18 @@
+# Don't move to the next message when I invoke next-page at the end of a message
+set pager_stop
+
+# Print 6 index line at the top of the pager
+set pager_index_lines=10
+
+# Html viewer (because some people don't know how to send mails...)
+alternative_order test/enriched text/plain text/html
+auto_view text/html
+
+# scroll in menus
+set menu_scroll
+
+# show tildes like in vim
+set tilde
+
+bind pager gg top
+bind pager G  bottom
