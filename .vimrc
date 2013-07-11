@@ -305,9 +305,6 @@ if has("autocmd")
   " Django variables
   au FileType jinja,htmldjango inoremap <buffer> <c-f> {{<space><space>}}<left><left><left>
 
-  " Mardown
-  au BufNewFile,BufRead *.md set ft=markdown
-
 endif
 
 " Syntastic
