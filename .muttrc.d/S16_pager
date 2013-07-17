@@ -14,5 +14,5 @@ set menu_scroll
 # show tildes like in vim
 set tilde
 
-bind pager gg top
+#bind pager gg top
 bind pager G  bottom

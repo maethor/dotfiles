@@ -18,7 +18,7 @@ color index color211 color233 ~F
 color index color39 color233 ~T
 
 ## header stuff
-color header brightcolor226 color233 "^Subject"
+color header brightcolor226 color233 "^(Subject|From)"
 
 ## misc body stuff
 color attachment color111 color233
@@ -37,18 +37,20 @@ color quoted8 color34 color233
 color quoted9 color142 color233
 
 # Shinken/Nagios alerts
-color index black  brightred  "!~N ~f \"shinken\" ~s \"DOWN\""
-color index black  brightcyan "!~N ~f \"shinken\" ~s \"UNREACHABLE\""
-color index black  green      "!~N ~f \"shinken\" ~s \"UP\""
-color index red    color233    "!~N ~f \"shinken\" ~s \"CRITICAL\""
-color index yellow color233    "!~N ~f \"shinken\" ~s \"WARNING\""
-color index green  color233    "!~N ~f \"shinken\" ~s \"OK\""
+color index black        brightred  "!~N ~f \"shinken\" ~s \"DOWN\""
+color index black        brightred  "!~N ~f \"shinken\" ~s \"par terre\""
+color index black        brightcyan "!~N ~f \"shinken\" ~s \"UNREACHABLE\""
+color index black        green      "!~N ~f \"shinken\" ~s \"UP\""
+color index red          color233   "!~N ~f \"shinken\" ~s \"CRITICAL\""
+color index yellow       color233   "!~N ~f \"shinken\" ~s \"WARNING\""
+color index green        color233   "!~N ~f \"shinken\" ~s \"OK\""
 color index brightblack  brightred  "~N ~f \"shinken\" ~s \"DOWN\""
+color index brightblack  brightred  "~N ~f \"shinken\" ~s \"par terre\""
 color index brightblack  brightcyan "~N ~f \"shinken\" ~s \"UNREACHABLE\""
 color index brightblack  green      "~N ~f \"shinken\" ~s \"UP\""
-color index brightred    color233    "~N ~f \"shinken\" ~s \"CRITICAL\""
-color index brightyellow color233    "~N ~f \"shinken\" ~s \"WARNING\""
-color index brightgreen  color233    "~N ~f \"shinken\" ~s \"OK\""
+color index brightred    color233   "~N ~f \"shinken\" ~s \"CRITICAL\""
+color index brightyellow color233   "~N ~f \"shinken\" ~s \"WARNING\""
+color index brightgreen  color233   "~N ~f \"shinken\" ~s \"OK\""
 
 # Colorize smileys:  :-)  ;-)  :-/  :-(
 color body  brightcolor226 color233 "[;:]-[)/(|]"
