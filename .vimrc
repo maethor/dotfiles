@@ -261,7 +261,7 @@ if has("autocmd")
   au BufNewFile,BufRead *.j2 setlocal ft=htmldjango
 
   " Mutt 
-  au BufRead /tmp/mutt* set tw=72 formatoptions+=a spell "colorcolumn=72
+  au BufRead /tmp/mutt* set tw=72 formatoptions+=a spell colorcolumn=72
   au BufRead /tmp/mutt* let b:textwidth=72
   au BufEnter /tmp/mutt* so ~/.vim/colors/muttcolors.vim
 
@@ -273,8 +273,8 @@ if has("autocmd")
   au FileType gitcommit call setpos('.', [0, 1, 1, 0])
   au FileType git setlocal nomodeline
 
-  " Tex textwidth
-  "autocmd FileType tex setlocal tw=72 formatoptions+=a
+  " Tex
+  au FileType tex setlocal spell
   
   " Vim theme
   au BufWritePost badwolf.vim color badwolf
