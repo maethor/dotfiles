@@ -269,6 +269,10 @@ if has("autocmd")
   au FileType make silent setlocal ts=4 sts=4 sw=4 noexpandtab
   au FileType yaml,tex,html,xhtml,htmldjango,xml,plaintex silent setlocal ts=2 sts=2 sw=2
 
+  " Folding
+  au BufRead .vimrc silent setlocal foldlevel=0
+  au FileType markdown silent setlocal foldlevel=0
+
   " Git: Don't jump to last position, no modeline
   au FileType gitcommit call setpos('.', [0, 1, 1, 0])
   au FileType git setlocal nomodeline

@@ -55,8 +55,7 @@ alias e=$EDITOR
 [[ -x /usr/bin/most ]] && export PAGER="most" && alias more="most" && alias less="most"
 
 # Todo manager
-alias t='python ~/.bin/t/t.py --task-dir ~/Todo --list tasks'
-alias n='python ~/.bin/t/t.py --task-dir ~/Todo --list notes'
+alias t="$EDITOR ~/.todo.md"
 
 # Symfony
 alias sf="php symfony"
