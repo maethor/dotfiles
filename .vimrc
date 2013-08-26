@@ -123,6 +123,9 @@ nnoremap <leader><space> :noh<cr>
 " Don't move on *
 nnoremap * *<c-o>
 
+" Replace personnal email by Sysnove email
+nmap <silent> <leader>p :%s/\(maethor\|guillaume\|baal\)@subiron.org/guillaume@sysnove.fr/g<CR>:%s/\(xals\|alexis\)@lahouze.org/alexis@sysnove.fr/g<CR>
+
 " Configuration {{{1
 
 " Backup
