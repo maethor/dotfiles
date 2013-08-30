@@ -267,7 +267,7 @@ if has("autocmd")
 
   " Indentation
   au FileType make silent setlocal ts=4 sts=4 sw=4 noexpandtab
-  au FileType yaml,tex,html,xhtml,htmldjango,xml,plaintex silent setlocal ts=2 sts=2 sw=2
+  au FileType yaml,tex,html,xhtml,htmldjango,xml,plaintex,bib silent setlocal ts=2 sts=2 sw=2
 
   " Folding
   au BufRead .vimrc silent setlocal foldlevel=0
@@ -314,3 +314,5 @@ endif
 " Syntastic
 let g:syntastic_java_checker = 'checkstyle'
 
+" Markdown
+let g:markdown_fold_style = 'nested'
