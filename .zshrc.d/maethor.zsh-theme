@@ -15,6 +15,9 @@ PROMPT_CHAR='$'
 if [ "$USER" = "root" ]; then
     PR_USER_COLOR=$PR_LIGHT_RED
     PROMPT_CHAR='#'
+elif [ "$SSH_TTY" ]; then
+    PR_USER_COLOR=$PR_LIGHT_CYAN
+    PROMPT_CHAR='#'
 else 
     PR_USER_COLOR=$PR_LIGHT_GREEN
     PROMPT_CHAR='#'
