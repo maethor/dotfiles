@@ -275,6 +275,7 @@ if has("autocmd")
   " Folding
   au BufRead .vimrc silent setlocal foldlevel=0
   au FileType markdown silent setlocal foldlevel=0
+  au FileType conf silent setlocal foldlevel=0
 
   " Git: Don't jump to last position, no modeline
   au FileType gitcommit call setpos('.', [0, 1, 1, 0])
