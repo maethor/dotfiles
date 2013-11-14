@@ -1,0 +1,494 @@
+snippet play
+	- hosts: ${1:group}
+	  user: ${2:root}
+	  tasks:
+
+snippet slurp
+	- name: ${1:task_description}
+	  slurp: src=${2} #
+
+snippet get_url
+	- name: ${1:task_description}
+	  get_url: dest=${2} url=${3} # force=${4:no} use_proxy=${5:yes} others=${6} sha256sum=${7}
+
+snippet uri
+	- name: ${1:task_description}
+	  uri: url=${2} # body=${3} follow_redirects=${4:no} force_basic_auth=${5:no} removes=${6} method=${7:GET} creates=${8} dest=${9} user=${10} timeout=${11:30} status_code=${12:200} return_content=${13:no} password=${14} HEADER_=${15} others=${16}
+
+snippet add_host
+	- name: ${1:task_description}
+	  add_host: name=${2} # groups=${3}
+
+snippet group_by
+	- name: ${1:task_description}
+	  group_by: key=${2} #
+
+snippet ohai
+	- name: ${1:task_description}
+	  ohai: #
+
+snippet seboolean
+	- name: ${1:task_description}
+	  seboolean: state=${2} name=${3} # persistent=${4}
+
+snippet mount
+	- name: ${1:task_description}
+	  mount: src=${2} state=${3} name=${4} fstype=${5} # dump=${6} passno=${7} opts=${8}
+
+snippet service
+	- name: ${1:task_description}
+	  service: name=${2} # state=${3} sleep=${4} runlevel=${5:default} pattern=${6} enabled=${7} arguments=${8}
+
+snippet lvol
+	- name: ${1:task_description}
+	  lvol: lv=${2} vg=${3} # state=${4:present} size=${5}
+
+snippet filesystem
+	- name: ${1:task_description}
+	  filesystem: dev=${2} fstype=${3} # force=${4:no} opts=${5}
+
+snippet facter
+	- name: ${1:task_description}
+	  facter: #
+
+snippet ping
+	- name: ${1:task_description}
+	  ping: #
+
+snippet cron
+	- name: ${1:task_description}
+	  cron: name=${2} # hour=${3:*} job=${4} cron_file=${5} reboot=${6:no} month=${7:*} state=${8:present} user=${9:root} backup=${10} day=${11:*} minute=${12:*} weekday=${13:*}
+
+snippet authorized_key
+	- name: ${1:task_description}
+	  authorized_key: user=${2} key=${3} # path=${4:(homedir)+/.ssh/authorized_keys} state=${5:present} manage_dir=${6:yes}
+
+snippet lvg
+	- name: ${1:task_description}
+	  lvg: vg=${2} # pesize=${3:4} pvs=${4} force=${5:no} state=${6:present}
+
+snippet sysctl
+	- name: ${1:task_description}
+	  sysctl: name=${2} # reload=${3:yes} state=${4:present} sysctl_file=${5:/etc/sysctl.conf} checks=${6:both} value=${7}
+
+snippet group
+	- name: ${1:task_description}
+	  group: name=${2} # state=${3:present} gid=${4} system=${5:no}
+
+snippet selinux
+	- name: ${1:task_description}
+	  selinux: state=${2} # policy=${3} conf=${4:/etc/selinux/config}
+
+snippet zfs
+	- name: ${1:task_description}
+	  zfs: state=${2} name=${3} # setuid=${4} zoned=${5} primarycache=${6} logbias=${7} sync=${8} copies=${9} sharenfs=${10} sharesmb=${11} canmount=${12} mountpoint=${13} casesensitivity=${14} utf8only=${15} xattr=${16} compression=${17} shareiscsi=${18} aclmode=${19} exec=${20} dedup=${21} aclinherit=${22} readonly=${23} recordsize=${24} jailed=${25} secondarycache=${26} refquota=${27} quota=${28} volsize=${29} vscan=${30} reservation=${31} atime=${32} normalization=${33} volblocksize=${34} checksum=${35} devices=${36} nbmand=${37} refreservation=${38} snapdir=${39}
+
+snippet user
+	- name: ${1:task_description}
+	  user: name=${2} # comment=${3} ssh_key_bits=${4:2048} update_password=${5:always} non_unique=${6:no} force=${7:no} ssh_key_type=${8:rsa} ssh_key_passphrase=${9} groups=${10} home=${11} password=${12} generate_ssh_key=${13:no} append=${14} uid=${15} ssh_key_comment=${16:ansible-generated} group=${17} createhome=${18:yes} system=${19:no} remove=${20:no} state=${21:present} ssh_key_file=${22:$HOME/.ssh/id_rsa} login_class=${23} shell=${24}
+
+snippet setup
+	- name: ${1:task_description}
+	  setup: # filter=${2:*} fact_path=${3:/etc/ansible/facts.d}
+
+snippet pause
+	- name: ${1:task_description}
+	  pause: # seconds=${2} minutes=${3} prompt=${4}
+
+snippet fireball
+	- name: ${1:task_description}
+	  fireball: # minutes=${2:30} port=${3:5099}
+
+snippet fail
+	- name: ${1:task_description}
+	  fail: # msg=${2:'Failed as requested from task'}
+
+snippet debug
+	- name: ${1:task_description}
+	  debug: # msg=${2:Hello world!} fail=${3:no}
+
+snippet set_fact
+	- name: ${1:task_description}
+	  set_fact: key_value=${2} #
+
+snippet wait_for
+	- name: ${1:task_description}
+	  wait_for: port=${2} # delay=${3} host=${4:127.0.0.1} timeout=${5:300} state=${6:started}
+
+snippet command
+	- name: ${1:task_description}
+	  command: free_form=${2} # creates=${3} chdir=${4} removes=${5} executable=${6}
+
+snippet raw
+	- name: ${1:task_description}
+	  raw: free_form=${2} # executable=${3}
+
+snippet script
+	- name: ${1:task_description}
+	  script: free_form=${2} #
+
+snippet shell
+	- name: ${1:task_description}
+	  shell: # creates=${2} executable=${3} chdir=${4}
+
+snippet subversion
+	- name: ${1:task_description}
+	  subversion: repo=${2} dest=${3} # username=${4} force=${5:yes} password=${6} revision=${7:HEAD}
+
+snippet bzr
+	- name: ${1:task_description}
+	  bzr: dest=${2} name=${3} # version=${4:head} force=${5:yes}
+
+snippet hg
+	- name: ${1:task_description}
+	  hg: repo=${2} dest=${3} # force=${4:yes} purge=${5:no} revision=${6:default}
+
+snippet git
+	- name: ${1:task_description}
+	  git: repo=${2} dest=${3} # depth=${4} version=${5:HEAD} force=${6:yes} remote=${7:origin} update=${8:yes}
+
+snippet redhat_subscription
+	- name: ${1:task_description}
+	  redhat_subscription: # username=${2} server_hostname=${3:Current value from C(/etc/rhsm/rhsm.conf) is the default} state=${4:present} autosubscribe=${5} activationkey=${6} server_insecure=${7:Current value from C(/etc/rhsm/rhsm.conf) is the default} password=${8} rhsm_baseurl=${9:Current value from C(/etc/rhsm/rhsm.conf) is the default} pool=${10:^$}
+
+snippet apt
+	- name: ${1:task_description}
+	  apt: # upgrade=${2:yes} force=${3:no} purge=${4:no} state=${5:present} update_cache=${6:no} pkg=${7} default_release=${8} cache_valid_time=${9:no} install_recommends=${10:yes}
+
+snippet macports
+	- name: ${1:task_description}
+	  macports: name=${2} # state=${3:present} update_cache=${4:no}
+
+snippet gem
+	- name: ${1:task_description}
+	  gem: state=${2} name=${3} # include_dependencies=${4:yes} version=${5} repository=${6} gem_source=${7}
+
+snippet easy_install
+	- name: ${1:task_description}
+	  easy_install: name=${2} # virtualenv=${3} virtualenv_site_packages=${4:no} virtualenv_command=${5:virtualenv}
+
+snippet yum
+	- name: ${1:task_description}
+	  yum: name=${2} # state=${3:present} disablerepo=${4} enablerepo=${5} list=${6} disable_gpg_check=${7:no} conf_file=${8}
+
+snippet apt_repository
+	- name: ${1:task_description}
+	  apt_repository: repo=${2} # state=${3:present}
+
+snippet svr4pkg
+	- name: ${1:task_description}
+	  svr4pkg: state=${2} name=${3} # src=${4} proxy=${5}
+
+snippet npm
+	- name: ${1:task_description}
+	  npm: # executable=${2} production=${3} name=${4} version=${5} path=${6} global=${7} state=${8:present}
+
+snippet opkg
+	- name: ${1:task_description}
+	  opkg: name=${2} # state=${3:present} update_cache=${4:no}
+
+snippet rhn_channel
+	- name: ${1:task_description}
+	  rhn_channel: sysname=${2} name=${3} url=${4} password=${5} user=${6} # state=${7:present}
+
+snippet pkgng
+	- name: ${1:task_description}
+	  pkgng: name=${2} # cached=${3} state=${4:present} pkgsite=${5}
+
+snippet pip
+	- name: ${1:task_description}
+	  pip: # virtualenv=${2} virtualenv_site_packages=${3:no} virtualenv_command=${4:virtualenv} chdir=${5} requirements=${6} name=${7} use_mirrors=${8:yes} extra_args=${9} state=${10:present} version=${11}
+
+snippet pacman
+	- name: ${1:task_description}
+	  pacman: name=${2} # state=${3} update_cache=${4:no}
+
+snippet zypper
+	- name: ${1:task_description}
+	  zypper: name=${2} # state=${3:present} disable_gpg_check=${4:no}
+
+snippet openbsd_pkg
+	- name: ${1:task_description}
+	  openbsd_pkg: state=${2} name=${3} #
+
+snippet apt_key
+	- name: ${1:task_description}
+	  apt_key: # url=${2:none} state=${3:present} data=${4:none} id=${5:none} file=${6:none}
+
+snippet homebrew
+	- name: ${1:task_description}
+	  homebrew: name=${2} # update_homebrew=${3:no} state=${4:present}
+
+snippet rhn_register
+	- name: ${1:task_description}
+	  rhn_register: # username=${2} channels=${3} state=${4:present} activationkey=${5} password=${6} server_url=${7:Current value of I(serverURL) from C(/etc/sysconfig/rhn/up2date) is the default}
+
+snippet pkgin
+	- name: ${1:task_description}
+	  pkgin: name=${2} # state=${3:present}
+
+snippet mysql_db
+	- name: ${1:task_description}
+	  mysql_db: name=${2} # encoding=${3} login_user=${4} login_host=${5:localhost} login_unix_socket=${6} state=${7:present} login_password=${8} collation=${9} target=${10}
+
+snippet riak
+	- name: ${1:task_description}
+	  riak: # target_node=${2:riak@127.0.0.1} wait_for_service=${3:None} http_conn=${4:127.0.0.1:8098} wait_for_ring=${5} wait_for_handoffs=${6} command=${7} config_dir=${8:/etc/riak}
+
+snippet mysql_user
+	- name: ${1:task_description}
+	  mysql_user: name=${2} # login_user=${3} login_host=${4:localhost} host=${5:localhost} login_unix_socket=${6} state=${7:present} login_password=${8} password=${9} priv=${10}
+
+snippet postgresql_db
+	- name: ${1:task_description}
+	  postgresql_db: name=${2} # encoding=${3} login_user=${4} login_host=${5:localhost} lc_ctype=${6} state=${7:present} template=${8} login_password=${9} owner=${10} lc_collate=${11}
+
+snippet postgresql_privs
+	- name: ${1:task_description}
+	  postgresql_privs: roles=${2} database=${3} # objs=${4} privs=${5} state=${6:present} host=${7} login=${8:postgres} password=${9} type=${10:table} port=${11:5432} grant_option=${12} schema=${13}
+
+snippet mongodb_user
+	- name: ${1:task_description}
+	  mongodb_user: database=${2} user=${3} # login_port=${4:27017} login_user=${5} login_host=${6:localhost} state=${7:present} login_password=${8} password=${9}
+
+snippet postgresql_user
+	- name: ${1:task_description}
+	  postgresql_user: name=${2} password=${3} # login_user=${4:postgres} login_host=${5:localhost} db=${6} state=${7:present} login_password=${8} role_attr_flags=${9} fail_on_user=${10:yes} priv=${11}
+
+snippet osx_say
+	- name: ${1:task_description}
+	  osx_say: msg=${2} # voice=${3}
+
+snippet irc
+	- name: ${1:task_description}
+	  irc: msg=${2} channel=${3} # nick=${4:ansible} passwd=${5} color=${6:black} port=${7:6667} server=${8:localhost}
+
+snippet mail
+	- name: ${1:task_description}
+	  mail: subject=${2} # body=${3:$subject} from=${4:root} to=${5:root} headers=${6} cc=${7} charset=${8:us-ascii} bcc=${9} attach=${10} host=${11:localhost} port=${12:25}
+
+snippet campfire
+	- name: ${1:task_description}
+	  campfire: msg=${2} token=${3} subscription=${4} room=${5} # notify=${6}
+
+snippet jabber
+	- name: ${1:task_description}
+	  jabber: to=${2} user=${3} msg=${4} password=${5} # host=${6} encoding=${7} port=${8:5222}
+
+snippet mqtt
+	- name: ${1:task_description}
+	  mqtt: topic=${2} payload=${3} # username=${4} qos=${5} port=${6:1883} server=${7:localhost} client_id=${8:hostname + pid} retain=${9} password=${10}
+
+snippet hipchat
+	- name: ${1:task_description}
+	  hipchat: msg=${2} token=${3} room=${4} # from=${5:Ansible} color=${6:yellow} msg_format=${7:text} notify=${8:yes}
+
+snippet flowdock
+	- name: ${1:task_description}
+	  flowdock: token=${2} type=${3} msg=${4} # from_name=${5} from_address=${6} tags=${7} external_user_name=${8} project=${9} source=${10} link=${11} reply_to=${12} subject=${13}
+
+snippet quantum_router
+	- name: ${1:task_description}
+	  quantum_router: login_tenant_name=${2:yes} login_password=${3:yes} login_username=${4:admin} name=${5:None} # region_name=${6:None} admin_state_up=${7:True} tenant_name=${8:None} state=${9:present} auth_url=${10:http://127.0.0.1:35357/v2.0/}
+
+snippet glance_image
+	- name: ${1:task_description}
+	  glance_image: login_password=${2:yes} login_username=${3:admin} name=${4:None} login_tenant_name=${5:yes} # region_name=${6:None} container_format=${7:bare} min_ram=${8:None} owner=${9:None} auth_url=${10:http://127.0.0.1:35357/v2.0/} file=${11:None} min_disk=${12:None} is_public=${13:yes} disk_format=${14:qcow2} copy_from=${15:None} state=${16:present} timeout=${17:180}
+
+snippet digital_ocean
+	- name: ${1:task_description}
+	  digital_ocean: # region_id=${2} name=${3} size_id=${4} id=${5} image_id=${6} state=${7:present} wait_timeout=${8:300} command=${9:droplet} ssh_key_ids=${10} client_id=${11} api_key=${12} ssh_pub_key=${13} wait=${14:yes}
+
+snippet quantum_router_gateway
+	- name: ${1:task_description}
+	  quantum_router_gateway: router_name=${2:None} login_tenant_name=${3:yes} login_password=${4:yes} login_username=${5:admin} network_name=${6:None} # region_name=${7:None} state=${8:present} auth_url=${9:http://127.0.0.1:35357/v2.0/}
+
+snippet ec2_facts
+	- name: ${1:task_description}
+	  ec2_facts: #
+
+snippet quantum_floating_ip
+	- name: ${1:task_description}
+	  quantum_floating_ip: instance_name=${2:None} login_tenant_name=${3:yes} login_password=${4:yes} login_username=${5:admin} network_name=${6:None} # region_name=${7:None} state=${8:present} auth_url=${9:http://127.0.0.1:35357/v2.0/}
+
+snippet quantum_network
+	- name: ${1:task_description}
+	  quantum_network: login_tenant_name=${2:yes} login_password=${3:yes} login_username=${4:admin} name=${5:None} # region_name=${6:None} admin_state_up=${7:True} router_external=${8} provider_physical_network=${9:None} state=${10:present} auth_url=${11:http://127.0.0.1:35357/v2.0/} shared=${12} network_type=${13:local} provider_segmentation_id=${14:None}
+
+snippet cloudformation
+	- name: ${1:task_description}
+	  cloudformation: state=${2} template=${3} stack_name=${4} region=${5} template_parameters=${6} # disable_rollback=${7:no}
+
+snippet nova_keypair
+	- name: ${1:task_description}
+	  nova_keypair: login_tenant_name=${2:yes} login_password=${3:yes} login_username=${4:admin} name=${5:None} # public_key=${6:None} region_name=${7:None} state=${8:present} auth_url=${9:http://127.0.0.1:35357/v2.0/}
+
+snippet keystone_user
+	- name: ${1:task_description}
+	  keystone_user: # endpoint=${2:http://127.0.0.1:35357/v2.0/} description=${3:None} login_user=${4:admin} token=${5:None} state=${6:present} role=${7:None} user=${8:None} login_password=${9:yes} password=${10:None} email=${11:None} tenant=${12:None}
+
+snippet rax
+	- name: ${1:task_description}
+	  rax: # files=${2} name=${3} service=${4:cloudservers} key_name=${5} image=${6} creds_file=${7} state=${8:present} meta=${9} flavor=${10} region=${11} wait_timeout=${12:300} wait=${13:no}
+
+snippet ec2
+	- name: ${1:task_description}
+	  ec2: key_name=${2} image=${3} instance_type=${4} # ramdisk=${5} kernel=${6} vpc_subnet_id=${7} user_data=${8} instance_ids=${9} wait_timeout=${10:300} private_ip=${11} ec2_url=${12} ec2_access_key=${13} ec2_secret_key=${14} id=${15} wait=${16:no} count=${17:1} group=${18} monitor=${19} zone=${20} region=${21} state=${22:present} placement_group=${23} instance_tags=${24} group_id=${25}
+
+snippet s3
+	- name: ${1:task_description}
+	  s3: bucket=${2} # state=${3} dest=${4} path=${5} overwrite=${6} expiry=${7:600}
+
+snippet ec2_vol
+	- name: ${1:task_description}
+	  ec2_vol: volume_size=${2} # instance=${3} region=${4} zone=${5} device_name=${6}
+
+snippet virt
+	- name: ${1:task_description}
+	  virt: name=${2} # xml=${3} state=${4:no} command=${5} uri=${6}
+
+snippet ec2_elb
+	- name: ${1:task_description}
+	  ec2_elb: instance_id=${2} state=${3} # ec2_access_key=${4:None} ec2_secret_key=${5:None} ec2_elbs=${6:None}
+
+snippet linode
+	- name: ${1:task_description}
+	  linode: # datacenter=${2} swap=${3:512} api_key=${4} name=${5} payment_term=${6:1} linode_id=${7} state=${8:present} wait_timeout=${9:300} plan=${10} distribution=${11} password=${12} ssh_pub_key=${13} wait=${14:no}
+
+snippet nova_compute
+	- name: ${1:task_description}
+	  nova_compute: login_tenant_name=${2:yes} login_password=${3:yes} name=${4:None} image_id=${5:None} login_username=${6:admin} # region_name=${7:None} key_name=${8:None} state=${9:present} meta=${10:None} auth_url=${11:http://127.0.0.1:35357/v2.0/} flavor_id=${12:1} nics=${13:None} wait_for=${14:180} security_groups=${15:None} wait=${16:yes}
+
+snippet quantum_floating_ip_associate
+	- name: ${1:task_description}
+	  quantum_floating_ip_associate: instance_name=${2:None} login_tenant_name=${3:True} login_password=${4:yes} login_username=${5:admin} ip_address=${6:None} # region_name=${7:None} state=${8:present} auth_url=${9:http://127.0.0.1:35357/v2.0/}
+
+snippet quantum_router_interface
+	- name: ${1:task_description}
+	  quantum_router_interface: login_tenant_name=${2:yes} login_password=${3:yes} login_username=${4:admin} subnet_name=${5:None} router_name=${6:None} # region_name=${7:None} tenant_name=${8:None} state=${9:present} auth_url=${10:http://127.0.0.1:35357/v2.0/}
+
+snippet rds
+	- name: ${1:task_description}
+	  rds: ec2_region=${2} instance_name=${3} command=${4} # username=${5} db_engine=${6} iops=${7} backup_window=${8} license_model=${9} ec2_access_key=${10} backup_retention=${11} password=${12} port=${13} security_groups=${14} size=${15} subnet=${16} upgrade=${17} zone=${18} wait_timeout=${19:300} option_group=${20} source_instance=${21} engine_version=${22} parameter_group=${23} instance_type=${24} db_name=${25} snapshot=${26} apply_immediately=${27} ec2_secret_key=${28} multi_zone=${29} wait=${30:no} maint_window=${31}
+
+snippet quantum_subnet
+	- name: ${1:task_description}
+	  quantum_subnet: login_tenant_name=${2:True} login_password=${3:True} login_username=${4:admin} cidr=${5:None} network_name=${6:None} # region_name=${7:None} enable_dhcp=${8:True} tenant_name=${9:None} state=${10:present} allocation_pool_start=${11:None} auth_url=${12:http://127.0.0.1:35357/v2.0/} gateway_ip=${13:None} ip_version=${14:4} allocation_pool_end=${15:None}
+
+snippet datadog_event
+	- name: ${1:task_description}
+	  datadog_event: text=${2} title=${3} api_key=${4} # date_happened=${5:now} alert_type=${6:info} tags=${7} priority=${8:normal} aggregation_key=${9} source_type_name=${10}
+
+snippet pingdom
+	- name: ${1:task_description}
+	  pingdom: checkid=${2} passwd=${3} state=${4} uid=${5} key=${6} #
+
+snippet pagerduty
+	- name: ${1:task_description}
+	  pagerduty: state=${2} name=${3} passwd=${4} user=${5} # hours=${6:1} service=${7} desc=${8:Created by Ansible}
+
+snippet nagios
+	- name: ${1:task_description}
+	  nagios: action=${2} command=${3} services=${4} # host=${5} author=${6:Ansible} minutes=${7:30} cmdfile=${8:auto-detected}
+
+snippet airbrake_deployment
+	- name: ${1:task_description}
+	  airbrake_deployment: environment=${2} token=${3} # repo=${4} user=${5} revision=${6}
+
+snippet monit
+	- name: ${1:task_description}
+	  monit: state=${2} name=${3} #
+
+snippet newrelic_deployment
+	- name: ${1:task_description}
+	  newrelic_deployment: token=${2} # application_id=${3} description=${4} changelog=${5} appname=${6} environment=${7} user=${8} revision=${9} app_name=${10}
+
+snippet arista_lag
+	- name: ${1:task_description}
+	  arista_lag: interface_id=${2} # lacp=${3:active} state=${4:present} minimum_links=${5} logging=${6} links=${7}
+
+snippet arista_vlan
+	- name: ${1:task_description}
+	  arista_vlan: vlan_id=${2} # state=${3:present} logging=${4} name=${5}
+
+snippet arista_l2interface
+	- name: ${1:task_description}
+	  arista_l2interface: interface_id=${2} # state=${3:present} logging=${4} tagged_vlans=${5} vlan_tagging=${6:True} untagged_vlan=${7:default}
+
+snippet arista_interface
+	- name: ${1:task_description}
+	  arista_interface: interface_id=${2} # duplex=${3:auto} logging=${4} description=${5} admin=${6} speed=${7:auto} mtu=${8:1500}
+
+snippet bigip_pool
+	- name: ${1:task_description}
+	  bigip_pool: name=${2} server=${3} host=${4} user=${5} password=${6} port=${7} # partition=${8:Common} state=${9:present}
+
+snippet netscaler
+	- name: ${1:task_description}
+	  netscaler: password=${2} name=${3:hostname} nsc_host=${4} user=${5} # action=${6:disable} nsc_protocol=${7:https} type=${8:server}
+
+
+snippet async_status
+	- name: ${1:task_description}
+	  async_status: jid=${2} # mode=${3:status}
+
+snippet htpasswd
+	- name: ${1:task_description}
+	  htpasswd: path=${2} name=${3} # state=${4:present} password=${5} create=${6:yes}
+
+snippet django_manage
+	- name: ${1:task_description}
+	  django_manage: app_path=${2} command=${3} # virtualenv=${4} settings=${5} pythonpath=${6} database=${7} apps=${8} cache_table=${9} merge=${10} skip=${11} link=${12} fixtures=${13} failfast=${14:no}
+
+snippet supervisorctl
+	- name: ${1:task_description}
+	  supervisorctl: state=${2} name=${3} #
+
+snippet rabbitmq_parameter
+	- name: ${1:task_description}
+	  rabbitmq_parameter: name=${2} component=${3} # node=${4:rabbit} vhost=${5:/} state=${6:present} value=${7}
+
+snippet rabbitmq_user
+	- name: ${1:task_description}
+	  rabbitmq_user: user=${2} # node=${3:rabbit} force=${4:no} tags=${5} read_priv=${6:^$} write_priv=${7:^$} state=${8:present} configure_priv=${9:^$} vhost=${10:/} password=${11}
+
+snippet rabbitmq_plugin
+	- name: ${1:task_description}
+	  rabbitmq_plugin: names=${2} # state=${3:enabled} new_only=${4:no}
+
+snippet rabbitmq_vhost
+	- name: ${1:task_description}
+	  rabbitmq_vhost: name=${2} # node=${3:rabbit} tracing=${4:no} state=${5:present}
+
+snippet fetch
+	- name: ${1:task_description}
+	  fetch: dest=${2} src=${3} # fail_on_missing=${4:no} flat=${5}
+
+snippet template
+	- name: ${1:task_description}
+	  template: dest=${2} src=${3} # validate=${4} backup=${5:no} others=${6}
+
+snippet stat
+	- name: ${1:task_description}
+	  stat: path=${2} #
+
+snippet ini_file
+	- name: ${1:task_description}
+	  ini_file: dest=${2} section=${3} # option=${4} others=${5} backup=${6:no} value=${7}
+
+snippet lineinfile
+	- name: ${1:task_description}
+	  lineinfile: dest=${2} regexp=${3} # insertbefore=${4} create=${5:no} backrefs=${6:no} state=${7:present} others=${8} insertafter=${9:EOF} line=${10} backup=${11:no}
+
+snippet assemble
+	- name: ${1:task_description}
+	  assemble: dest=${2} src=${3} # backup=${4:no} others=${5}
+
+snippet file
+	- name: ${1:task_description}
+	  file: path=${2} # src=${3} force=${4:no} selevel=${5:s0} seuser=${6} recurse=${7:no} state=${8:file} serole=${9} mode=${10} context=${11} owner=${12} group=${13} setype=${14}
+
+snippet copy
+	- name: ${1:task_description}
+	  copy: dest=${2} # content=${3} src=${4} force=${5:yes} others=${6} validate=${7} backup=${8:no}
+
