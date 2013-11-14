@@ -9,14 +9,6 @@ color status brightcolor39 color233
 color sidebar_new color226 color233
 color hdrdefault color248 color233
 
-# Index colors
-color tree color244 color233
-color indicator color232 color154
-color index color226 color233 ~N
-color index color124 color233 ~D
-color index color211 color233 ~F
-color index color39 color233 ~T
-
 ## header stuff
 color header brightcolor226 color233 "^(Subject|From)"
 
@@ -36,6 +28,25 @@ color quoted7 color142 color233
 color quoted8 color34 color233
 color quoted9 color142 color233
 
+# Colorize smileys:  :-)  ;-)  :-/  :-(
+color body  brightcolor226 color233 "[;:]-[)/(|]"
+color body  brightcolor226 color233 "[;:][)/(|]"
+
+# URL & Mail
+color body color68 color233 [-a-z_0-9.]+@[-a-z_0-9.]+   # picks up email adress
+color body color111 color233 "[[:alpha:]]\+://[^ ]*"  # picks up URLs
+
+## patches
+color body brightred color233 "^-.*"
+color body green color233 "^[+].*"
+color body brightwhite color233 "^diff .*"
+color body brightyellow color233 "^@@.*"
+
+# Index colors
+color tree color244 color233
+color indicator color232 color154
+color index color226 color233 ~N
+
 # Shinken/Nagios alerts
 color index black        brightred  "!~N ~f \"shinken\" ~s \"DOWN\""
 color index black        brightred  "!~N ~f \"shinken\" ~s \"par terre\""
@@ -52,16 +63,8 @@ color index brightred    color233   "~N ~f \"shinken\" ~s \"CRITICAL\""
 color index brightyellow color233   "~N ~f \"shinken\" ~s \"WARNING\""
 color index brightgreen  color233   "~N ~f \"shinken\" ~s \"OK\""
 
-# Colorize smileys:  :-)  ;-)  :-/  :-(
-color body  brightcolor226 color233 "[;:]-[)/(|]"
-color body  brightcolor226 color233 "[;:][)/(|]"
+# Index colors
+color index color124 color233 ~D
+color index color211 color233 ~F
+color index color39 color233 ~T
 
-# URL & Mail
-color body color68 color233 [-a-z_0-9.]+@[-a-z_0-9.]+   # picks up email adress
-color body color111 color233 "[[:alpha:]]\+://[^ ]*"  # picks up URLs
-
-## patches
-color body brightred color233 "^-.*"
-color body green color233 "^[+].*"
-color body brightwhite color233 "^diff .*"
-color body brightyellow color233 "^@@.*"
