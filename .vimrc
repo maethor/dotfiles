@@ -126,6 +126,14 @@ nnoremap * *<c-o>
 " Replace personnal email by Sysnove email
 nmap <silent> <leader>p :%s/\(maethor\\|guillaume\\|baal\)@subiron.org/guillaume@sysnove.fr/g<CR>:%s/\(xals\\|alexis\)@lahouze.org/alexis@sysnove.fr/g<CR>
 
+" Tabular
+"if exists(":Tabularize")
+  nmap <leader>a= :Tabularize /=<CR>
+  vmap <leader>a= :Tabularize /=<CR>
+  nmap <leader>a: :Tabularize /:\zs<CR>
+  vmap <leader>a: :Tabularize /:\zs<CR>
+"endif
+
 " Configuration {{{1
 
 " Backup
@@ -274,7 +282,7 @@ if has("autocmd")
 
   " Folding
   au BufRead .vimrc silent setlocal foldlevel=0
-  au FileType markdown silent setlocal foldlevel=0
+  au FileType markdown silent setlocal foldlevel=1
   au FileType conf silent setlocal foldlevel=0
 
   " Git: Don't jump to last position, no modeline
