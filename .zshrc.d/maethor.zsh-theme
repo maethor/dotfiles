@@ -1,10 +1,19 @@
 # maethor zsh theme 
 
+export VIRTUAL_ENV_DISABLE_PROMPT=1
+
 for color in RED GREEN YELLOW BLUE MAGENTA CYAN WHITE; do
     eval PR_LIGHT_$color='%{$terminfo[bold]$fg[${(L)color}]%}'
     eval PR_$color='%{$fg[${(L)color}]%}'
     (( count = $count +1 ))
 done
+
+function virtual_env_name() {
+    if (($+VIRTUAL_ENV)); then
+        VIRTUAL_ENV_SHORTNAME=$(basename $VIRTUAL_ENV)
+        echo "$PR_LIGHT_BLUE─(venv:$PR_LIGHT_CYAN$VIRTUAL_ENV_SHORTNAME$PR_LIGHT_BLUE)"
+    fi
+}
 
 PR_NO_COLOR="%{$terminfo[sgr0]%}"
 
@@ -37,6 +46,7 @@ $PR_LIGHT_YELLOW$PR_OS_PTY\
 $PR_LIGHT_BLUE)─(\
 $PR_LIGHT_MAGENTA%(!.%d.%~)\
 $PR_LIGHT_BLUE)\
+$(virtual_env_name)\
 
 $PR_LIGHT_BLUE└\
 %1(j.{${PR_LIGHT_YELLOW}jobs\
