@@ -1,0 +1,5 @@
+set hostname="subiron.org"
+set envelope_from_address="maethor@subiron.org"
+set from="maethor@subiron.org"
+
+set signature="~/.muttrc.d/profiles/maethor@subiron.org.signature"

@@ -1,16 +1,14 @@
 # All identity variables
-set hostname="subiron.org"
 set realname ="Guillaume Subiron"
 set use_envelope_from
-set envelope_from_address="maethor@subiron.org"
-set from="maethor@subiron.org"
 set reply_self=yes
 alternates "maethor@subiron.org|guillaume@subiron.org|baal@subiron.org|gsubiron@gmail.com|guillaume@sysnove.fr|contact@sysnove.fr"
 set reverse_name # use my address as it appears in the message
 set reverse_realname = no
 
-# Hooks
-#send-hook membres@ffdn.org my_hdr From: Guillaume Subiron <bureau@aquilenet.fr> # Fonctionne, mais change aussi l'adresse pour les futurs messages.
+# Default profile
+folder-hook . 'source ~/.muttrc.d/profiles/maethor@subiron.org'
 
-# Include signature
-set signature=~/.signature
+# Other profiles
+folder-hook /sysnove$ 'source ~/.muttrc.d/profiles/guillaume@sysnove.fr'
+folder-hook /guillaume$ 'source ~/.muttrc.d/profiles/guillaume@subiron.org'
