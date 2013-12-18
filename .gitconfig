@@ -1,7 +1,7 @@
 [user]
 	name = Guillaume Subiron
 	email = maethor@subiron.org
-	signingkey = C7C4455C
+	signingkey = 5BC2EADB
 	signingkey = maethor@subiron.org
 [alias]
 	graph = log --graph --simplify-by-decoration --pretty=format:'%d' --all
