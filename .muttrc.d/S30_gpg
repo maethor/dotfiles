@@ -5,7 +5,7 @@ set pgp_replysign
 set pgp_replyencrypt
 set pgp_replysignencrypted
 set pgp_verify_sig=yes
-set pgp_encryptself
+#set pgp_encryptself # Doesn't seems to work
 
 send-hook . 'reset pgp_autoencrypt'
 #send-hook "!~l ~t onemail@example\\.org" "set crypt_autoencrypt crypt_autosign"

@@ -1,6 +1,7 @@
 # Remove old messages in some folders
 
 folder-hook /srv.aqln.shinken$ 'push <delete-pattern>~r>1m!~F<enter>'
-folder-hook /srv.subiron 'push <delete-pattern>~r>1y!~F<enter>'
+folder-hook /srv.subiron 'push <delete-pattern>~r>3m!~F<enter>'
 folder-hook /newsletters.misc$ 'push <delete-pattern>~r>6m!~F<enter>'
 folder-hook /srv.sysnove.shinken$ 'push <delete-pattern>(~r>1y!~F)|(~sWARNING~r>3m!~F)|(~sPackages~r>1w!~F)<enter>'
+folder-hook /srv.subiron 'push <delete-pattern>~s"Debian.package.update"~r>1m!~F<enter>'
