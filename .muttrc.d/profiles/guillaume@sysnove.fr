@@ -3,3 +3,5 @@ set envelope_from_address="guillaume@sysnove.fr"
 set from="guillaume@sysnove.fr"
 
 set signature="~/.muttrc.d/profiles/guillaume@sysnove.fr.signature"
+
+set attribution="Le %d, %n a écrit :"

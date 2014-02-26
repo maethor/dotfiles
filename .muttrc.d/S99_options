@@ -21,7 +21,6 @@ bind editor ^T complete
 set fast_reply
 # Always include the original message in a reply and set a funny intro
 set include=yes
-set attribution="Le %d, %n claviotta :"
 
 # Keep a copy of the message sent
 set copy=yes

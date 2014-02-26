@@ -1,6 +1,11 @@
 # Remove old messages in some folders
 
 folder-hook /srv.aqln.shinken$ 'push <delete-pattern>~r>1m!~F<enter>'
-folder-hook /srv.subiron 'push <delete-pattern>~r>1y!~F<enter>'
+folder-hook /lst.aqln.sysop$ 'push <delete-pattern>~r>3m!~F<enter>'
+folder-hook /srv.subiron 'push <delete-pattern>~r>3m!~F<enter>'
 folder-hook /newsletters.misc$ 'push <delete-pattern>~r>6m!~F<enter>'
-folder-hook /srv.sysnove.shinken$ 'push <delete-pattern>(~r>1y!~F)|(~sWARNING~r>3m!~F)|(~sPackages~r>1w!~F)<enter>'
+folder-hook /srv.sysnove.shinken$ 'push <delete-pattern>(~r>3m!~F)|(~sWARNING~r>2w!~F)|(~sPackages~r>1w!~F)<enter>'
+folder-hook /srv.subiron 'push <delete-pattern>~s"Debian.package.update"~r>1m!~F<enter>'
+
+folder-hook /lst.aqln.admin$ 'push <delete-pattern>(~r>1m!~F)((~s"Information.:.subscribe.liste")|(~s"Information.:.signoff.liste")|(~s"Nouvelle.s..version.s.")|(~s"BANNED.contents")|(~s"backupninja:.*FAILED")|(~s"backupninja:.*WARNING")|(~s"Logwatch.for")|(~s"Cron.*report"))<enter>'
+folder-hook /lst.ffdn.adminsys 'push <delete-pattern>(~sCRITICAL~r>3m!~F)|(~sWARNING~r>2w!~F)|(~sPackages~r>1w!~F)<enter>'
