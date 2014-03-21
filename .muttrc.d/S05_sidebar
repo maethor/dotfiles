@@ -4,6 +4,9 @@ set sidebar_visible=yes
 set sidebar_delim=' │'
 set sidebar_sort=no
 
+#set sidebar_shortindent=true
+set sidebar_delim_chars='/'
+
 # Mutt sidebar shortcuts
 # ^C+P : Select the previous box
 bind index,pager \CP sidebar-prev
