@@ -5,6 +5,7 @@ set pgp_replysign
 set pgp_replyencrypt
 set pgp_replysignencrypted
 set pgp_verify_sig=yes
+set pgp_sign_as = 5BC2EADB
 #set pgp_encryptself # Doesn't seems to work
 
 send-hook . 'reset pgp_autoencrypt'
