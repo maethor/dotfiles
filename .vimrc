@@ -292,6 +292,9 @@ if has("autocmd")
 
   " Tex
   au FileType tex setlocal spell
+
+  " Markdown
+  au FileType markdown setlocal spell
   
   " Vim theme
   au BufWritePost badwolf.vim color badwolf
