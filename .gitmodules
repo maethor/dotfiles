@@ -76,3 +76,6 @@
 [submodule ".vim/bundle/vim-exchange"]
 	path = .vim/bundle/vim-exchange
 	url = https://github.com/tommcdo/vim-exchange.git
+[submodule ".vim/bundle/ultisnip"]
+	path = .vim/bundle/ultisnip
+	url = https://github.com/SirVer/ultisnips.git
