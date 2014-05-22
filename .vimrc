@@ -134,6 +134,12 @@ nmap <silent> <leader>p :%s/\(maethor\\|guillaume\\|baal\)@subiron.org/guillaume
   vmap <leader>a: :Tabularize /:\zs<CR>
 "endif
 
+" UltiSnip
+
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+
 " Configuration {{{1
 
 " Backup
@@ -204,7 +210,7 @@ endif
 let g:yankring_history_file = '.yankring_history'
 
 " Formatting {{{2
-
+ 
 " Indentation
 set autoindent		" Always set autoindenting on
 filetype plugin indent on
@@ -222,7 +228,7 @@ endif
 " Soft wrapping
 set wrap linebreak nolist
 set showbreak=…
-
+ 
 " Style {{{1
 
 " Theme
