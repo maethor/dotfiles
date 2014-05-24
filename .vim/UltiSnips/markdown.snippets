@@ -1,5 +1,33 @@
 priority -50
 
+snippet fmatter "Front matter"
+---
+title: $1
+created: !!timestamp '${2:`date +%Y-%m-%d\ %H:%M:00`}'
+image: /media/img/blog/${3:python.png}
+author: ${4:`g:nickname`}
+tags:
+  - $5
+---
+
+$0
+endsnippet
+
+snippet intro "Description"
+{% block excerpt %}
+{% mark excerpt %}
+$0
+{% endmark %}
+{% endblock %}
+endsnippet
+
+snippet syntax
+{% syntax ${1:shell} %}
+${0:code_snippet}
+{% syntax %}
+endsnippet
+
+
 ###########################
 # Sections and Paragraphs #
 ###########################

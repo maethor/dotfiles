@@ -139,6 +139,7 @@ nmap <silent> <leader>p :%s/\(maethor\\|guillaume\\|baal\)@subiron.org/guillaume
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+let g:UltiSnipsEditSplit="horizontal"
 
 " Configuration {{{1
 
@@ -330,6 +331,9 @@ if has("autocmd")
 
   " Django variables
   au FileType jinja,htmldjango inoremap <buffer> <c-f> {{<space><space>}}<left><left><left>
+
+  " Python
+  call matchadd('ColorColumn', '\%80v', 100)
 
 endif
 
