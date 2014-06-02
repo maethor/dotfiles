@@ -141,6 +141,10 @@ let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 let g:UltiSnipsEditSplit="horizontal"
 
+" Hardmode
+let g:HardMode_level='wannabe'
+nnoremap <leader>h <Esc>:call ToggleHardMode()<CR>
+
 " Configuration {{{1
 
 " Backup
