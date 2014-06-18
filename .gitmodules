@@ -49,9 +49,6 @@
 [submodule ".vim/bundle/csssyntax"]
 	path = .vim/bundle/csssyntax
 	url = https://github.com/ChrisYip/Better-CSS-Syntax-for-Vim.git
-[submodule ".urxvt/perl/ulhume"]
-	path = .urxvt/perl/ulhume
-	url = https://github.com/yoran-brault/urxvt-plugins.git
 [submodule ".bin/nginx_ensite-repo"]
 	path = .bin/nginx_ensite-repo
 	url = https://github.com/perusio/nginx_ensite
