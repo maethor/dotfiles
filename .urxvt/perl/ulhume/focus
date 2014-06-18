@@ -1,0 +1,28 @@
+#!/usr/bin/perl
+
+my %focus_activated = ();
+
+sub on_start {
+  my($term) = @_;
+  $term->{manage_focus} = 0;
+}
+sub on_focus_in {
+  my($term) = @_;
+  if ($term->{manage_focus}) {
+    $term->tt_write("\033[UlFocusIn");
+  }
+}
+
+sub on_focus_out {
+  my($term) = @_;
+  if ($term->{manage_focus}) {
+    $term->tt_write("\033[UlFocusOut");
+  }
+}
+
+sub on_osc_seq_perl {
+  my ($term, $osc, $resp) = @_;
+  return unless $osc =~ s/^managed;//;
+  $term->{manage_focus} = $osc eq 'on'?1:0;
+  #print "Focus en mode managé : ".$term->{manage_focus}."\n";
+}
