@@ -107,4 +107,18 @@ endsnippet
 snippet lp "Long parenthesis"
 \left(${1:${VISUAL:contents}}\right)$0
 endsnippet
+
+snippet frame "Frame" b
+\begin{frame}{$1}
+	$0
+\end{frame}
+endsnippet
+
+snippet todo "Todo" b
+\todo{TODO: $1} % :TODO:`!v g:nickname`:`date +%y%m%d`:$1
+endsnippet
+
+snippet comment "Comment" b
+\todo{COMMENT: $1} % :COMMENT:`!v g:nickname`:`date +%y%m%d`:$1
+endsnippet
 # vim:ft=snippets:
