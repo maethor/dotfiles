@@ -11,4 +11,6 @@ folder-hook . 'source ~/.muttrc.d/profiles/maethor@subiron.org'
 
 # Other profiles
 folder-hook /sysnove$ 'source ~/.muttrc.d/profiles/guillaume@sysnove.fr'
+folder-hook /sysnove.support$ 'source ~/.muttrc.d/profiles/guillaume@sysnove.fr'
+folder-hook /sysnove.compta$ 'source ~/.muttrc.d/profiles/guillaume@sysnove.fr'
 folder-hook /guillaume$ 'source ~/.muttrc.d/profiles/guillaume@subiron.org'

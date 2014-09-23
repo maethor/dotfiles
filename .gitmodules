@@ -37,9 +37,6 @@
 [submodule ".vim/bundle/YankRing"]
 	path = .vim/bundle/YankRing
 	url = https://github.com/vim-scripts/YankRing.vim.git
-[submodule ".vim/bundle/powerline"]
-	path = .vim/bundle/powerline
-	url = https://github.com/Lokaltog/vim-powerline.git
 [submodule ".vim/bundle/badwolf"]
 	path = .vim/bundle/badwolf
 	url = https://github.com/sjl/badwolf
