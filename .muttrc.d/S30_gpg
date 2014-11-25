@@ -8,7 +8,7 @@ set pgp_verify_sig=yes
 set pgp_sign_as = 5BC2EADB
 #set pgp_encryptself # Doesn't seems to work
 
-send-hook . 'reset pgp_autoencrypt'
+send-hook . 'unset pgp_autoencrypt'
 #send-hook "!~l ~t onemail@example\\.org" "set crypt_autoencrypt crypt_autosign"
 
 source ~/.muttrc.d/gpg-recipients
