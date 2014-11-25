@@ -79,7 +79,7 @@ if exists("+spelllang")
   nmap <silent> <leader>s = :set spell!<CR>
   nmap <leader>ss :set nospell<CR>
   nmap <leader>se :set spell spelllang=en<CR>
-  nmap <leader>sf :set spell spelllang=fr_FR<CR>
+  nmap <leader>sf :set spell spelllang=fr<CR>
 endif
 
 " Show syntax highlighting groups for word under cursor
@@ -201,7 +201,7 @@ endif
 
 " Spell checking
 if exists("+spelllang")
-  set spelllang=fr_fr
+  set spelllang=fr
 endif
 set dictionary+=/usr/share/dict/words
 
@@ -266,8 +266,15 @@ set showmode
 " Airline
 
 let g:airline#extensions#tabline#enabled = 1
-let g:airline_left_sep=''
-let g:airline_right_sep=''
+"let g:airline_left_sep=''
+"let g:airline_right_sep=''
+let g:airline_theme="badwolf"
+let g:airline_theme="powerlineish"
+let g:airline_powerline_fonts = 1
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+let g:airline_symbols.space = "\ua0"
 
 " Filetype-specific {{{1
 
