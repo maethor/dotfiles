@@ -293,8 +293,14 @@ if has("autocmd")
   au BufNewFile,BufRead *.cup setlocal ft=java
   au BufNewFile,BufRead *.zsh-theme setlocal ft=zsh
   au BufNewFile,BufRead *.less setlocal filetype=less
-  au BufNewFile,BufRead *.j2 setlocal ft=htmldjango
+  "au BufNewFile,BufRead *.j2 setlocal ft=htmldjango
   au BufNewFile,BufRead sieve setlocal ft=sieve
+
+  " Jinja
+  autocmd BufNewFile,BufReadPost *.j2 execute ':doautoall BufReadPost ' . expand('%:r')
+  autocmd BufNewFile,BufReadPost *.j2 call SyntaxRange#Include('{%', '%}', 'jinja') " Statements
+  autocmd BufNewFile,BufReadPost *.j2 call SyntaxRange#Include('{{', '}}', 'jinja') " Variables
+  autocmd BufNewFile,BufReadPost *.j2 call SyntaxRange#Include('{#', '#}', 'jinja') " Comments
 
   " Mutt 
   au BufRead /tmp/mutt* set tw=72 formatoptions+=a spell colorcolumn=72
