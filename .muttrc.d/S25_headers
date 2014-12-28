@@ -7,9 +7,9 @@ set edit_headers=yes
 
 # Don't print all header's lines
 ignore *
-unignore From To Cc Reply-To List-Id Date Subject # Date Reply-To X-Mailer User-Agent X-Approved-By List-Id 
+unignore From To Cc Reply-To List-Id X-Spam-Score Date Subject # Date Reply-To X-Mailer User-Agent X-Approved-By List-Id 
 #unignore X-Spam-Status #X-Greylist
 
 # Define order
 unhdr_order *
-hdr_order From To Cc Reply-To List-Id Date Subject # Date Reply-To X-Mailer User-Agent X-Approved-By List-Id 
+hdr_order From To Cc Reply-To List-Id X-Spam-Score Date Subject # Date Reply-To X-Mailer User-Agent X-Approved-By List-Id 
