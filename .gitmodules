@@ -79,3 +79,6 @@
 [submodule ".vim/bundle/SyntaxRange"]
 	path = .vim/bundle/SyntaxRange
 	url = https://github.com/vim-scripts/SyntaxRange
+[submodule ".vim/bundle/vim-nginx"]
+	path = .vim/bundle/vim-nginx
+	url = https://github.com/fatih/vim-nginx
