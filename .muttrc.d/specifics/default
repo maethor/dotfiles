@@ -1,0 +1,15 @@
+set smtp_url="smtp://guillaume@subiron.org@smtp.sysnove.fr:587/"
+
+# Mys default imaps folder on subiron.org
+set folder=imaps://imap.sysnove.fr/
+set spoolfile=imaps://imap.sysnove.fr/maethor
+set imap_user=guillaume@subiron.org
+set imap_pass = '##############'
+
+mailboxes !
+
+set record==Sent
+set postponed==Drafts
+
+# Check boxes every 90 seconds
+set mail_check=90

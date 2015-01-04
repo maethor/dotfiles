@@ -3,17 +3,6 @@ set nomove
 
 unhook *
 
-# Mys default imaps folder on subiron.org
-set folder=imaps://imap.sysnove.fr/
-set spoolfile=imaps://imap.sysnove.fr/maethor
-set imap_user=guillaume@subiron.org
-#set imap_pass = '##############'
-
 set imap_delim_chars="/."
 set imap_check_subscribed="yes"
 set imap_list_subscribed="yes"
-
-mailboxes !
-
-# Check boxes every 90 seconds
-set mail_check=90

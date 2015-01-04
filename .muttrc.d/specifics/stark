@@ -1,0 +1,20 @@
+
+set folder=$HOME/Maildir
+set spoolfile=+/INBOX
+set record=+/Sent
+set postponed=+/Drafts
+
+
+#source ~/.muttrc.d/muttrc.mailboxes
+
+mailboxes "=INBOX" "=mu-search"
+
+macro index "\Cl" "<enter-command>unset wait_key<enter><shell-escape>read -p'mu query: ' x; \
+      mu find --clearlinks --linksdir ~/Maildir/mu-search --format links \$x<enter>\
+      <change-folder-readonly>~/Maildir/mu-search\n" "mu find"
+macro index "<Esc>s" "<change-folder-readonly>~/Maildir/mu-search\n" "display mu-find results"
+
+# Check boxes every 90 seconds
+set mail_check=3
+
+set sendmail = "$HOME/.muttrc.d/sendmail_wrapper.zsh /usr/local/bin/msmtp-enqueue.sh"

@@ -2,6 +2,9 @@
 set index_format="(%2E) [%Z]  %D  %-25.25L  %s"
 set date_format="%y/%m/%d %H:%M"
 
+# Speed up index
+set sleep_time=0
+
 # Don't make a distinction between new messages et old unread messages
 set mark_old=no
 

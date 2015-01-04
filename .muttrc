@@ -11,3 +11,6 @@
 # Sourcing all executable files into $HOME/.muttrc.d
 source "/bin/run-parts --test $HOME/.muttrc.d | xargs cat |"
 
+#source 'test -e $HOME/.muttrc.d/specifics/$HOSTNAME && cat $HOME/.muttrc.d/specifics/$HOSTNAME || cat $HOME/.muttrc.d/specifics/default |'
+
+source "$HOME/.muttrc.d/specifics/specific.sh |"

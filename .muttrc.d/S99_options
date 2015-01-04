@@ -24,9 +24,7 @@ set include=yes
 
 # Keep a copy of the message sent
 set copy=yes
-set record==Sent
 # Keep drafts but don't ask me if I want recall a postponed message when I compose a new message
-set postponed==Drafts
 set recall=no
 
 unset beep
