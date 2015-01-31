@@ -1,5 +1,6 @@
 set hostname="subiron.org"
 set envelope_from_address="maethor@subiron.org"
+set realname ="Guillaume Subiron"
 set from="guillaume@subiron.org"
 
 set signature="~/.muttrc.d/profiles/guillaume@subiron.org.signature"

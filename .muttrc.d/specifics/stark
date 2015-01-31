@@ -4,10 +4,9 @@ set spoolfile=+/INBOX
 set record=+/Sent
 set postponed=+/Drafts
 
-
 #source ~/.muttrc.d/muttrc.mailboxes
 
-mailboxes "=INBOX" "=mu-search"
+mailboxes `cat ~/.muttrc.d/subscriptions | tr "\n" " "`
 
 macro index "\Cl" "<enter-command>unset wait_key<enter><shell-escape>read -p'mu query: ' x; \
       mu find --clearlinks --linksdir ~/Maildir/mu-search --format links \$x<enter>\

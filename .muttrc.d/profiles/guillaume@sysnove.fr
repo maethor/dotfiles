@@ -1,5 +1,6 @@
 set hostname="sysnove.fr"
 set envelope_from_address="guillaume@sysnove.fr"
+set realname ="Guillaume Subiron"
 set from="guillaume@sysnove.fr"
 
 set signature="~/.muttrc.d/profiles/guillaume@sysnove.fr.signature"
