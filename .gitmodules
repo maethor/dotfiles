@@ -82,3 +82,6 @@
 [submodule ".vim/bundle/vim-nginx"]
 	path = .vim/bundle/vim-nginx
 	url = https://github.com/fatih/vim-nginx
+[submodule ".vim/bundle/vim-i3"]
+	path = .vim/bundle/vim-i3
+	url = https://github.com/PotatoesMaster/i3-vim-syntax.git
