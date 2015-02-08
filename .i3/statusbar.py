@@ -2,6 +2,8 @@
 
 #import subprocess
 
+import os
+
 from i3pystatus import Status
 import netifaces
 
@@ -16,17 +18,18 @@ status = Status(standalone=True)
 
 status.register("clock", format="🕗 %a %d/%M %X",)
 
-status.register("battery",
-                format="🔋 {percentage:.1f}% {remaining:%E%h:%M}",
-                alert=True, alert_percentage=5,
-                status={ "DIS": "↓", "CHR": "↑", "FULL": "=", },
-                not_present_text = "N/A",
-                color=fg,
-                full_color=green,
-                charging_color=yellow,
-                critical_color=red,
-                not_present_color=gray,
-                )
+if os.uname()[1] == 'stark':
+    status.register("battery",
+                    format="🔋 {percentage:.1f}% {remaining:%E%h:%M}",
+                    alert=True, alert_percentage=5,
+                    status={ "DIS": "↓", "CHR": "↑", "FULL": "=", },
+                    not_present_text = "N/A",
+                    color=fg,
+                    full_color=green,
+                    charging_color=yellow,
+                    critical_color=red,
+                    not_present_color=gray,
+                    )
 
 #status.register("disk", path="/", format="{used}/{total}G [{avail}G]",)
 
@@ -39,7 +42,8 @@ status.register("mem",
                 color="#ffffff",
                 warn_percentage=70, alert_percentage=90)
 
-status.register("temp", format="{temp:.0f}°C")
+if os.uname()[1] == 'stark':
+    status.register("temp", format="{temp:.0f}°C")
 
 #status.register("network_traffic", interface="wlan0")
 
