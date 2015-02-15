@@ -1,32 +1,37 @@
 [global]
     font = "Monospace 8"
     allow_markup = yes
-    format = "<b>%s %p</b>\n\n%b"
+    format = "<b>%a > %s ></b> %b"
     sort = yes
     indicate_hidden = true
     # geometry = "x5"
     idle_threshold = 0
-    geometry = "350x5-20+20"
-    shrink = no
+    # geometry = "350x5-20+20"
+    geometry = "800x5-0+20"
+    shrink = yes
     monitor = 0
     alignment = left
+    /*alignment = right*/
     show_age_threshold = 60
     sticky_history = yes
     follow = mouse
-    word_wrap = yes
-    separator_height = 2
-    padding = 10
+    bounce_freq=1
+    word_wrap = no
+    separator_height = 1
+    #ignore_newline = yes
+    padding = 5
     horizontal_padding = 10
     separator_color = frame
     startup_notification = true
     dmenu = "/usr/bin/dmenu -p dunst: -nb #FFFFFF -nf #000000 -sb #94DBFF -sf #000000"
     browser = iceweasel -new-tab
-    icon_position = left
+    /*icon_position = left*/
 
 
 [frame]
-    width = 3
-    color = "#000000"
+    width = 1
+#    color = "#000000"
+    color = "#4c7899"
 
 [shortcuts]
     close = ctrl+space
@@ -40,7 +45,7 @@
     timeout = 10
 
 [urgency_normal]
-    background = "#222222"
+    background = "#285577"
     foreground = "#ffffff"
     timeout = 10
 
@@ -49,80 +54,84 @@
     foreground = "#ffffff"
     timeout = 0
 
-
-[libpurple_signed]
-    appname = libpurple
-    summary = *igned*
-    urgency = low
-    timeout = 3
-    background = "#ccff33"
-
-[libpurple_came_back]
-    appname = libpurple
-    summary = "*came*"
-    format = ""
-
-[libpurple_went_away]
-    appname = libpurple
-    summary = "*went*"
-    format = ""
-
-[libpurple_says]
-    appname = libpurple
-    summary = *ays*
-    urgency = critical
-    background = "#ccff33"
-
-[libpurple]
-    appname = libpurple
-    urgency = critical
-    background = "#ccff33"
-
-[twitter]
-    appname = Pidgin
-    summary = *twitter.com*
-    urgency = low
-
-[turpial]
-    appname = Turpial
-    urgency = low
-
-[ttytter]
-    summary = "TTYtter*"
-    urgency = low
-
-[dunst-sum]
-    appname = gmailnotify.py
-    summary = "*[dD]unst*"
-    urgency = critical
-
-[dunst-body]
-    appname = gmailnotify.py
-    body = "*[dD]unst*"
-    urgency = critical
-
-[mcabber]
-    appname = notify-send
-    summary = "*jabber*"
-    urgency = critical
-
-[irc]
-    appname = weechat
-    timeout = 0
-    background = "#99FF33"
-    foreground = "#000000"
-
-[XChat]
-    appname = XChat
-    timeout = 0
-    background = "#99FF33"
-    foreground = "#000000"
-
 [music]
     appname = MPC
     timeout = 5
     urgency = normal
+    format = "%b"
 
 [test]
     summary = "*test*"
     background="#22dd22"
+
+[battery]
+    appname = battery-notify
+    format = "<b>  %s ></b> %b"
+
+[irc]
+    appname = weechat
+    format = "<b>  %s ></b> %b"
+
+[jarvis]
+    appname = weechat
+    summary = "Jarvis*"
+    format = "<b>  Jarvis ></b> %b"
+
+[shinken-critical]
+    appname = weechat
+    body = "shinken:*CRITICAL*"
+    urgency = critical
+    /*timeout = 10*/
+    format = "  %b"
+    background = "#222222"
+    foreground = "#ef2929"
+    timeout = 0
+
+[shinken-down]
+    appname = weechat
+    body = "shinken:*DOWN*"
+    urgency = critical
+    /*timeout = 10*/
+    format = "  %b"
+    timeout = 0
+
+[shinken-warning]
+    appname = weechat
+    body = "shinken:*WARNING*"
+    urgency = low
+    timeout = 10
+    format = "  %b"
+    foreground = "#f57900"
+    timeout = 0
+
+[shinken-ok]
+    appname = weechat
+    body = "shinken:*[OU][KP]*"
+    urgency = low
+    /*timeout = 5*/
+    format = "  %b"
+    foreground = "#8ae234"
+    timeout = 0
+
+[shinken-unknown]
+    appname = weechat
+    body = "shinken:*UNKNOWN*"
+    urgency = low
+    /*timeout = 10*/
+    format = "  %b"
+    foreground = "#f57900"
+    timeout = 0
+
+[shinken-unreachable]
+    appname = weechat
+    body = "shinken:*UNREACHABLE*"
+    urgency = low
+    /*timeout = 10*/
+    format = "  %b"
+    foreground = "#f57900"
+    timeout = 0
+
+[mail]
+    appname = unread
+    format = "<b>  %s</b>\n%b"
+

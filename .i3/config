@@ -27,7 +27,7 @@ set $ws5 5:music
 set $ws6 6
 set $ws7 7:dl
 set $ws8 8:mail
-set $ws9 9:net
+set $ws9 9
 set $ws10 10
 
 # Style {{{1
@@ -48,7 +48,8 @@ bar {
         #status_command i3status
         position top
         output LVDS1
-        font xft:monospace:pixelsize 10
+        font pango:FontAwesome, monospace:pixelsize 10
+        #font xft:monospace:pixelsize 10
         strip_workspace_numbers yes
         colors {
             statusline #eeeeec
@@ -255,13 +256,13 @@ bindsym XF86ScreenSaver exec i3lock
 
 exec --no-startup-id feh --bg-fill /usr/local/share/awesome/themes/default/background.png
 
-exec --no-startup-id i3-msg 'workspace $ws1; exec $tabbed_term; exec keepassx -min -lock'
+exec --no-startup-id i3-msg 'workspace $ws1; exec keepassx -min -lock'
 exec --no-startup-id i3-msg 'workspace $ws8; exec $term -e mutt'
-exec --no-startup-id i3-msg 'workspace $ws9; exec wpa_gui'
-exec --no-startup-id i3-msg 'workspace $ws1'
+exec --no-startup-id i3-msg 'workspace $ws1; exec $tabbed_term'
 
 exec --no-startup-id xcompmgr
 exec --no-startup-id synaptics
+exec --no-startup-id wicd-client -t
 exec --no-startup-id redshift-gtk
 exec --no-startup-id owncloud
 #exec --no-startup-id transmission-qt -m
