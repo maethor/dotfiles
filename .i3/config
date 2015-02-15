@@ -34,12 +34,48 @@ set $ws10 10
 
 font xft:monospace:pixelsize 10
 
+# class                 border  bg      text    indicator
+
+client.focused          #4c7899 #285577 #ffffff #2e9ef4
+client.focused_inactive #333333 #5f676a #ffffff #484e50
+client.unfocused        #333333 #222222 #888888 #292d2e
+client.urgent           #2f343a #900000 #ffffff #900000
+#client.placeholder      #000000 #0c0c0c #ffffff #000000
+
 bar {
         #status_command ~/.envs/i3/bin/python ~/.i3/config.py
         status_command ~/.envs/i3/bin/python ~/.i3/statusbar.py
         #status_command i3status
         position top
         output LVDS1
+        font xft:monospace:pixelsize 10
+        strip_workspace_numbers yes
+        colors {
+            statusline #eeeeec
+            separator #888a85
+        }
+}
+
+bar {
+        #status_command ~/.envs/i3/bin/python ~/.i3/config.py
+        status_command ~/.envs/i3/bin/python ~/.i3/statusbar.py
+        #status_command i3status
+        position top
+        output VGA-0
+        font xft:monospace:pixelsize 10
+        strip_workspace_numbers yes
+        colors {
+            statusline #eeeeec
+            separator #888a85
+        }
+}
+
+bar {
+        #status_command ~/.envs/i3/bin/python ~/.i3/config.py
+        #status_command ~/.envs/i3/bin/python ~/.i3/statusbar.py
+        status_command i3status
+        position top
+        output DVI-I-0
         font xft:monospace:pixelsize 10
         strip_workspace_numbers yes
         colors {
@@ -191,6 +227,8 @@ bindsym $mod+Shift+egrave move container to workspace $ws7; workspace $ws7
 bindsym $mod+Shift+underscore move container to workspace $ws8; workspace $ws8
 bindsym $mod+Shift+ccedilla move container to workspace $ws9; workspace $ws9
 bindsym $mod+Shift+agrave move container to workspace $ws10; workspace $ws10
+
+bindsym $mod+Shift+x move workspace to output right
 
 bindsym $mod+r exec i3-input -F 'rename workspace to "%s"' -P 'New name: '
 
