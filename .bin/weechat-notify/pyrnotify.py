@@ -126,9 +126,9 @@ def accept_connections(s, timeout=None):
         try:
             urgency, icon, title, body = shlex.split(data)
             if timeout:
-                subprocess.call(["notify-send", "-t", timeout, "-u", urgency, "-c", "IRC", "-i", icon, escape(title), escape(body)])
+                subprocess.call(["notify-send", "-a", "weechat", "-t", timeout, "-u", urgency, "-c", "IRC", "-i", icon, escape(title), escape(body)])
             else:
-                subprocess.call(["notify-send", "-u", urgency, "-c", "IRC", "-i", icon, escape(title), escape(body)])
+                subprocess.call(["notify-send", "-a", "weechat" "-u", urgency, "-c", "IRC", "-i", icon, escape(title), escape(body)])
 
         except ValueError as e:
             print e
