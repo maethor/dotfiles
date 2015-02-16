@@ -28,7 +28,9 @@ set $ws6 6
 set $ws7 7:dl
 set $ws8 8:mail
 set $ws9 9
-set $ws10 10
+set $ws10 10:draw
+set $ws11 11
+set $ws12 12:media
 
 # Style {{{1
 
@@ -211,6 +213,8 @@ bindsym $mod+egrave workspace     $ws7
 bindsym $mod+underscore workspace $ws8
 bindsym $mod+ccedilla workspace   $ws9
 bindsym $mod+agrave workspace     $ws10
+bindsym $mod+parenright workspace $ws11
+bindsym $mod+equal workspace      $ws12
 
 bindsym $mod+Right workspace next_on_output
 bindsym $mod+Left workspace prev_on_output
@@ -228,6 +232,8 @@ bindsym $mod+Shift+egrave move container to workspace $ws7; workspace $ws7
 bindsym $mod+Shift+underscore move container to workspace $ws8; workspace $ws8
 bindsym $mod+Shift+ccedilla move container to workspace $ws9; workspace $ws9
 bindsym $mod+Shift+agrave move container to workspace $ws10; workspace $ws10
+bindsym $mod+Shift+parenright move container to workspace $ws11; workspace $ws11
+bindsym $mod+Shift+equal move container to workspace $ws12; workspace $ws12
 
 bindsym $mod+Shift+x move workspace to output right
 
