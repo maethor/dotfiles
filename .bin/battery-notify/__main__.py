@@ -23,10 +23,11 @@ WARN_MSG = "Battery level is under 15%!"
 CRIT_MSG = "Warning: Battery level is now under 5%!"
 REALLY_CRIT_MSG = "CRITICAL: Are you crazy? Plug on the AC right now!"
 
-def notify(msg, urgency=1):
+def notify(msg, urgency=notify2.URGENCY_NORMAL):
     msg = msg
     notify2.init(NOTIFICATION_APP)
     n = notify2.Notification(NOTIFICATION_TITLE, msg)
+    n.set_urgency(urgency)
     n.show()
 
 if __name__ == "__main__":
@@ -49,7 +50,7 @@ if __name__ == "__main__":
             notify("New battery found.")
 
         elif new[2] <= REALLY_CRIT_LVL < old[2]:
-            notify(REALLY_CRIT_MSG, 2)
+            notify(REALLY_CRIT_MSG, notify2.URGENCY_CRITICAL)
 
         elif new[2] <= CRIT_LVL < old[2]:
             notify(CRIT_MSG, 2)
