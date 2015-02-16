@@ -90,7 +90,7 @@ bar {
 # App assignations to workspaces {{{1
 
 assign [class="Iceweasel"] → "$ws3"
-assign [class="^Vlc$"] → "media"
+assign [class="^Vlc$"] → "$ws12"
 assign [title="mutt"] → "$ws8"
 assign [class="^Wpa_gui$"] → "$ws9"
 
