@@ -32,7 +32,7 @@ def get_cover():
     folder = music_folder + '/' + os.path.dirname(filename)
     covers = filter(lambda x: x.endswith('.jpg') or x.endswith('.png') or x.endswith('.gif'), os.listdir(folder))
     if covers:
-        return (folder + '/' + covers[0])
+        return (folder + '/' + next(covers))
     else:
         return default_cover
 
