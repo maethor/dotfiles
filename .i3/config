@@ -50,6 +50,8 @@ bar {
         #status_command i3status
         position top
         output LVDS1
+        output VGA1
+        tray_output LVDS1
         font pango:FontAwesome, monospace:pixelsize 10
         #font xft:monospace:pixelsize 10
         strip_workspace_numbers yes
@@ -66,6 +68,7 @@ bar {
         position top
         output VGA-1
         output DVI-I-1
+        tray_output DVI-I-1
         font xft:monospace:pixelsize 10
         strip_workspace_numbers yes
         colors {
@@ -223,6 +226,7 @@ bindsym $mod+Shift+parenright move container to workspace $ws11; workspace $ws11
 bindsym $mod+Shift+equal move container to workspace $ws12; workspace $ws12
 
 bindsym $mod+Shift+x move workspace to output right
+bindsym $mod+Shift+w move workspace to output up
 
 bindsym $mod+r exec i3-input -F 'rename workspace to "%s"' -P 'New name: '
 
