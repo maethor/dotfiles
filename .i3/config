@@ -50,22 +50,10 @@ bar {
         #status_command i3status
         position top
         output LVDS1
+        output VGA1
+        tray_output LVDS1
         font pango:FontAwesome, monospace:pixelsize 10
         #font xft:monospace:pixelsize 10
-        strip_workspace_numbers yes
-        colors {
-            statusline #eeeeec
-            separator #888a85
-        }
-}
-
-bar {
-        #status_command ~/.envs/i3/bin/python ~/.i3/config.py
-        status_command ~/.envs/i3/bin/python ~/.i3/statusbar.py
-        #status_command i3status
-        position top
-        output VGA-0
-        font xft:monospace:pixelsize 10
         strip_workspace_numbers yes
         colors {
             statusline #eeeeec
@@ -236,6 +224,7 @@ bindsym $mod+Shift+parenright move container to workspace $ws11; workspace $ws11
 bindsym $mod+Shift+equal move container to workspace $ws12; workspace $ws12
 
 bindsym $mod+Shift+x move workspace to output right
+bindsym $mod+Shift+w move workspace to output up
 
 bindsym $mod+r exec i3-input -F 'rename workspace to "%s"' -P 'New name: '
 

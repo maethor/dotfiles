@@ -108,28 +108,25 @@
     appname = weechat
     body = "shinken:*[OU][KP]*"
     urgency = low
-    /*timeout = 5*/
+    timeout = 10
     format = "  %b"
     foreground = "#8ae234"
-    timeout = 0
 
 [shinken-unknown]
     appname = weechat
     body = "shinken:*UNKNOWN*"
     urgency = low
-    /*timeout = 10*/
+    timeout = 10
     format = "  %b"
     foreground = "#f57900"
-    timeout = 0
 
 [shinken-unreachable]
     appname = weechat
     body = "shinken:*UNREACHABLE*"
     urgency = low
-    /*timeout = 10*/
+    timeout = 10
     format = "  %b"
     foreground = "#f57900"
-    timeout = 0
 
 [mail]
     appname = unread
