@@ -51,6 +51,7 @@ bar {
         position top
         output LVDS1
         output VGA1
+        output DP1
         tray_output LVDS1
         font pango:FontAwesome, monospace:pixelsize 10
         #font xft:monospace:pixelsize 10
