@@ -246,6 +246,7 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 10%
 bindsym Print exec scrot -e 'mv $f ~/Images/ 2>/dev/null'
 bindsym Mod1+Ctrl+l exec i3lock
 bindsym XF86ScreenSaver exec i3lock
+bindsym XF86Display exec xrandr.py
 
 
 # Startup {{{1

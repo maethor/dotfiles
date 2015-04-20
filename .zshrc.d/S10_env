@@ -10,9 +10,9 @@ export PIP_VIRTUALENV_BASE=$WORKON_HOME
 export PATH=$PATH:/opt/node/bin
 export NODE_PATH=/opt/node:/opt/node/lib/node_modules
 
-if [ -e /usr/local/bin/virtualenvwrapper.sh ] 
-    then source /usr/local/bin/virtualenvwrapper.sh
-fi
+#if [ -e /usr/local/bin/virtualenvwrapper.sh ] 
+#    then source /usr/local/bin/virtualenvwrapper.sh
+#fi
 case "$TERM" in
     #rxvt-256color)
         #TERM=rxvt-unicode
