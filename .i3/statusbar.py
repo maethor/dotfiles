@@ -42,7 +42,6 @@ status.register("mem",
                 warn_percentage=70, alert_percentage=90)
 
 if os.uname()[1] == 'stark':
-    status.register("temp", format="{temp:.0f}°C")
     status.register("temp", format=" {temp:.0f}°C ")
 
 #status.register("network_traffic", interface="wlan0")
