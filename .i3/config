@@ -66,9 +66,9 @@ bar {
         status_command ~/.envs/i3/bin/python ~/.i3/statusbar.py
         #status_command i3status
         position top
-        output VGA-1
-        output DVI-I-1
-        tray_output DVI-I-1
+        output VGA-0
+        output HDMI-0
+        tray_output HDMI-0
         font xft:monospace:pixelsize 10
         strip_workspace_numbers yes
         colors {
