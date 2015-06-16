@@ -19,4 +19,4 @@ bind pager G  bottom
 
 # Saner copy/move dialogs
 macro pager M "<save-message>?<toggle-mailboxes>" "move a message to a mailbox"
-macro pager S "<save-message>=Spam<enter><toggle-mailboxes>"
+macro pager S "<save-message>=Spam.tolearn<enter><toggle-mailboxes>"
