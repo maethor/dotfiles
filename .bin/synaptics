@@ -1,0 +1,53 @@
+#!/bin/sh
+
+OPTS=
+add_opt() {
+    if [ -n "$OPTS" ]; then
+	OPTS="$OPTS $1"
+    else
+	OPTS="$1"
+    fi
+}
+
+# enable vertical scrolling
+add_opt HorizEdgeScroll=1
+## vertical scrolling with two fingers
+add_opt HorizTwoFingerScroll=1
+
+# enable horizontal scrolling
+add_opt VertEdgeScroll=1
+## vertical scrolling with two fingers
+add_opt VertTwoFingerScroll=1
+
+# scrolling speed
+add_opt VertScrollDelta=100
+add_opt HorizScrollDelta=100
+
+# continue scrolling on corners
+add_opt CornerCoasting=1
+## scrolling speed corners
+add_opt CoastingSpeed=0.50
+
+# positions
+#add_opt TopEdge=1700
+#add_opt RightEdge=5300
+#add_opt BottomEdge=4100
+#add_opt LeftEdge=1700
+
+# Multi-finger taps
+## one finger : left click
+add_opt TapButton1=1
+## two fingers : middle click
+add_opt TapButton2=2
+## three fingers : right click
+add_opt TapButton3=3
+
+# Tap timings
+add_opt MaxTapMove=220
+add_opt MaxTapTime=180
+
+#add_opt Minspeed=0.
+#add_opt MaxSpeed=0.12
+#add_opt AccelFactor=0.001
+
+synclient $OPTS
