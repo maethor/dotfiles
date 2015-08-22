@@ -14,7 +14,8 @@
     /*alignment = right*/
     show_age_threshold = 60
     sticky_history = yes
-    follow = mouse
+    /*follow = mouse*/
+    all_key = ctrl+shift+space
     bounce_freq=1
     word_wrap = no
     separator_height = 1

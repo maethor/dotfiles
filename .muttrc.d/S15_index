@@ -29,7 +29,7 @@ macro index a "<limit>all\n" "show all messages (undo limit)"
 # Saner copy/move dialogs
 macro index C "<copy-message>?<toggle-mailboxes>" "copy a message to a mailbox"
 macro index M "<save-message>?<toggle-mailboxes>" "move a message to a mailbox"
-macro index S "<tag-prefix><save-message>=Spam<enter><toggle-mailboxes>"
+macro index S "<tag-prefix><save-message>=Spam.tolearn<enter><toggle-mailboxes>"
 
 macro index Ys "<change-folder>=sysnove<enter>"
 macro index Yi "<change-folder>=INBOX<enter>"

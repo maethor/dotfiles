@@ -295,6 +295,7 @@ if has("autocmd")
   au BufNewFile,BufRead *.less setlocal filetype=less
   "au BufNewFile,BufRead *.j2 setlocal ft=htmldjango
   au BufNewFile,BufRead sieve setlocal ft=sieve
+  au BufNewFile,BufRead *.tpl setlocal ft=htmljinja
 
   " Jinja
   autocmd BufNewFile,BufReadPost *.j2 execute ':doautoall BufReadPost ' . expand('%:r')
@@ -309,7 +310,7 @@ if has("autocmd")
 
   " Indentation
   au FileType make silent setlocal ts=4 sts=4 sw=4 noexpandtab
-  au FileType yaml,tex,html,xhtml,htmldjango,xml,plaintex,bib silent setlocal ts=2 sts=2 sw=2
+  au FileType yaml,tex,html,xhtml,htmljinja,htmldjango,xml,plaintex,bib silent setlocal ts=2 sts=2 sw=2
 
   " Folding
   au BufRead .vimrc silent setlocal foldlevel=0
@@ -350,10 +351,10 @@ if has("autocmd")
 
   " Django / Jinja
   " Django tags
-  au FileType jinja,htmldjango inoremap <buffer> <c-t> {%<space><space>%}<left><left><left>
+  au FileType jinja,htmljinja,htmldjango inoremap <buffer> <c-t> {%<space><space>%}<left><left><left>
 
   " Django variables
-  au FileType jinja,htmldjango inoremap <buffer> <c-f> {{<space><space>}}<left><left><left>
+  au FileType jinja,htmljinja,htmldjango inoremap <buffer> <c-f> {{<space><space>}}<left><left><left>
 
   " Python
   call matchadd('ColorColumn', '\%80v', 100)
