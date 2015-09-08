@@ -124,6 +124,8 @@ else
 		fi
 	fi
 
-	launch_gpg_agent
+    if [ -d "$HOME/.gnupg" ]; then
+        launch_gpg_agent
+    fi
 fi # [ -x "$(which keychain)" ]
 
