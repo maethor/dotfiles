@@ -17,6 +17,9 @@ set tilde
 #bind pager gg top
 bind pager G  bottom
 
+#limit
+macro pager l "ql"
+
 # Saner copy/move dialogs
 macro pager M "<save-message>?<toggle-mailboxes>" "move a message to a mailbox"
 macro pager S "<save-message>=Spam.tolearn<enter><toggle-mailboxes>"
