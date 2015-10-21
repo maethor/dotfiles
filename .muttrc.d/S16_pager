@@ -17,8 +17,10 @@ set tilde
 #bind pager gg top
 bind pager G  bottom
 
-#limit
+# Limit (just return to index and invoke 'l')
 macro pager l "ql"
+# Unset 'l' (I never use 'a' to add a contact)
+macro pager a "qa<enter>"
 
 # Saner copy/move dialogs
 macro pager M "<save-message>?<toggle-mailboxes>" "move a message to a mailbox"
