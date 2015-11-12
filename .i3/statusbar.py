@@ -15,14 +15,16 @@ gray = "#aaaaaa"
 
 status = Status(standalone=True)
 
+status.register("keyboard_locks", format="{caps}", caps_off="", caps_on=" CAPS", color="#ff0000")
+
 status.register("clock", format="   %a %d/%m %X ",)
 
 if os.uname()[1] == 'stark':
     status.register("battery",
-                    format="   {percentage:.1f}% {remaining:%E%h:%M} ",
+                    format=" {status}  {percentage:.1f}% {remaining:%E%h:%M} ",
                     alert=True, alert_percentage=5,
-                    status={ "DIS": "↓", "CHR": "↑", "FULL": "=", },
-                    not_present_text = "   N/A ",
+                    status={ "DIS": "", "CHR": "", "FULL": "", },
+                    not_present_text = "  ",
                     full_color=green,
                     charging_color=yellow,
                     critical_color=red,
@@ -34,7 +36,7 @@ if os.uname()[1] == 'stark':
 status.register("alsa", format="   {volume}% ",
                 increment=2)
 
-status.register("cpu_usage", format="   {usage:02}% ")
+status.register("cpu_usage", format="   {usage:02}% ")
 
 status.register("mem",
                 format="   {percent_used_mem:.0f} %",
@@ -63,6 +65,7 @@ for interface in interfaces:
                             format_up=base_net_format_up,
                             format_down = " {interface} ",
                             color_up=green,color_down=red,)
+            #status.register("network_traffic", interface=interface)
         elif interface.startswith('tun'):
             # Wired network
             status.register("network", interface=interface, format_up="  "+base_net_format_up,

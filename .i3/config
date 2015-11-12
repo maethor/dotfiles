@@ -17,20 +17,27 @@ set $mpc python ~/.i3/mpc
 set $term urxvtc
 set $tabbed_term urxvtc -pe tabs
 
+# General configuration {{{1
+
+# Don't interrupt fullscreen
+popup_during_fullscreen smart
+# Wait some time before removing the 'urgent' state
+force_display_urgency_hint 500 ms
+
 # Workspaces {{{1
 
-set $ws1 1:main
-set $ws2 2:ssh
-set $ws3 3:www
-set $ws4 4:dev
-set $ws5 5:music
+set $ws1 1:
+set $ws2 2:
+set $ws3 3:
+set $ws4 4:
+set $ws5 5:
 set $ws6 6
-set $ws7 7:dl
-set $ws8 8:mail
+set $ws7 7
+set $ws8 8:
 set $ws9 9
-set $ws10 10:draw
-set $ws11 11
-set $ws12 12:media
+set $ws10 10:
+set $ws11 11:
+set $ws12 12:
 
 # Style {{{1
 
@@ -46,8 +53,9 @@ client.urgent           #2f343a #900000 #ffffff #900000
 
 bar {
         #status_command ~/.envs/i3/bin/python ~/.i3/config.py
-        status_command ~/.envs/i3/bin/python ~/.i3/statusbar.py
         #status_command i3status
+        status_command ~/.envs/i3/bin/python ~/.i3/statusbar.py
+        #status_command i3blocks -c ~/i3-config/blocks/bot
         position top
         output LVDS1
         output VGA1
@@ -78,6 +86,7 @@ bar {
 
 # App assignations to workspaces {{{1
 
+
 assign [class="Iceweasel"] → "$ws3"
 assign [class="^Vlc$"] → "$ws12"
 assign [title="mutt"] → "$ws8"
@@ -86,7 +95,15 @@ assign [class="^Wpa_gui$"] → "$ws9"
 for_window [window_role="(?i)pop-up"] floating enable
 for_window [window_role="task_dialog"] floating enable
 
+for_window [title="À propos de Mozilla Firefox"] floating enable
+for_window [title="About Mozilla Firefox"] floating enable
+for_window [title="Préférences de Firefox"] floating enable
+for_window [title="Firefox Preferences"] floating enable
+
+for_window [instance="pavucontrol"] floating enable
+
 for_window [class="URxvt"] border 1pixel
+
 
 # Key Bindings {{{1
 
@@ -163,6 +180,10 @@ bindsym $mod+q focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
+# Scratchpad
+bindsym $mod+Shift+x move scratchpad
+bindsym $mod+x scratchpad show
+
 # resize window (you can also use the mouse for that)
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
@@ -224,7 +245,7 @@ bindsym $mod+Shift+agrave move container to workspace $ws10; workspace $ws10
 bindsym $mod+Shift+parenright move container to workspace $ws11; workspace $ws11
 bindsym $mod+Shift+equal move container to workspace $ws12; workspace $ws12
 
-bindsym $mod+Shift+x move workspace to output right
+bindsym $mod+w move workspace to output right
 bindsym $mod+Shift+w move workspace to output up
 
 bindsym $mod+r exec i3-input -F 'rename workspace to "%s"' -P 'New name: '
