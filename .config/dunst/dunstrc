@@ -129,7 +129,23 @@
     format = "  %b"
     foreground = "#f57900"
 
+[shinken-packages]
+    appname = weechat
+    body = "shinken:*Packages is*"
+    urgency = low
+    timeout = 1
+    format = "  %b"
+    background = "#222222"
+    foreground = "#888888"
+
 [mail]
     appname = unread
     format = "<b>  %s</b>\n%b"
 
+[electron]
+    appname = Electron
+    format = "<b>  %s ></b> %b"
+
+[trello]
+    appname = Trello
+    format = "<b>  %s ></b> %b"

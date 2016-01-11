@@ -1,16 +1,15 @@
 priority -50
 
 snippet fmatter "Front matter"
----
-title: $1
-created: !!timestamp '${2:`date +%Y-%m-%d\ %H:%M:00`}'
-image: /media/img/blog/${3:python.png}
-author: ${4:`g:nickname`}
-tags:
-  - $5
----
+Title: $1
+Date: ${2:`date +%Y-%m-%d\ %H:%M`}
+Image: /images/blog/${3:python.png}
+Author: ${4:`g:nickname`}
+Tags: $5
 
 $0
+
+<!-- PELICAN_END_SUMMARY -->
 endsnippet
 
 snippet intro "Description"
