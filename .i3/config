@@ -34,7 +34,7 @@ set $ws5 5:
 set $ws6 6
 set $ws7 7
 set $ws8 8:
-set $ws9 9
+set $ws9 9:
 set $ws10 10:
 set $ws11 11:
 set $ws12 12:
@@ -88,9 +88,9 @@ bar {
 
 
 assign [class="Iceweasel"] → "$ws3"
+assign [class="Trello"] → "$ws9"
 assign [class="^Vlc$"] → "$ws12"
 assign [title="mutt"] → "$ws8"
-assign [class="^Wpa_gui$"] → "$ws9"
 
 for_window [window_role="(?i)pop-up"] floating enable
 for_window [window_role="task_dialog"] floating enable
@@ -103,6 +103,7 @@ for_window [title="Firefox Preferences"] floating enable
 for_window [instance="pavucontrol"] floating enable
 
 for_window [class="URxvt"] border 1pixel
+for_window [class="Trello"] border 1pixel
 
 
 # Key Bindings {{{1
