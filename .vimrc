@@ -214,6 +214,10 @@ if $USER == 'root'
 endif
 let g:yankring_history_file = '.yankring_history'
 
+let g:flake8_quickfix_height=10
+let g:flake8_show_in_gutter=1
+let g:flake8_show_in_file=1
+
 " Formatting {{{2
  
 " Indentation
