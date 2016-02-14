@@ -142,6 +142,10 @@
     appname = unread
     format = "<b>  %s</b>\n%b"
 
+[mail2]
+    appname = Avertisseur de courrier
+    format = "<b>  </b>%b"
+
 [electron]
     appname = Electron
     format = "<b>  %s ></b> %b"
