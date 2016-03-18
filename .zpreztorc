@@ -35,8 +35,8 @@ zstyle ':prezto:load' pmodule \
   'ssh' \
   'git' \
   'syntax-highlighting' \
-  'prompt' \
-  'history-substring-search'
+  'history-substring-search' \
+  'prompt'
 
 #
 # Editor
@@ -60,7 +60,7 @@ zstyle ':prezto:module:editor' dot-expansion 'yes'
 #
 
 # Set the prompt theme to load.
-zstyle ':prezto:module:prompt' theme 'sorin'
+zstyle ':prezto:module:prompt' theme 'maethor'
 
 #
 # SSH
