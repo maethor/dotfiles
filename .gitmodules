@@ -73,3 +73,6 @@
 [submodule ".bin/fasd-repo"]
 	path = .bin/fasd-repo
 	url = https://github.com/clvv/fasd.git
+[submodule ".zprezto"]
+	path = .zprezto
+	url = https://github.com/maethor/prezto.git
