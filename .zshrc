@@ -1,29 +1,40 @@
-# Path to your oh-my-zsh configuration.
-ZSH=$HOME/.oh-my-zsh
+#!/bin/zsh
 
-#ZSH_THEME="maethor"
-
-# CASE_SENSITIVE="true"
-DISABLE_AUTO_UPDATE="true"
-# DISABLE_LS_COLORS="true"
-# DISABLE_AUTO_TITLE="true"
-COMPLETION_WAITING_DOTS="true"
-
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git git-extras debian python ant hsi rsync symfony autojump bower colored-man httpie nmap docker)
-
-source $ZSH/oh-my-zsh.sh
-
-source $HOME/.zshrc.d/maethor.zsh-theme
-
-export GREP_COLOR=''
-
-if [ -d $HOME/.zshrc.d ]
-then for zshrc_file in `/bin/run-parts --test $HOME/.zshrc.d`
-    do source $zshrc_file
-    done
-unset zshrc_file
+# Source Prezto.
+if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
+alias g="gotcha -r"
+alias halt='poweroff'
+
+alias gs='git status'
+compdef _git gs=git-status
+
+[[ -x /usr/bin/pydf ]] && alias df="pydf -h"
+
+export TEXMFHOME="$HOME/.texmf"
+export PATH="$PATH:$HOME/.bin:$HOME/.local/bin"
+export WORKON_HOME="$HOME/.envs"
+export PROJECT_HOME="$HOME/Programmes/Work"
+export PIP_DOWNLOAD_CACHE="$HOME/.pip/cache"
+export PIP_VIRTUALENV_BASE=$WORKON_HOME
+
+# full name
+NAME="Guillaume Subiron"
+DEBFULLNAME=$NAME
+
+# email address
+export EMAIL="maethor@subiron.org"
+export DEBEMAIL=$EMAIL
+
+# email address for anonymous ftp
+export EMAIL_ADDR=plop@dev.null
+
+# checking events on system (users login/logout, etc...)
+watch=(notme)
+LOGCHECK=5
+WATCHFMT="[%T] %n has %a %l from %M"
+
+# override default umask
+umask 0022
