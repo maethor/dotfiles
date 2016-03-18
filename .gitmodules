@@ -22,9 +22,6 @@
 [submodule ".vim/bundle/easymotion"]
 	path = .vim/bundle/easymotion
 	url = git://github.com/Lokaltog/vim-easymotion
-[submodule ".oh-my-zsh"]
-	path = .oh-my-zsh
-	url = https://github.com/robbyrussell/oh-my-zsh.git
 [submodule ".vim/bundle/pep8"]
 	path = .vim/bundle/pep8
 	url = https://github.com/vim-scripts/pep8.git
