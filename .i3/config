@@ -275,7 +275,7 @@ bindsym XF86Display exec xrandr.py
 
 # Startup {{{1
 
-exec --no-startup-id feh --bg-fill /usr/local/share/awesome/themes/default/background.png
+exec --no-startup-id feh --bg-fill ~/.i3/background.png
 
 exec --no-startup-id i3-msg 'workspace $ws1; exec keepassx -min -lock'
 exec --no-startup-id i3-msg 'workspace $ws8; exec $term -e mutt'
