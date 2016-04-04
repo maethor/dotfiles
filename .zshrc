@@ -16,6 +16,8 @@ compdef _git gs=git-status
 
 [[ -x /usr/bin/pydf ]] && alias df="pydf -h"
 
+unsetopt CORRECT
+
 export TEXMFHOME="$HOME/.texmf"
 export PATH="$PATH:$HOME/.bin:$HOME/.local/bin"
 export WORKON_HOME="$HOME/.envs"
