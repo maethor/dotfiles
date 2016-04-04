@@ -371,3 +371,6 @@ let g:syntastic_java_checker = 'checkstyle'
 
 " Markdown
 let g:markdown_fold_style = 'nested'
+
+" Mail
+let g:VimMailStartFlags = 'SA'
