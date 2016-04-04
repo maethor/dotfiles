@@ -309,9 +309,9 @@ if has("autocmd")
   autocmd BufNewFile,BufReadPost *.j2 call SyntaxRange#Include('{#', '#}', 'jinja') " Comments
 
   " Mutt 
-  au BufRead /tmp/mutt* set tw=72 formatoptions+=a spell colorcolumn=72
-  au BufRead /tmp/mutt* let b:textwidth=72
-  au BufEnter /tmp/mutt* so ~/.vim/colors/muttcolors.vim
+  au FileType mail set tw=72 formatoptions+=a spell colorcolumn=72
+  au FileType mail let b:textwidth=72
+  au FileType mail so ~/.vim/colors/muttcolors.vim
 
   " Indentation
   au FileType make silent setlocal ts=4 sts=4 sw=4 noexpandtab
