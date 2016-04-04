@@ -27,6 +27,7 @@ let g:nickname = 'maethor'
 " Key bindings {{{1
 
 let mapleader = ","
+let maplocalleader = "_"
 
 " File actions
 imap <c-space> <c-x><c-o>
