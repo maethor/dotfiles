@@ -374,3 +374,6 @@ let g:markdown_fold_style = 'nested'
 
 " Mail
 let g:VimMailStartFlags = 'SA'
+let g:VimMailContactQueryCmd="khard email %s"
+let g:VimMailContactSyncCmd="/usr/local/bin/vdirsyncer sync"
+
