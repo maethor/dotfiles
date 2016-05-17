@@ -73,6 +73,14 @@
     appname = weechat
     format = "<b>  %s ></b> %b"
 
+#[irc-hl]
+#    appname = weechat
+#    body = "*maethor*"
+#    background = "#222222"
+#    foreground = "#ef2929"
+#    timeout = 0
+#    format = "<b>  %s ></b> %b"
+
 [jarvis]
     appname = weechat
     summary = "Jarvis*"
