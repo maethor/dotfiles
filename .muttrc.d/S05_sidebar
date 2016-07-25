@@ -5,7 +5,7 @@ set sidebar_delim=' │'
 set sidebar_sort=no
 
 #set sidebar_shortindent=true
-set sidebar_delim_chars='/'
+#set sidebar_delim_chars='/'
 
 # Mutt sidebar shortcuts
 # ^C+P : Select the previous box

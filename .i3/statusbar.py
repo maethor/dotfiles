@@ -89,7 +89,7 @@ for interface in interfaces:
 # Format:
 # Cloud connected▶Reroute to Remain
 status.register("mpd",
-    format=" {status}  {album} - {title} ",
+    format=" {status}  {artist} - {album} - {title} ",
     status={
         "pause": "  ",
         "play": "  ",
