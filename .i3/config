@@ -57,10 +57,10 @@ bar {
         status_command ~/.envs/i3/bin/python ~/.i3/statusbar.py
         #status_command i3blocks -c ~/i3-config/blocks/bot
         position top
-        output LVDS1
-        output VGA1
-        output DP1
-        tray_output LVDS1
+        output LVDS-1
+        output VGA-1
+        output DP-1
+        tray_output LVDS-1
         font pango:FontAwesome, monospace:pixelsize 10
         #font xft:monospace:pixelsize 10
         strip_workspace_numbers yes

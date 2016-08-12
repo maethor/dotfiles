@@ -10,7 +10,7 @@ import os
 
 
 #outputs = [ "LDVS1", "VGA1", "DP1", "HDMI1" ]
-default = "LVDS1"
+default = "LVDS-1"
 position = "above"
 
 
