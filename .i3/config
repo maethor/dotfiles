@@ -60,7 +60,8 @@ bar {
         output LVDS-1
         output VGA-1
         output DP-1
-        tray_output LVDS-1
+        output eDP-1
+        tray_output eDP-1
         font pango:FontAwesome, monospace:pixelsize 10
         #font xft:monospace:pixelsize 10
         strip_workspace_numbers yes
@@ -90,6 +91,7 @@ bar {
 
 
 assign [class="Iceweasel"] → "$ws3"
+assign [class="Chromium"] → "$ws3"
 assign [class="Trello"] → "$ws9"
 assign [class="^Vlc$"] → "$ws12"
 assign [title="mutt"] → "$ws8"
@@ -254,17 +256,27 @@ bindsym $mod+Shift+w move workspace to output up
 bindsym $mod+r exec i3-input -F 'rename workspace to "%s"' -P 'New name: '
 
 # Audio key bindings {{{2
-bindsym XF86AudioRaiseVolume exec amixer -q set Master 5%+ unmute
-bindsym XF86AudioLowerVolume exec amixer -q set Master 5%- unmute
-bindsym XF86AudioMute exec amixer -q set Master toggle
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5%
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5%
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
+
 bindsym XF86AudioPlay exec $mpc play_pause
 bindsym XF86AudioStop exec $mpc play_pause
 bindsym XF86AudioPrev exec $mpc prev
 bindsym XF86AudioNext exec $mpc next
 
+# No media keys on X1 Carbon :(
+bindsym $mod+F10 exec $mpc prev
+bindsym $mod+F11 exec $mpc play_pause
+bindsym $mod+F12 exec $mpc next
+
 # Brightning key bindings {{{2
 bindsym XF86MonBrightnessUp exec xbacklight -inc 10%
 bindsym XF86MonBrightnessDown exec xbacklight -dec 10%
+
+# Suspend & lock
+bindsym XF86Explorer exec csystemctl suspend
+bindsym XF86LaunchA exec i3lock
 
 # Misc key bindings {{{2
 bindsym Print exec scrot -e 'mv $f ~/Images/ 2>/dev/null'
@@ -277,15 +289,17 @@ bindsym XF86Display exec xrandr.py
 
 exec --no-startup-id feh --bg-fill ~/.i3/background.png
 
-exec --no-startup-id i3-msg 'workspace $ws1; exec keepassx -min -lock'
-exec --no-startup-id i3-msg 'workspace $ws8; exec $term -e mutt'
+#exec --no-startup-id i3-msg 'workspace $ws1; exec keepassx -min -lock'
+exec --no-startup-id i3-msg 'workspace $ws8; exec $tabbed_term -e mutt'
 exec --no-startup-id i3-msg 'workspace $ws1; exec $tabbed_term'
 
 exec --no-startup-id xcompmgr
 exec --no-startup-id synaptics
 exec --no-startup-id wicd-client -t
 exec --no-startup-id redshift-gtk
+exec --no-startup-id nm-applet
 exec --no-startup-id owncloud
 exec --no-startup-id clipit
 #exec --no-startup-id transmission-qt -m
+exec --no-startup-id dunst
 
