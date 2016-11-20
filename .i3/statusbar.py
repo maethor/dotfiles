@@ -33,8 +33,9 @@ if os.uname()[1] == 'stark':
 
 #status.register("disk", path="/", format="{used}/{total}G [{avail}G]",)
 
-status.register("alsa", format="   {volume}% ",
-                increment=2)
+#status.register("alsa", format="   {volume}% ",
+#                increment=2)
+status.register("pulseaudio", format="   {volume}% ")
 
 status.register("cpu_usage", format="   {usage:02}% ")
 
