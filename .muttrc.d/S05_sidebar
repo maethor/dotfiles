@@ -1,11 +1,29 @@
 # Mutt sidebar settings
+set mail_check_stats=yes
 set sidebar_width=30
 set sidebar_visible=yes
-set sidebar_delim=' │'
-set sidebar_sort=no
+set sidebar_divider_char='│'
+#set sidebar_sort_method=no
+#set sidebar_sort_method = 'alpha'
+set sidebar_sort_method='unsorted'
+set sidebar_format="%B%*  %?N?%N/?%?S?%S?%?F? [%F]?"
+set sidebar_indent_string=" "
+set sidebar_folder_indent=yes
+set sidebar_short_path=yes
+set sidebar_new_mail_only=yes
 
-#set sidebar_shortindent=true
-#set sidebar_delim_chars='/'
+# :TODO:maethor:160920: I didn't find a cleaner way… :(
+sidebar_whitelist '/home/maethor/Maildir/baal'
+sidebar_whitelist '/home/maethor/Maildir/guillaume'
+sidebar_whitelist '/home/maethor/Maildir/sysnove'
+sidebar_whitelist '/home/maethor/Maildir/srv'
+sidebar_whitelist '/home/maethor/Maildir/lst'
+sidebar_whitelist '/home/maethor/Maildir/lst.aqln'
+sidebar_whitelist '/home/maethor/Maildir/lst.fdn'
+sidebar_whitelist '/home/maethor/Maildir/lst.ffdn'
+sidebar_whitelist '/home/maethor/Maildir/website'
+sidebar_whitelist '/home/maethor/Maildir/org'
+sidebar_whitelist '/home/maethor/Maildir/Sent'
 
 # Mutt sidebar shortcuts
 # ^C+P : Select the previous box
@@ -15,5 +33,5 @@ bind index,pager \CN sidebar-next
 # ^C+O : Open the selected box
 bind index,pager \CO sidebar-open
 # B : Hide the sidebar
-macro index,pager B "<enter-command>toggle sidebar_visible<return>"
+macro index,pager B sidebar-toggle-visible
 

@@ -5,7 +5,7 @@ set status_chars  = " *%A"
 set status_format = "───[ Folder: %f ]───[%r%m messages%?n? (%n new)?%?d? (%d to delete)?%?t? (%t tagged)? ]───%>─%?p?( %p postponed )?───"
 
 # Locale et Charset in utf-8
-set locale=fr_FR.UTF-8
+#set locale=fr_FR.UTF-8
 set charset=utf-8
 set send_charset=utf-8
 
@@ -13,7 +13,7 @@ set send_charset=utf-8
 set editor="/usr/bin/vim -c 'set textwidth=70' +/^$"
 
 # Query carddav
-set query_command="khard email %s"
+set query_command="khard email --parsable %s"
 bind editor <tab> complete-query
 bind editor ^T complete
 
@@ -36,6 +36,8 @@ set certificate_file=~/.muttrc.d/certificates
 set alias_file=~/.muttrc.d/aliases
 source ~/.muttrc.d/aliases
 set reverse_alias
+
+set new_mail_command="notify-send --icon='/home/santiago/Pictures/mutt.png' 'New Email in %f' '%n new messages, %u unread.' &"
 
 # mutt alias with abook
 #set query_command= "abook --mutt-query '%s'"

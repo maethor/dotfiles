@@ -8,6 +8,7 @@ color status brightcolor39 color233
 
 color sidebar_new color226 color233
 color hdrdefault color248 color233
+color sidebar_divider color39 color233
 
 ## header stuff
 color header brightcolor226 color233 "^(Subject|From)"
