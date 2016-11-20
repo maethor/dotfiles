@@ -10,13 +10,16 @@ import os
 
 
 #outputs = [ "LDVS1", "VGA1", "DP1", "HDMI1" ]
-default = "LVDS-1"
+default = "eDP-1"
 position = "above"
 
 
 def reset():
     cmd = "xrandr"
-    for out in screens():
+    outs = screens()
+    if default not in outs:
+        default = outs[0]
+    for out in outs:
         if out != default:
             cmd += " --output " + out + " --off"
     cmd += " --output " + default + " --auto"
