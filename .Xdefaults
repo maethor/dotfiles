@@ -1,5 +1,5 @@
 URxvt*modifier : mod1
-URxvt*font : xft:monospace:pixelsize=11,xft:Inconsolata\ for\ Powerline:pixelsize=11
+URxvt*font : xft:Terminus:pixelsize=15:antialias=true,xft:Inconsolata\ for\ Powerline:pixelsize=11
 !URxvt*font : xft:Bitstream Vera Sans Mono:pixelsize=10:style=Roman:antialias=false
 !URxvt*shading : 20
 !URxvt*tint : black
