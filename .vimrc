@@ -312,6 +312,7 @@ if has("autocmd")
   au FileType mail set tw=72 formatoptions+=a spell colorcolumn=72
   au FileType mail let b:textwidth=72
   au FileType mail so ~/.vim/colors/muttcolors.vim
+  au FileType mail set omnifunc=syntaxcomplete#Complete
 
   " Indentation
   au FileType make silent setlocal ts=4 sts=4 sw=4 noexpandtab
@@ -374,6 +375,6 @@ let g:markdown_fold_style = 'nested'
 
 " Mail
 let g:VimMailStartFlags = 'SA'
-let g:VimMailContactQueryCmd="khard email %s"
+let g:VimMailContactQueryCmd="khard email --parsable %s"
 let g:VimMailContactSyncCmd="/usr/local/bin/vdirsyncer sync"
-
+let g:VimMailSpellLangs=['fr','en']

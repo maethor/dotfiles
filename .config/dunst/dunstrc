@@ -161,3 +161,7 @@
 [trello]
     appname = Trello
     format = "<b>  %s ></b> %b"
+
+[owncloud]
+    appname = owncloud
+    format = "<b>  %s ></b> %b"

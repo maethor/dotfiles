@@ -266,16 +266,16 @@ bindsym XF86AudioPrev exec $mpc prev
 bindsym XF86AudioNext exec $mpc next
 
 # No media keys on X1 Carbon :(
-bindsym $mod+F10 exec $mpc prev
-bindsym $mod+F11 exec $mpc play_pause
-bindsym $mod+F12 exec $mpc next
+bindsym $mod+Shift+N exec $mpc prev
+bindsym $mod+p exec $mpc play_pause
+bindsym $mod+n exec $mpc next
 
 # Brightning key bindings {{{2
 bindsym XF86MonBrightnessUp exec xbacklight -inc 10%
 bindsym XF86MonBrightnessDown exec xbacklight -dec 10%
 
 # Suspend & lock
-bindsym XF86Explorer exec csystemctl suspend
+bindsym XF86Explorer exec systemctl suspend
 bindsym XF86LaunchA exec i3lock
 
 # Misc key bindings {{{2
@@ -295,7 +295,7 @@ exec --no-startup-id i3-msg 'workspace $ws1; exec $tabbed_term'
 
 exec --no-startup-id xcompmgr
 exec --no-startup-id synaptics
-exec --no-startup-id wicd-client -t
+#exec --no-startup-id wicd-client -t
 exec --no-startup-id redshift-gtk
 exec --no-startup-id nm-applet
 exec --no-startup-id owncloud
