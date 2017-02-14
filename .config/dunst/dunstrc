@@ -1,5 +1,5 @@
 [global]
-    font = "Monospace 8"
+    font = "fontawesome,Monospace 8"
     allow_markup = yes
     format = "<b>%a > %s ></b> %b"
     sort = yes
@@ -165,3 +165,9 @@
 [owncloud]
     appname = owncloud
     format = "<b>  %s ></b> %b"
+
+[rocket.chat]
+    appname = Rocket.Chat+
+    format = "<b>  %s ></b> %b"
+    background = "#222222"
+    foreground = "#888888"

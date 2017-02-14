@@ -108,6 +108,8 @@ for_window [instance="pavucontrol"] floating enable
 
 for_window [class="URxvt"] border 1pixel
 for_window [class="Trello"] border 1pixel
+for_window [class="Rocket.Chat+"] border 1pixel
+for_window [class="Rocket"] border 1pixel
 
 
 # Key Bindings {{{1
