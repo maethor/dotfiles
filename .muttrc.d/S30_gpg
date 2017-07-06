@@ -1,5 +1,5 @@
 # PGP stuff
-source ~/.muttrc.d/gpg.rc
+source ~/.muttrc.d/gpg2.rc
 
 set pgp_replysign
 set pgp_replyencrypt

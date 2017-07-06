@@ -281,7 +281,7 @@ bindsym XF86Explorer exec systemctl suspend
 bindsym XF86LaunchA exec i3lock
 
 # Misc key bindings {{{2
-bindsym Print exec scrot -e 'mv $f ~/Images/ 2>/dev/null'
+bindsym Print exec scrot -s -e 'mv $f ~/Images/ 2>/dev/null'
 bindsym Mod1+Ctrl+l exec i3lock
 bindsym XF86ScreenSaver exec i3lock
 bindsym XF86Display exec xrandr.py
@@ -294,6 +294,9 @@ exec --no-startup-id feh --bg-fill ~/.i3/background.png
 #exec --no-startup-id i3-msg 'workspace $ws1; exec keepassx -min -lock'
 exec --no-startup-id i3-msg 'workspace $ws8; exec $tabbed_term -e mutt'
 exec --no-startup-id i3-msg 'workspace $ws1; exec $tabbed_term'
+
+exec --no-startup-id xcape -e 'Shift_R=ISO_Level3_Shift|parenright'
+exec --no-startup-id xcape -e 'Shift_L=ISO_Level3_Shift|parenleft'
 
 exec --no-startup-id xcompmgr
 exec --no-startup-id synaptics

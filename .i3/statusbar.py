@@ -49,28 +49,28 @@ if os.uname()[1] == 'stark':
 
 #status.register("network_traffic", interface="wlan0")
 
-base_net_format_up = " {v4cidr} "
-interfaces = netifaces.interfaces()
-
-for interface in interfaces:
-    if ':' not in interface:
-        if interface.startswith('wlan'):
-            # Wireless network
-            status.register("wireless", interface=interface,
-                            format_up="   {essid} ({quality:.2f}%) ",
-                            format_down = " {interface} ",
-                            color_up=green,color_down=red,)
-        elif interface.startswith('eth'):
-            # Wired network
-            status.register("network", interface=interface,
-                            format_up=base_net_format_up,
-                            format_down = " {interface} ",
-                            color_up=green,color_down=red,)
-            #status.register("network_traffic", interface=interface)
-        elif interface.startswith('tun'):
-            # Wired network
-            status.register("network", interface=interface, format_up="  "+base_net_format_up,
-                            color_up=green,color_down=red, unknown_up=True)
+#base_net_format_up = " {v4cidr} "
+#interfaces = netifaces.interfaces()
+#
+#for interface in interfaces:
+#    if ':' not in interface:
+#        if interface.startswith('wlan'):
+#            # Wireless network
+#            status.register("wireless", interface=interface,
+#                            format_up="   {essid} ({quality:.2f}%) ",
+#                            format_down = " {interface} ",
+#                            color_up=green,color_down=red,)
+#        elif interface.startswith('eth'):
+#            # Wired network
+#            status.register("network", interface=interface,
+#                            format_up=base_net_format_up,
+#                            format_down = " {interface} ",
+#                            color_up=green,color_down=red,)
+#            #status.register("network_traffic", interface=interface)
+#        elif interface.startswith('tun'):
+#            # Wired network
+#            status.register("network", interface=interface, format_up="  "+base_net_format_up,
+#                            color_up=green,color_down=red, unknown_up=True)
 
 # FDN VPN
 #status.register("network", interface=interface,
@@ -96,5 +96,8 @@ status.register("mpd",
         "play": "  ",
         "stop": "  ",
     },)
+
+status.register("shell", command="/home/maethor/.i3/focustitle.sh",
+                format=" {output} ")
 
 status.run()
