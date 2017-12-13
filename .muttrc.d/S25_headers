@@ -1,6 +1,6 @@
 # Keep a cache of all headers and body
-set header_cache=~/.muttrc.d/cache/headers
-set message_cachedir=~/.muttrc.d/cache/body/
+set header_cache=~/.mutt-cache/headers
+set message_cachedir=~/.mutt-cache/body/
 
 # Allow to edit the header
 set edit_headers=yes

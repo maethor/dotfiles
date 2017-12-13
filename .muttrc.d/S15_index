@@ -19,7 +19,7 @@ set collapse_unread=no
 # Sorting: Try by date
 set sort_aux=last-date-received
 
-bind index gg first-entry
+#bind index gg first-entry
 bind index G  last-entry
 bind index <space> collapse-thread
 
@@ -31,6 +31,7 @@ macro index C "<copy-message>?<toggle-mailboxes>" "copy a message to a mailbox"
 macro index M "<save-message>?<toggle-mailboxes>" "move a message to a mailbox"
 macro index S "<tag-prefix><save-message>=Spam.tolearn<enter><toggle-mailboxes>"
 
+bind index Y noop
 macro index Ys "<change-folder>=sysnove<enter>"
 macro index Yi "<change-folder>=INBOX<enter>"
 macro index Ym "<change-folder>=maethor<enter>"

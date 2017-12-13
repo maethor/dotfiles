@@ -54,7 +54,8 @@ client.urgent           #2f343a #900000 #ffffff #900000
 bar {
         #status_command ~/.envs/i3/bin/python ~/.i3/config.py
         #status_command i3status
-        status_command ~/.envs/i3/bin/python ~/.i3/statusbar.py
+        status_command ~/.envs/i3/bin/python3 ~/.i3/statusbar.py
+        #status_command pew in i3 ~/.i3/statusbar.py
         #status_command i3blocks -c ~/i3-config/blocks/bot
         position top
         output LVDS-1
@@ -73,7 +74,7 @@ bar {
 
 bar {
         #status_command ~/.envs/i3/bin/python ~/.i3/config.py
-        status_command ~/.envs/i3/bin/python ~/.i3/statusbar.py
+        status_command ~/.envs/i3/bin/python3 ~/.i3/statusbar.py
         #status_command i3status
         position top
         output VGA-0
@@ -281,7 +282,7 @@ bindsym XF86Explorer exec systemctl suspend
 bindsym XF86LaunchA exec i3lock
 
 # Misc key bindings {{{2
-bindsym Print exec scrot -s -e 'mv $f ~/Images/ 2>/dev/null'
+bindsym Print exec scrot -u -e 'mv $f ~/Images/ 2>/dev/null'
 bindsym Mod1+Ctrl+l exec i3lock
 bindsym XF86ScreenSaver exec i3lock
 bindsym XF86Display exec xrandr.py
@@ -305,7 +306,7 @@ exec --no-startup-id redshift-gtk
 exec --no-startup-id nm-applet
 exec --no-startup-id blueman-applet
 exec --no-startup-id owncloud
-exec --no-startup-id clipit
+exec --no-startup-id glipper
 #exec --no-startup-id transmission-qt -m
 exec --no-startup-id dunst
-
+exec --no-startup-id upower-notify

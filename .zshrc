@@ -11,8 +11,14 @@ bindkey -M vicmd '^r' history-incremental-search-backward
 alias g="gotcha -r"
 alias halt='poweroff'
 
+function syshost() {
+    dig +short $1 | tail -n 1 | xargs dig +short -x | sed -e 's/\.$//'
+}
+
 alias gs='git status'
 compdef _git gs=git-status
+
+alias mutt='neomutt'
 
 [[ -x /usr/bin/pydf ]] && alias df="pydf -h"
 

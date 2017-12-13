@@ -184,6 +184,10 @@ set noerrorbells
 set visualbell
 set t_vb=
 
+" Completion
+set wildmode=longest,list,full
+set wildmenu
+
 " Editing {{{2
 
 " Folding
@@ -205,6 +209,9 @@ if exists("+spelllang")
   set spelllang=fr
 endif
 set dictionary+=/usr/share/dict/words
+
+" Grammalecte
+let g:grammalecte_cli_py = '/opt/Grammalecte/cli.py'
 
 " Allow backspacing over everything in insert mode
 set backspace=indent,eol,start
@@ -320,7 +327,7 @@ if has("autocmd")
 
   " Folding
   au BufRead .vimrc silent setlocal foldlevel=0
-  au FileType markdown silent setlocal foldlevel=1
+  "au FileType markdown silent setlocal foldlevel=1
   au FileType conf silent setlocal foldlevel=0
 
   " Git: Don't jump to last position, no modeline
@@ -371,7 +378,9 @@ endif
 let g:syntastic_java_checker = 'checkstyle'
 
 " Markdown
-let g:markdown_fold_style = 'nested'
+"let g:markdown_fold_style = 'nested'
+"let g:vim_markdown_folding_style_pythonic = 1
+let g:vim_markdown_pandoc_frontmatter = 1
 
 " Mail
 let g:VimMailStartFlags = 'SA'

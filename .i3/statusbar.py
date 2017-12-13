@@ -86,6 +86,9 @@ if os.uname()[1] == 'stark':
 #    interface="wlan0",
 #    format_up="{essid} {quality:03.0f}%",)
 
+
+status.register("shell", command="~/.bin/boobank_i3.sh", interval=60)
+
 # Shows mpd status
 # Format:
 # Cloud connected▶Reroute to Remain
@@ -97,7 +100,7 @@ status.register("mpd",
         "stop": "  ",
     },)
 
-status.register("shell", command="/home/maethor/.i3/focustitle.sh",
-                format=" {output} ")
+#status.register("shell", command="/home/maethor/.i3/focustitle.sh",
+#                format=" {output} ")
 
 status.run()
