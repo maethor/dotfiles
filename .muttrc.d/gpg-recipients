@@ -1,3 +1,4 @@
+# :TODO:maethor:171213: Does not seem to work on neomutt
 send-hook "!~l ~t alahouze@abul\\.org" "set pgp_autosign"
 send-hook "!~l ~t alexis@lahouze\\.org" "set pgp_autosign"
 send-hook "!~l ~t alexis@sysnove\\.fr" "set pgp_autosign"
