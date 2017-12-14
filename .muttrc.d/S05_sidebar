@@ -33,5 +33,5 @@ bind index,pager \CN sidebar-next
 # ^C+O : Open the selected box
 bind index,pager \CO sidebar-open
 # B : Hide the sidebar
-macro index,pager B sidebar-toggle-visible
+bind index,pager B sidebar-toggle-visible
 

@@ -39,6 +39,12 @@ set reverse_alias
 
 set new_mail_command="notify-send --icon='/home/santiago/Pictures/mutt.png' 'New Email in %f' '%n new messages, %u unread.' &"
 
+# :TODO:maethor:171213: Does not seem to work
+set history=10
+set save_history=10
+set history_file="$HOME/.mutthistory"
+set history_remove_dups=yes
+
 # mutt alias with abook
 #set query_command= "abook --mutt-query '%s'"
 #macro index,pager A "<pipe-message>abook --add-email-quiet<return>" "add the sender address to abook"
