@@ -10,7 +10,7 @@ set charset=utf-8
 set send_charset=utf-8
 
 # Define vim as editor to write messages, because vim is the best editor of all times :)
-set editor="/usr/bin/vim -c 'set textwidth=70' +/^$"
+set editor="/usr/bin/nvim -c 'set textwidth=70' +/^$"
 
 # Query carddav
 set query_command="khard email --parsable %s"
