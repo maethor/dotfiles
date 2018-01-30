@@ -36,7 +36,7 @@
 	url = https://github.com/perusio/nginx_ensite
 [submodule ".vim/bundle/vim-markdown"]
 	path = .vim/bundle/vim-markdown
-	url = https://github.com/tpope/vim-markdown.git
+	url = https://github.com/plasticboy/vim-markdown
 [submodule ".vim/bundle/vim-markdown-folding"]
 	path = .vim/bundle/vim-markdown-folding
 	url = https://github.com/nelstrom/vim-markdown-folding.git
