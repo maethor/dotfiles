@@ -22,6 +22,8 @@ alias mutt='neomutt'
 
 [[ -x /usr/bin/pydf ]] && alias df="pydf -h"
 
+[[ -x /usr/bin/nvim ]] && alias vim="nvim"
+
 unsetopt CORRECT
 
 export TEXMFHOME="$HOME/.texmf"
