@@ -43,12 +43,6 @@ nmap <leader>N :setlocal relativenumber!<CR>
 " Vimrc
 nmap <leader>v :tabedit $MYVIMRC<CR>
 
-" Gundo
-nnoremap <F4> :GundoToggle<CR>
-
-" Misc shortcuts
-nmap <leader>li :LoremIpsum<CR>
-
 " Select the contents of the current line, excluding indentation.
 nnoremap vv ^vg_
 
@@ -98,26 +92,6 @@ nmap <leader>g bi:<Esc>ea:maethor:<C-R>=strftime("%y%m%d")<CR><Esc>a:<Esc>
 """ Display/Mask TagList window
 map <F8> <Esc>:TlistToggle<CR>
 
-" Like bufdo, but restore the current buffer
-function! BufDo(command)
-  let currBuff=bufnr("%")
-  execute 'bufdo ' . a:command
-  execute 'buffer ' . currBuff
-endfunction
-com! -nargs=+ -complete=command Bufdo call BufDo(<q-args>)
-
-" Autosave when urxvt loose focus
-if match($TERM, '*rxvt*')
-  exe 'silent !echo -ne "\033]777;focus;on\007"'
-  set <F37>=[UlFocusIn
-  set <F36>=[UlFocusOut
-  map <F37> :Bufdo checktime<CR>
-  map  <F36> :wa!<CR>
-  map! <F37> <C-O>:Bufdo checktime<CR>
-  map! <F36> <C-O>:wa!<CR>
-  autocmd VimLeavePre * exe 'silent !echo -ne "\033]777;focus;off\007"'
-endif
-
 " Get rid of hl (after a search)
 nnoremap <leader><space> :noh<cr>
 
@@ -127,24 +101,6 @@ nnoremap * *<c-o>
 " Replace personnal email by Sysnove email
 nmap <silent> <leader>p :%s/\(maethor\\|guillaume\\|baal\)@subiron.org/guillaume@sysnove.fr/g<CR>:%s/\(xals\\|alexis\)@lahouze.org/alexis@sysnove.fr/g<CR>
 
-" Tabular
-"if exists(":Tabularize")
-  nmap <leader>a= :Tabularize /=<CR>
-  vmap <leader>a= :Tabularize /=<CR>
-  nmap <leader>a: :Tabularize /:\zs<CR>
-  vmap <leader>a: :Tabularize /:\zs<CR>
-"endif
-
-" UltiSnip
-
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
-let g:UltiSnipsEditSplit="horizontal"
-
-" Hardmode
-let g:HardMode_level='wannabe'
-nnoremap <leader>h <Esc>:call ToggleHardMode()<CR>
 
 " Configuration {{{1
 
@@ -215,16 +171,6 @@ let g:grammalecte_cli_py = '/opt/Grammalecte/cli.py'
 
 " Allow backspacing over everything in insert mode
 set backspace=indent,eol,start
-
-" Yankring
-if $USER == 'root'
-  let loaded_yankring = 120
-endif
-let g:yankring_history_file = '.yankring_history'
-
-let g:flake8_quickfix_height=10
-let g:flake8_show_in_gutter=1
-let g:flake8_show_in_file=1
 
 " Formatting {{{2
  
@@ -373,9 +319,6 @@ if has("autocmd")
   call matchadd('ColorColumn', '\%80v', 100)
 
 endif
-
-" Syntastic
-let g:syntastic_java_checker = 'checkstyle'
 
 " Markdown
 "let g:markdown_fold_style = 'nested'
