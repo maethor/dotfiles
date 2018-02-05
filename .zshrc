@@ -23,6 +23,7 @@ alias mutt='neomutt'
 [[ -x /usr/bin/pydf ]] && alias df="pydf -h"
 
 [[ -x /usr/bin/nvim ]] && alias vim="nvim"
+[[ -x $HOME/.bin/nvim ]] && alias vim="$HOME/.bin/nvim"
 
 unsetopt CORRECT
 
