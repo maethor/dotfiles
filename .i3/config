@@ -73,19 +73,19 @@ bar {
 }
 
 bar {
-        #status_command ~/.envs/i3/bin/python ~/.i3/config.py
-        status_command ~/.envs/i3/bin/python3 ~/.i3/statusbar.py
-        #status_command i3status
-        position top
-        output VGA-0
-        output HDMI-0
-        tray_output HDMI-0
-        font xft:monospace:pixelsize 10
-        strip_workspace_numbers yes
-        colors {
-            statusline #eeeeec
-            separator #888a85
-        }
+    status_command i3blocks -c ~/.i3/blocks/top
+    workspace_buttons no
+    #font pango: System San Francisco Display, FontAwesome 10
+    font pango:FontAwesome, monospace:pixelsize 10
+    position top
+    tray_output none
+    mode hide
+    hidden_state hide
+    modifier Ctrl
+    output LVDS-1
+    output VGA-1
+    output DP-1
+    output eDP-1
 }
 
 # App assignations to workspaces {{{1
@@ -111,6 +111,7 @@ for_window [class="URxvt"] border 1pixel
 for_window [class="Trello"] border 1pixel
 for_window [class="Rocket.Chat+"] border 1pixel
 for_window [class="Rocket"] border 1pixel
+for_window [class="kitty"] border 1pixel
 
 
 # Key Bindings {{{1
