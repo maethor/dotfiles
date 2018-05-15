@@ -28,6 +28,8 @@ call minpac#add('vim-scripts/SyntaxRange')
 call minpac#add('dbeniamine/vim-mail')
 "call minpac#add('wikitopian/hardmode')
 call minpac#add('machakann/vim-highlightedyank')
+call minpac#add('junegunn/limelight.vim')
+call minpac#add('junegunn/goyo.vim')
 
 command! PackUpdate call minpac#update()
 command! PackClean call minpac#clean()
