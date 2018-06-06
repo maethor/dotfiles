@@ -1,3 +1,5 @@
+#timeout-hook '<shell-escape>mbsync -a<enter>'
+
 # Remove old messages in some folders
 
 folder-hook /srv.aqln.shinken$ 'push <delete-pattern>~r>1m!~F<enter>'

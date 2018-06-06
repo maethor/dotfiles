@@ -18,6 +18,6 @@ macro index "<Esc>s" "<change-folder-readonly>~/Maildir/mu-search\n" "display mu
 
 # Check boxes every 90 seconds
 set mail_check=3
-set timeout=10
+set timeout=20
 
 set sendmail = "$HOME/.muttrc.d/sendmail_wrapper.zsh $HOME/.bin/msmtp-enqueue.sh"

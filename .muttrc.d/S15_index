@@ -1,5 +1,5 @@
 # Index format (number of messages in the thread | tags | date/hour | Sender | Subject)
-set index_format="(%2E) [%Z]  %D  %-25.25L  %s"
+set index_format="[%2E] %D  %-25.25L  %s"
 set date_format="%y/%m/%d %H:%M"
 
 # Speed up index

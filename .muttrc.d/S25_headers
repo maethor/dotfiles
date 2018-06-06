@@ -1,5 +1,7 @@
 # Keep a cache of all headers and body
-set header_cache=~/.mutt-cache/headers
+# Idealement je mettrais du bdb mais mon neomutt ne gère pas
+set header_cache=~/.mutt-cache/headers.tokyocabinet
+set header_cache_backend=tokyocabinet
 set message_cachedir=~/.mutt-cache/body/
 
 # Allow to edit the header
