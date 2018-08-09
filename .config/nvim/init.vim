@@ -31,11 +31,14 @@ call minpac#add('ambv/black')
 call minpac#add('machakann/vim-highlightedyank')
 call minpac#add('junegunn/limelight.vim')
 call minpac#add('junegunn/goyo.vim')
+call minpac#add('pearofducks/ansible-vim')
 
 command! PackUpdate call minpac#update()
 command! PackClean call minpac#clean()
 
 source ~/.vimrc
+
+let g:python3_host_prog = '/usr/local/bin/python3.6'
 
 " Key bindings {{{1
 
@@ -75,3 +78,9 @@ let g:yankring_history_file = '.yankring_history'
 let g:flake8_quickfix_height=10
 let g:flake8_show_in_gutter=1
 let g:flake8_show_in_file=1
+
+" ansible-vim
+"let g:ansible_name_highlight = 'd'
+"let g:ansible_extra_keywords_highlight = 1
+let g:ansible_normal_keywords_highlight = 'Define'
+let g:ansible_with_keywords_highlight = 'Define'
