@@ -75,3 +75,12 @@ let g:yankring_history_file = '.yankring_history'
 let g:flake8_quickfix_height=10
 let g:flake8_show_in_gutter=1
 let g:flake8_show_in_file=1
+
+" VimMail
+let g:VimMailContactsProvider='khard'
+let g:VimMailStartFlags = 'SA'
+"let g:VimMailContactQueryCmd="khard email --parsable %s"
+let g:VimMailContactSyncCmd="/usr/bin/vdirsyncer sync"
+let g:VimMailSpellLangs=['fr','en']
+"au Filetype mail set completefunc=vimmail#completion#CompleteAddr
+au Filetype mail set omnifunc=vimmail#completion#CompleteAddr

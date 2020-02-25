@@ -11,7 +11,8 @@ set mark_old=no
 # Sorting: Group by thread
 set sort=threads
 set strict_threads=yes
-folder-hook . "push <collapse-all>"
+#folder-hook . "push <collapse-all>"
+set collapse_all=yes
 
 # Sorting: don't group threads who contains unread message
 set collapse_unread=no
@@ -37,3 +38,6 @@ macro index Yi "<change-folder>=INBOX<enter>"
 macro index Ym "<change-folder>=maethor<enter>"
 macro index Yb "<change-folder>=baal<enter>"
 macro index Yg "<change-folder>=guillaume<enter>"
+
+# Save attachments
+macro index J "<pipe-message>ripmime -i - -d /tmp"

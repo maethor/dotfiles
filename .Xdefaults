@@ -1,5 +1,6 @@
 URxvt*modifier : mod1
-URxvt*font : xft:Terminus:pixelsize=15:antialias=true,xft:Inconsolata\ for\ Powerline:pixelsize=11
+!URxvt*font : xft:Terminus:pixelsize=15:antialias=true,xft:Inconsolata\ for\ Powerline:pixelsize=11
+URxvt*font : xft:Terminus:pixelsize=15:antialias=true,xft:Inconsolata\ for\ Powerline:pixelsize=11,xft:TerminessTTF Nerd Font Mono:pixelsize=20,antialias=true
 !URxvt*font : xft:Bitstream Vera Sans Mono:pixelsize=10:style=Roman:antialias=false
 !URxvt*shading : 20
 !URxvt*tint : black
@@ -50,6 +51,8 @@ URxvt*color13 : #a020f0
 URxvt*color14 : #4bb8fd
 URxvt*color15 : #eeeeec
 
+URxvt*cursorColor: #ff87af
+
 !Couleurs (Glacicle)
 !URxvt*color0 : rgb:2E/34/36
 !URxvt*color1 : rgb:CC/00/00
@@ -77,6 +80,10 @@ URxvt.keysym.M-Right : perl:tab-move-right
 URxvt.keysym.S-M-r : perl:tab-rename
 URxvt.keysym.S-M-j : perl:tab-jump
 URxvt.keysym.S-M-k : perl:tab-kill
+
+#URxvt.keysym.S-Down : perl:tabbedex:new_tab
+#URxvt.keysym.S-Left : perl:tabbedex:prev_tab
+#URxvt.keysym.S-Right : perl:tabbedex:next_tab
 
 # Les couleurs
 !URxvt.tabs.tab-bar-fg        : 17

@@ -5,4 +5,4 @@ set from="maethor@subiron.org"
 
 set signature="~/.muttrc.d/profiles/maethor@subiron.org.signature"
 
-set attribution="Le %d, %n claviotta :"
+set attribution="Le %d, %n a écrit :"

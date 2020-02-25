@@ -21,9 +21,18 @@ compdef _git gs=git-status
 alias mutt='neomutt'
 
 [[ -x /usr/bin/pydf ]] && alias df="pydf -h"
+[[ -x /usr/bin/bat ]] && alias cat="bat -p"
 
 [[ -x /usr/bin/nvim ]] && alias vim="nvim"
 [[ -x $HOME/.bin/nvim ]] && alias vim="$HOME/.bin/nvim"
+
+function python () {
+    test -z "$1" && ipython || command python "$@"
+}
+
+function python3 () {
+    test -z "$1" && ipython3 || command python3 "$@"
+}
 
 unsetopt CORRECT
 
