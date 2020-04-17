@@ -8,7 +8,7 @@
 ## set sendmail = "~/.mutt/sendmail_wrapper.zsh /usr/bin/sendmail -oem -oi"
 
 ## Attachment keywords that the message body will be searched for:
-KEYWORDS='attach|anhang|anhaenge|anhänge|angehaengt|angehangen|anbei|angehängt|pièce-jointe|pièce\ jointe|ci-joint|ci\ joint'
+KEYWORDS='attach|anhang|anhaenge|anhänge|angehaengt|angehangen|anbei|angehängt|pièce-jointe|pièce\ jointe|ci-joint|ci\ joint|je\ te\ joins'
 ERRORMESSAGE="Attachment missing!? Send mail anyway? "
 
 ## Check that sendmail or other program is supplied as first argument.

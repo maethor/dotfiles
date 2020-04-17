@@ -84,3 +84,12 @@ let g:flake8_show_in_file=1
 "let g:ansible_extra_keywords_highlight = 1
 let g:ansible_normal_keywords_highlight = 'Define'
 let g:ansible_with_keywords_highlight = 'Define'
+
+" VimMail
+let g:VimMailContactsProvider='khard'
+let g:VimMailStartFlags = 'SA'
+"let g:VimMailContactQueryCmd="khard email --parsable %s"
+let g:VimMailContactSyncCmd="/usr/bin/vdirsyncer sync"
+let g:VimMailSpellLangs=['fr','en']
+"au Filetype mail set completefunc=vimmail#completion#CompleteAddr
+au Filetype mail set omnifunc=vimmail#completion#CompleteAddr

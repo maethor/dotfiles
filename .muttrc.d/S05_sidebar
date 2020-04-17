@@ -18,11 +18,8 @@ sidebar_whitelist '/home/maethor/Maildir/guillaume'
 sidebar_whitelist '/home/maethor/Maildir/sysnove'
 sidebar_whitelist '/home/maethor/Maildir/srv'
 sidebar_whitelist '/home/maethor/Maildir/lst'
-sidebar_whitelist '/home/maethor/Maildir/lst.aqln'
-sidebar_whitelist '/home/maethor/Maildir/lst.fdn'
-sidebar_whitelist '/home/maethor/Maildir/lst.ffdn'
-sidebar_whitelist '/home/maethor/Maildir/website'
-sidebar_whitelist '/home/maethor/Maildir/org'
+sidebar_whitelist '/home/maethor/Maildir/web'
+sidebar_whitelist '/home/maethor/Maildir/Spam'
 sidebar_whitelist '/home/maethor/Maildir/Sent'
 
 # Mutt sidebar shortcuts

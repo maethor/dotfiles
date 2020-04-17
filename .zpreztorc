@@ -38,6 +38,8 @@ zstyle ':prezto:load' pmodule \
   'history-substring-search' \
   'prompt'
 
+zstyle ':prezto:module:utility' safe-ops no
+
 #
 # Editor
 #

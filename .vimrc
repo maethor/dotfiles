@@ -167,7 +167,7 @@ endif
 set dictionary+=/usr/share/dict/words
 
 " Grammalecte
-let g:grammalecte_cli_py = '/opt/Grammalecte/cli.py'
+let g:grammalecte_cli_py = '/opt/Grammalecte-0.6/grammalecte-cli.py'
 
 " Allow backspacing over everything in insert mode
 set backspace=indent,eol,start
@@ -324,9 +324,3 @@ endif
 "let g:markdown_fold_style = 'nested'
 "let g:vim_markdown_folding_style_pythonic = 1
 let g:vim_markdown_pandoc_frontmatter = 1
-
-" Mail
-let g:VimMailStartFlags = 'SA'
-let g:VimMailContactQueryCmd="khard email --parsable %s"
-let g:VimMailContactSyncCmd="/usr/local/bin/vdirsyncer sync"
-let g:VimMailSpellLangs=['fr','en']
