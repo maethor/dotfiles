@@ -12,9 +12,9 @@ folder-hook . 'source ~/.muttrc.d/profiles/maethor@subiron.org'
 
 # Other profiles
 folder-hook /sysnove$ 'source ~/.muttrc.d/profiles/contact@sysnove.fr'
-folder-hook /sysnove.support$ 'source ~/.muttrc.d/profiles/guillaume@sysnove.fr'
-folder-hook /sysnove.compta$ 'source ~/.muttrc.d/profiles/guillaume@sysnove.fr'
-folder-hook /sysnove.online$ 'source ~/.muttrc.d/profiles/guillaume@sysnove.fr'
-folder-hook /sysnove.qonto$ 'source ~/.muttrc.d/profiles/guillaume@sysnove.fr'
+folder-hook /sysnove.support$ 'source ~/.muttrc.d/profiles/contact@sysnove.fr'
+folder-hook /sysnove.compta$ 'source ~/.muttrc.d/profiles/contact@sysnove.fr'
+folder-hook /sysnove.online$ 'source ~/.muttrc.d/profiles/contact@sysnove.fr'
+folder-hook /sysnove.qonto$ 'source ~/.muttrc.d/profiles/contact@sysnove.fr'
 folder-hook /sysnove.la-pepite$ 'source ~/.muttrc.d/profiles/la-pepite@snmail.fr'
 folder-hook /guillaume$ 'source ~/.muttrc.d/profiles/guillaume@subiron.org'

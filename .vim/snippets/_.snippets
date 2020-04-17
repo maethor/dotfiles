@@ -1,21 +1,23 @@
 # Global snippets
 
 snippet BUG
-	:BUG:`g:nickname`:`strftime("%y%m%d")`: ${1}
+	:BUG:`g:nickname`:`strftime("%Y%m%d")`: ${1}
 snippet DEBUG
-	:DEBUG:`g:nickname`:`strftime("%y%m%d")`: ${1}
+	:DEBUG:`g:nickname`:`strftime("%Y%m%d")`: ${1}
 snippet WARNING
-	:WARNING:`g:nickname`:`strftime("%y%m%d")`: ${1}
+	:WARNING:`g:nickname`:`strftime("%Y%m%d")`: ${1}
 snippet TODO
-	:TODO:`g:nickname`:`strftime("%y%m%d")`: ${1}
+	:TODO:`g:nickname`:`strftime("%Y%m%d")`: ${1}
 snippet KLUDGE
-	:KLUDGE:`g:nickname`:`strftime("%y%m%d")`: ${1}
+	:KLUDGE:`g:nickname`:`strftime("%Y%m%d")`: ${1}
 snippet COMMENT
-	:COMMENT:`g:nickname`:`strftime("%y%m%d")`: ${1}
+	:COMMENT:`g:nickname`:`strftime("%Y%m%d")`: ${1}
 snippet TRICKY
-	:TRICKY:`g:nickname`:`strftime("%y%m%d")`: ${1}
+	:TRICKY:`g:nickname`:`strftime("%Y%m%d")`: ${1}
 snippet DOC
-	:DOC:`g:nickname`:`strftime("%y%m%d")`: ${1}
+	:DOC:`g:nickname`:`strftime("%Y%m%d")`: ${1}
+snippet EXPIRE
+	:EXPIRE:`g:nickname`:`strftime("%Y%m%d")`: ${1}
 
 snippet c)
 	Copyright `&enc[:2] == "utf" ? "©" : "(c)"` `strftime("%Y")` ${1:`g:snips_author`}. All Rights Reserved.
