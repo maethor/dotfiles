@@ -1,5 +1,4 @@
-colour==0.0.6
-i3pystatus==3.32
-netifaces==0.10.4
-psutil==2.2.1
-pyalsaaudio==0.7
+colour==0.1.5
+i3pystatus==3.35
+netifaces==0.10.9
+psutil==5.7.0
