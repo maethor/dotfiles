@@ -9,11 +9,8 @@ bindkey -M viins '^r' history-incremental-search-backward
 bindkey -M vicmd '^r' history-incremental-search-backward
 
 alias g="gotcha -r"
-alias halt='poweroff'
-
-function syshost() {
-    dig +short $1 | tail -n 1 | xargs dig +short -x | sed -e 's/\.$//'
-}
+alias d="date +%Y-%m-%d"
+alias h="[ -f /etc/hostname.sysnove ] && cat /etc/hostname.sysnove || hostname"
 
 alias gs='git status'
 compdef _git gs=git-status
@@ -42,6 +39,14 @@ export WORKON_HOME="$HOME/.envs"
 export PROJECT_HOME="$HOME/Programmes/Work"
 export PIP_DOWNLOAD_CACHE="$HOME/.pip/cache"
 export PIP_VIRTUALENV_BASE=$WORKON_HOME
+
+pyenv () {
+    export PYENV_ROOT="$HOME/.pyenv"
+    export PATH="$PYENV_ROOT/bin:$PATH"
+    eval "$($PYENV_ROOT/bin/pyenv init -)"
+    eval "$($PYENV_ROOT/bin/pyenv virtualenv-init -)"
+    $PYENV_ROOT/bin/pyenv "$@"
+}
 
 # full name
 NAME="Guillaume Subiron"
