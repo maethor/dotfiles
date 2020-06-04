@@ -1,9 +1,6 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 # vim: ai ts=4 sts=4 et sw=4 nu
-
-from __future__ import (unicode_literals, absolute_import,
-                        division, print_function)
 
 import os
 import sys
@@ -32,7 +29,10 @@ def get_cover():
     folder = music_folder + '/' + os.path.dirname(filename)
     covers = filter(lambda x: x.endswith('.jpg') or x.endswith('.png') or x.endswith('.gif'), os.listdir(folder))
     if covers:
-        return (folder + '/' + next(covers))
+        try:
+            return (folder + '/' + next(covers))
+        except StopIteration:
+            return default_cover
     else:
         return default_cover
 

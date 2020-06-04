@@ -13,7 +13,7 @@
 set $mod Mod4
 set $alt Mod1
 
-set $mpc python ~/.i3/mpc
+set $mpc python3 ~/.i3/mpc
 set $term urxvt
 set $tabbed_term urxvt -pe tabs
 set $i3lock i3lock --color 475263
@@ -68,6 +68,7 @@ bar {
     output VGA-1
     output DP-1
     output eDP-1
+    output HDMI-1
     tray_output eDP-1
     font pango:FontAwesome, DejaVu Sans 10
     #font pango: SanFranciscoDisplay, FontAwesome 11
@@ -94,12 +95,14 @@ bar {
     output VGA-1
     output DP-1
     output eDP-1
+    output HDMI-1
 }
 
 # App assignations to workspaces {{{1
 
 
 assign [class="Iceweasel"] → "$ws3"
+assign [class="Firefox"] → "$ws3"
 assign [class="Chromium"] → "$ws3"
 assign [class="Trello"] → "$ws9"
 assign [class="^Vlc$"] → "$ws12"
@@ -298,7 +301,7 @@ bindsym XF86Explorer exec systemctl suspend
 bindsym XF86LaunchA exec $i3lock
 
 # Misc key bindings {{{2
-bindsym Print exec scrot -u -e 'mv $f ~/Images/ 2>/dev/null'
+bindsym Print exec scrot -u -e 'mv $f ~/Images/scrot/ 2>/dev/null'
 bindsym Mod1+Ctrl+l exec $i3lock
 bindsym XF86ScreenSaver exec $i3lock
 bindsym XF86Display exec xrandr.py
