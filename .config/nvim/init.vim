@@ -38,7 +38,7 @@ command! PackClean call minpac#clean()
 
 source ~/.vimrc
 
-let g:python3_host_prog = '/usr/local/bin/python3.6'
+"let g:python3_host_prog = '/usr/local/bin/python3.6'
 
 " Key bindings {{{1
 
