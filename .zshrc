@@ -18,7 +18,7 @@ compdef _git gs=git-status
 alias mutt='neomutt'
 
 [[ -x /usr/bin/pydf ]] && alias df="pydf -h"
-[[ -x /usr/bin/bat ]] && alias cat="bat -p"
+[[ -x /usr/bin/batcat ]] && alias bat="batcat -p --paging=never" && alias cat="bat"
 
 [[ -x /usr/bin/nvim ]] && alias vim="nvim"
 [[ -x $HOME/.bin/nvim ]] && alias vim="$HOME/.bin/nvim"
@@ -63,6 +63,12 @@ export EMAIL_ADDR=plop@dev.null
 watch=(notme)
 LOGCHECK=5
 WATCHFMT="[%T] %n has %a %l from %M"
+
+if [[ -e /usr/share/doc/fzf/examples/completion.zsh ]]; then
+    source /usr/share/doc/fzf/examples/completion.zsh
+    source /usr/share/doc/fzf/examples/key-bindings.zsh
+    export FZF_DEFAULT_OPTS='--preview "batcat --style=numbers --color=always {} | head -500"'
+fi
 
 # override default umask
 umask 0022
