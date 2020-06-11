@@ -32,6 +32,7 @@ call minpac#add('machakann/vim-highlightedyank')
 call minpac#add('junegunn/limelight.vim')
 call minpac#add('junegunn/goyo.vim')
 call minpac#add('pearofducks/ansible-vim')
+call minpac#add('ctrlpvim/ctrlp.vim')
 
 command! PackUpdate call minpac#update()
 command! PackClean call minpac#clean()
@@ -93,3 +94,10 @@ let g:VimMailContactSyncCmd="/usr/bin/vdirsyncer sync"
 let g:VimMailSpellLangs=['fr','en']
 "au Filetype mail set completefunc=vimmail#completion#CompleteAddr
 au Filetype mail set omnifunc=vimmail#completion#CompleteAddr
+
+" CtrlP
+" Open in new tab by default
+let g:ctrlp_prompt_mappings = {
+    \ 'AcceptSelection("e")': ['<c-t>'],
+    \ 'AcceptSelection("t")': ['<cr>', '<2-LeftMouse>'],
+    \ }

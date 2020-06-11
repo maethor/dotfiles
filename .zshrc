@@ -67,6 +67,7 @@ WATCHFMT="[%T] %n has %a %l from %M"
 if [[ -e /usr/share/doc/fzf/examples/completion.zsh ]]; then
     source /usr/share/doc/fzf/examples/completion.zsh
     source /usr/share/doc/fzf/examples/key-bindings.zsh
+    bindkey '^R' history-incremental-search-backward
     export FZF_DEFAULT_OPTS='--preview "batcat --style=numbers --color=always {} | head -500"'
 fi
 
