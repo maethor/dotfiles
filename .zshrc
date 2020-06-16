@@ -17,6 +17,8 @@ compdef _git gs=git-status
 
 alias mutt='neomutt'
 
+alias ack='ack --follow'
+
 [[ -x /usr/bin/pydf ]] && alias df="pydf -h"
 [[ -x /usr/bin/batcat ]] && alias bat="batcat -p --paging=never" && alias cat="bat"
 
