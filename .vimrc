@@ -262,8 +262,8 @@ if has("autocmd")
   autocmd BufNewFile,BufReadPost *.j2 call SyntaxRange#Include('{#', '#}', 'jinja') " Comments
 
   " Mutt 
-  au FileType mail set tw=72 formatoptions+=a spell colorcolumn=72
-  au FileType mail let b:textwidth=72
+  au FileType mail set tw=78 formatoptions+=a spell colorcolumn=78
+  au FileType mail let b:textwidth=78
   au FileType mail so ~/.vim/colors/muttcolors.vim
   au FileType mail set omnifunc=syntaxcomplete#Complete
 
