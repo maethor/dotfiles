@@ -5,6 +5,12 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
+source "${ZDOTDIR:-$HOME}/.zlong_alert.zsh"
+zlong_duration=30
+zlong_ignore_cmds="vim ssh neomutt most tmux ansible su pipenv"
+
+unsetopt BEEP
+
 bindkey -M viins '^r' history-incremental-search-backward
 bindkey -M vicmd '^r' history-incremental-search-backward
 
