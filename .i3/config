@@ -276,9 +276,12 @@ bindsym $mod+Shift+w move workspace to output up
 #bindsym $mod+r exec i3-input -F 'rename workspace to "%s"' -P 'New name: '
 
 # Audio key bindings {{{2
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5%
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5%
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
+#bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5%
+#bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5%
+#bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
+bindsym XF86AudioLowerVolume exec --no-startup-id amixer set Master 5%-
+bindsym XF86AudioRaiseVolume exec --no-startup-id amixer set Master 5%+
+bindsym XF86AudioMute exec --no-startup-id amixer set Master toggle
 
 bindsym XF86AudioPlay exec $mpc play_pause
 bindsym XF86AudioStop exec $mpc play_pause

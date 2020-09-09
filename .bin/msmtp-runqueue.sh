@@ -2,7 +2,7 @@
 
 QUEUEDIR="$HOME/.msmtpqueue"
 LOCKFILE="$QUEUEDIR/.lock"
-MAXWAIT=120
+MAXWAIT=50
 
 OPTIONS=$@
 
