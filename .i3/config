@@ -328,7 +328,7 @@ exec --no-startup-id synaptics
 exec --no-startup-id redshift-gtk
 exec --no-startup-id nm-applet
 exec --no-startup-id blueman-applet
-exec --no-startup-id /home/maethor/Downloads/Nextcloud-2.3.3-x86_64.AppImage
+exec --no-startup-id solaar
 #exec --no-startup-id glipper
 #exec --no-startup-id clipit
 #exec --no-startup-id transmission-qt -m
