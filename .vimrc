@@ -78,6 +78,7 @@ if exists("+spelllang")
 endif
 
 " Show syntax highlighting groups for word under cursor
+inoremap <F2> <ESC>:tabnext<CR>
 nmap <F2> :call <SID>SynStack()<CR>
 function! <SID>SynStack()
   if !exists("*synstack")
