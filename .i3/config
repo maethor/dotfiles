@@ -276,9 +276,12 @@ bindsym $mod+Shift+w move workspace to output up
 #bindsym $mod+r exec i3-input -F 'rename workspace to "%s"' -P 'New name: '
 
 # Audio key bindings {{{2
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5%
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5%
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
+#bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5%
+#bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5%
+#bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
+bindsym XF86AudioLowerVolume exec --no-startup-id amixer set Master 5%-
+bindsym XF86AudioRaiseVolume exec --no-startup-id amixer set Master 5%+
+bindsym XF86AudioMute exec --no-startup-id amixer set Master toggle
 
 bindsym XF86AudioPlay exec $mpc play_pause
 bindsym XF86AudioStop exec $mpc play_pause
@@ -325,7 +328,7 @@ exec --no-startup-id synaptics
 exec --no-startup-id redshift-gtk
 exec --no-startup-id nm-applet
 exec --no-startup-id blueman-applet
-exec --no-startup-id /home/maethor/Downloads/Nextcloud-2.3.3-x86_64.AppImage
+exec --no-startup-id solaar
 #exec --no-startup-id glipper
 #exec --no-startup-id clipit
 #exec --no-startup-id transmission-qt -m
