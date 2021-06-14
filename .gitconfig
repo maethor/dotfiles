@@ -16,3 +16,5 @@
 	tool = vimdiff
 [push]
 	default = current
+[difftool "diffpdf"]
+  cmd = diffpdf --view \"$LOCAL\" \"$REMOTE\"
