@@ -67,6 +67,7 @@ bar {
     output LVDS-1
     output VGA-1
     output DP-1
+    output DP-2
     output eDP-1
     output HDMI-1
     tray_output eDP-1
@@ -94,6 +95,7 @@ bar {
     output LVDS-1
     output VGA-1
     output DP-1
+    output DP-2
     output eDP-1
     output HDMI-1
 }
