@@ -48,6 +48,7 @@ color body green color233 "^[+].*"
 #color quoted8 color34 color233
 #color quoted9 color142 color233
 
+color body color248 color233 "^Le .* a écrit :$"
 color quoted color248 color233
 color quoted1 color244 color233
 color quoted2 color240 color233
