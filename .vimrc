@@ -57,7 +57,10 @@ command Wsudo w !sudo tee % >/dev/null
 nnoremap <silent> <F6> :set paste!<cr>
 
 " Toggle [i]nvisible characters
-set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮
+"set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮
+set listchars=tab:⇥\ ,extends:⟩,precedes:⟨,nbsp:␣,trail:•
+set list
+match ErrorMsg '\s\+$'
 nnoremap <leader>i :set list!<cr>
 
 " HexHightlight
@@ -174,7 +177,7 @@ let g:grammalecte_cli_py = '/opt/Grammalecte-0.6/grammalecte-cli.py'
 set backspace=indent,eol,start
 
 " Formatting {{{2
- 
+
 " Indentation
 set autoindent		" Always set autoindenting on
 filetype plugin indent on
@@ -190,9 +193,10 @@ if &t_Co > 2 || has("gui_running")
 endif
 
 " Soft wrapping
-set wrap linebreak nolist
+"set wrap linebreak nolist
+set wrap linebreak
 set showbreak=…
- 
+
 " Style {{{1
 
 " Theme
