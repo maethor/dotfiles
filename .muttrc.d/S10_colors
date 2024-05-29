@@ -1,14 +1,18 @@
 # Mutt colors
+
+# Yellow = color226
+# Blue = color39
+
 # general-doesn't-fit stuff
 color normal color15 color233
 color error color193 color124
 color markers color142 color233
 color tilde color142 color233
-color status brightcolor39 color233
+color status color248 color233
 
 color sidebar_new color226 color233
 color hdrdefault color248 color233
-color sidebar_divider color39 color233
+color sidebar_divider color245 color233
 
 ## header stuff
 color header brightcolor226 color233 "^(Subject|From)"
@@ -17,18 +21,6 @@ color header brightcolor226 color233 "^(Subject|From)"
 color attachment color111 color233
 color signature color244 color233
 
-## quote levels
-color quoted color34 color233
-color quoted1 color142 color233
-color quoted2 color34 color233
-color quoted3 color142 color233
-color quoted4 color34 color233
-color quoted5 color142 color233
-color quoted6 color34 color233
-color quoted7 color142 color233
-color quoted8 color34 color233
-color quoted9 color142 color233
-
 # Colorize smileys:  :-)  ;-)  :-/  :-(
 color body  brightcolor226 color233 "[;:]-[)/(|]"
 color body  brightcolor226 color233 "[;:][)/(|]"
@@ -36,17 +28,63 @@ color body  brightcolor226 color233 "[;:][)/(|]"
 # URL & Mail
 color body color68 color233 [-a-z_0-9.]+@[-a-z_0-9.]+   # picks up email adress
 color body color111 color233 "[[:alpha:]]\+://[^ ]*"  # picks up URLs
+color body color68 color233 "(([+]|00)33|0)[ .-]*[1-9]([ .-]*[0-9]{2}){4}" # French phone numbers
+
+
+# Some other useful colors in body
+color body brightred color233 "^--.*"
+color body brightcolor15 color233 "\\*.*\\*"
+color body green color233 "^[+].*"
+
+## quote levels
+#color quoted color34 color233
+#color quoted1 color142 color233
+#color quoted2 color34 color233
+#color quoted3 color142 color233
+#color quoted4 color34 color233
+#color quoted5 color142 color233
+#color quoted6 color34 color233
+#color quoted7 color142 color233
+#color quoted8 color34 color233
+#color quoted9 color142 color233
+
+color body color248 color233 "^Le .* a écrit :$"
+color quoted color248 color233
+color quoted1 color244 color233
+color quoted2 color240 color233
+color quoted3 color238 color233
+color quoted4 color236 color233
+color quoted5 color238 color233
+color quoted6 color236 color233
+color quoted7 color238 color233
+color quoted8 color236 color233
+color quoted9 color238 color233
+
 
 ## patches
-color body brightred color233 "^-.*"
-color body green color233 "^[+].*"
-color body brightwhite color233 "^diff .*"
-color body brightyellow color233 "^@@.*"
-
+#color body brightred color233 "^-.*"
+#color body green color233 "^[+].*"
+#color body brightwhite color233 "^diff .*"
+#color body brightyellow color233 "^@@.*"
+#
 # Index colors
 color tree color244 color233
-color indicator color232 color154
+color indicator color232 color226
 color index color226 color233 ~N
+color index color124 color233 ~D
+color index color211 color233 ~F
+color index color39 color233 ~T
+
+#color index red color233 ~p !~P !~>(~A)
+color index_author color248 color233 ".*"
+color index_author color243 color233 '~P'
+color index_author color15 color233 '!~>(~A)'
+color index_author color226 color233 '~N'
+color index_author color248 color233 '~L noreply'
+
+color status brightwhite default 'Folder: ([^ ]+)' 1
+color status brightred default '[0-9]+ new'
+
 
 # Shinken/Nagios alerts
 color index black        brightred  "!~N ~f \"shinken\" ~s \"DOWN\""
@@ -63,11 +101,6 @@ color index brightblack  green      "~N ~f \"shinken\" ~s \"UP\""
 color index brightred    color233   "~N ~f \"shinken\" ~s \"CRITICAL\""
 color index brightyellow color233   "~N ~f \"shinken\" ~s \"WARNING\""
 color index brightgreen  color233   "~N ~f \"shinken\" ~s \"OK\""
-
-# Index colors
-color index color124 color233 ~D
-color index color211 color233 ~F
-color index color39 color233 ~T
 
 
 # https://neomutt.org/feature/attach-headers-color
@@ -91,12 +124,5 @@ color   attach_headers     brightmagenta   default    "         There is no indi
 color   attach_headers     brightmagenta   default    "can't handle these multiple signatures"
 color   attach_headers     brightmagenta   default    "signature verification suppressed"
 color   attach_headers     brightmagenta   default    "invalid node with packet of type"
-
-# Index colors
-color index_author color248 default '~P'
-
-color status brightwhite default 'Folder: ([^ ]+)' 1
-color status brightred default '[0-9]+ new'
-
 
 # vim: syntax=neomuttrc

@@ -3,7 +3,7 @@
 	url = https://github.com/tpope/vim-unimpaired.git
 [submodule ".vim/bundle/nerdcommenter"]
 	path = .vim/bundle/nerdcommenter
-	url = git://github.com/scrooloose/nerdcommenter
+	url = https://github.com/scrooloose/nerdcommenter
 [submodule ".vim/bundle/YankRing"]
 	path = .vim/bundle/YankRing
 	url = https://github.com/vim-scripts/YankRing.vim.git
