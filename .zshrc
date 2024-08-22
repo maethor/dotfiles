@@ -25,7 +25,6 @@ bm () {
     fi
     export BORG_RELOCATED_REPO_ACCESS_IS_OK=yes
     export BORG_UNKNOWN_UNENCRYPTED_REPO_ACCESS_IS_OK=yes
-    echo "$1"
     if [ -n "$1" ]; then
         date="$1"
     else
