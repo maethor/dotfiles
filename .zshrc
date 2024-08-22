@@ -18,6 +18,25 @@ alias g="gotcha -r"
 alias d="date +%Y-%m-%d"
 alias h="[ -f /etc/hostname.sysnove ] && cat /etc/hostname.sysnove || hostname"
 
+bm () {
+    if [ -n "$(sudo ls /mnt)" ]; then
+        echo "/mnt is not empty"
+        return 1
+    fi
+    export BORG_RELOCATED_REPO_ACCESS_IS_OK=yes
+    export BORG_UNKNOWN_UNENCRYPTED_REPO_ACCESS_IS_OK=yes
+    echo "$1"
+    if [ -n "$1" ]; then
+        date="$1"
+    else
+        date=$(sudo jq -r '.archives[0].name' /var/backups/borginfo.json)
+    fi
+    backup="backups:$(h)::$date"
+    echo "Mounting $backup in /mnt…"
+    sudo borg mount "$backup" /mnt
+    echo "Done."
+}
+
 alias gs='git status'
 compdef _git gs=git-status
 
