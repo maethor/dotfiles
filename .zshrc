@@ -47,7 +47,7 @@ alias ansible='noglob ansible'
 alias ansible-playbook='noglob ansible-playbook'
 
 [[ -x /usr/bin/pydf ]] && alias df="pydf -h"
-[[ -x /usr/bin/batcat ]] && alias bat="batcat -p --paging=never" && alias cat="bat"
+#[[ -x /usr/bin/batcat ]] && alias bat="batcat --style=plain,grid --paging=never" && alias cat="bat"
 
 [[ -x /usr/bin/nvim ]] && alias vim="nvim"
 [[ -x $HOME/.bin/nvim ]] && alias vim="$HOME/.bin/nvim"
@@ -99,6 +99,28 @@ WATCHFMT="[%T] %n has %a %l from %M"
 #    bindkey '^R' history-incremental-search-backward
 #    export FZF_DEFAULT_OPTS='--preview "batcat --style=numbers --color=always {} | head -500"'
 #fi
+
+# History cleanup
+function smite() {
+    setopt LOCAL_OPTIONS ERR_RETURN PIPE_FAIL
+
+    local opts=( -I )
+    if [[ $1 == '-a' ]]; then
+        opts=()
+    elif [[ -n $1 ]]; then
+        print >&2 'usage: smite [-a]'
+        return 1
+    fi
+
+    fc -l -n $opts 1 | \
+        fzf --no-sort --tac --multi | \
+        while IFS='' read -r command_to_delete; do
+            printf 'Removing history entry "%s"\n' $command_to_delete
+            local HISTORY_IGNORE="${(b)command_to_delete}"
+            fc -W
+            fc -p $HISTFILE $HISTSIZE $SAVEHIST
+        done
+}
 
 # override default umask
 umask 0022
