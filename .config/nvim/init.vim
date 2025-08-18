@@ -25,7 +25,6 @@ call minpac#add('mitsuhiko/vim-jinja')
 call minpac#add('PotatoesMaster/i3-vim-syntax')
 call minpac#add('ChrisYip/Better-CSS-Syntax-for-Vim')
 call minpac#add('vim-scripts/SyntaxRange')
-call minpac#add('dbeniamine/vim-mail')
 call minpac#add('averms/black-nvim')
 "call minpac#add('wikitopian/hardmode')
 call minpac#add('machakann/vim-highlightedyank')
@@ -38,6 +37,7 @@ call minpac#add('vim-airline/vim-airline-themes')
 
 command! PackUpdate call minpac#update()
 command! PackClean call minpac#clean()
+command! PackList call minpac#list()
 
 source ~/.vimrc
 
@@ -95,7 +95,7 @@ let g:VimMailStartFlags = 'SA'
 let g:VimMailContactSyncCmd="/usr/bin/vdirsyncer sync"
 let g:VimMailSpellLangs=['fr','en']
 "au Filetype mail set completefunc=vimmail#completion#CompleteAddr
-au Filetype mail set omnifunc=vimmail#completion#CompleteAddr
+"au Filetype mail set omnifunc=vimmail#completion#CompleteAddr
 
 " CtrlP
 " Open in new tab by default
