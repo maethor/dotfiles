@@ -203,6 +203,7 @@ set showbreak=…
 set background=dark
 highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=Black gui=NONE guifg=DarkGrey guibg=NONE
 highlight ColorColumn term=bold cterm=NONE ctermfg=DarkGrey ctermbg=Black gui=NONE guifg=DarkGrey guibg=NONE
+"highlight ColorColumn ctermbg=green guibg=orange
 
 " Badwolf theme
 let g:badwolf_darkgutter = 0
@@ -210,6 +211,11 @@ let g:badwolf_tabline = 2
 let g:badwolf_html_link_underline = 1
 let g:badwolf_css_props_highlight = 1
 colorscheme maethor
+
+"highlight ColorColumn term=bold cterm=NONE ctermfg=DarkGrey ctermbg=Black gui=NONE guifg=DarkGrey guibg=NONE
+"hi ColorColumn ctermbg=235 guibg=#242321
+hi ColorColumn term=bold cterm=None ctermfg=NONE ctermbg=238 gui=NONE guifg=NONE guibg=#45413b
+hi Visual ctermfg=NONE ctermbg=238 guifg=NONE guibg=#45413b
 
 " Status line
 set laststatus=2
