@@ -20,7 +20,9 @@ status.register(
     "keyboard_locks", format="{caps}", caps_off="", caps_on=" CAPS", color=red
 )
 
-status.register("clock", format="   %a %d/%m %X ")
+status.register("shell", command="~/.i3/clock.sh", on_leftclick="echo '0' > ~/.i3/clock.status")
+
+# status.register("clock", format="   %a %d/%m %X ")
 
 if os.uname()[1] == "stark":
     status.register(

@@ -14,8 +14,10 @@ set $mod Mod4
 set $alt Mod1
 
 set $mpc python3 ~/.i3/mpc
-set $term urxvt
-set $tabbed_term urxvt -pe tabs
+#set $term urxvt
+#set $tabbed_term urxvt -pe tabs
+set $term terminator
+set $tabbed_term terminator
 set $i3lock i3lock --color 475263
 
 # General configuration {{{1
@@ -60,7 +62,7 @@ client.urgent           #2f343a #900000 #ffffff #900000
 bar {
     #status_command ~/.envs/i3/bin/python ~/.i3/config.py
     #status_command i3status
-    status_command ~/.envs/i3/bin/python3 ~/.i3/statusbar.py
+    status_command python3 ~/.i3/statusbar.py
     #status_command pew in i3 ~/.i3/statusbar.py
     #status_command i3blocks -c ~/i3-config/blocks/bot
     position top
@@ -105,8 +107,10 @@ bar {
 
 assign [class="Iceweasel"] → "$ws3"
 assign [class="Firefox"] → "$ws3"
-assign [class="Chromium"] → "$ws3"
+#assign [class="Chromium"] → "$ws3"
 assign [class="Trello"] → "$ws9"
+assign [class="trello.com"] → "$ws9"
+assign [title="Tableaux | Trello"] → "$ws9"
 assign [class="^Vlc$"] → "$ws12"
 assign [title="mutt"] → "$ws8"
 
@@ -123,6 +127,8 @@ for_window [instance="pavucontrol"] floating enable
 for_window [class="Zathura"] border 1pixel
 for_window [class="URxvt"] border 1pixel
 for_window [class="Trello"] border 1pixel
+for_window [class="trello.com"] border 1pixel
+for_window [title="Tableaux | Trello"] border 1pixel floating disable
 for_window [class="Rocket.Chat+"] border 1pixel
 for_window [class="Rocket"] border 1pixel
 for_window [class="kitty"] border 1pixel
@@ -272,6 +278,8 @@ bindsym $mod+Shift+agrave move container to workspace $ws10; workspace $ws10
 bindsym $mod+Shift+parenright move container to workspace $ws11; workspace $ws11
 bindsym $mod+Shift+equal move container to workspace $ws12; workspace $ws12
 
+#bindsym $mod+w move workspace to output right; focus output right
+#bindsym $mod+Shift+w move workspace to output up; focus output up
 bindsym $mod+w move workspace to output right
 bindsym $mod+Shift+w move workspace to output up
 
