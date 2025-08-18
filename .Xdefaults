@@ -10,7 +10,16 @@ URxvt*scrollBar : false
 !URxvt.keysym.M-b: perl:clipboard:paste
 !URxvt.perl-ext-common: default,tabbed,clipboard
 URxvt*perl-lib : /home/maethor/.urxvt/perl/ulhume
-URxvt*perl-ext-common : focus
+URxvt*perl-ext-common : font-size
+
+!URxvt.keysym.C-Up:     font-size:increase
+!URxvt.keysym.C-Down:   font-size:decrease
+!URxvt.keysym.C-S-Up:   font-size:incglobal
+!URxvt.keysym.C-S-Down: font-size:decglobal
+!URxvt.keysym.C-equal:  font-size:reset
+!URxvt.keysym.C-slash:  font-size:show
+
+URxvt*saveLines: 4096
 
 URxvt*urlLauncher : /usr/bin/chromium
 
@@ -71,7 +80,7 @@ URxvt*cursorColor: #ff87af
 !URxvt*color14 : rgb:59/BC/D9
 !URxvt*color15 : rgb:FF/FF/FF
 
-# Les commandes
+! Les commandes
 URxvt.keysym.S-Down : perl:tab-new
 URxvt.keysym.S-Left : perl:tab-previous
 URxvt.keysym.S-Right : perl:tab-next
@@ -81,11 +90,11 @@ URxvt.keysym.S-M-r : perl:tab-rename
 URxvt.keysym.S-M-j : perl:tab-jump
 URxvt.keysym.S-M-k : perl:tab-kill
 
-#URxvt.keysym.S-Down : perl:tabbedex:new_tab
-#URxvt.keysym.S-Left : perl:tabbedex:prev_tab
-#URxvt.keysym.S-Right : perl:tabbedex:next_tab
+!URxvt.keysym.S-Down : perl:tabbedex:new_tab
+!URxvt.keysym.S-Left : perl:tabbedex:prev_tab
+!URxvt.keysym.S-Right : perl:tabbedex:next_tab
 
-# Les couleurs
+! Les couleurs
 !URxvt.tabs.tab-bar-fg        : 17
 !URxvt.tabs.tab-bar-bg        : 18
 !URxvt.tabs.tab-fg            : 17
@@ -97,8 +106,8 @@ URxvt.keysym.S-M-k : perl:tab-kill
 !URxvt.tabs.tab-rename-color  : 23
 !URxvt.tabs.tab-divider-color : 2
 
-# Séparateur
+! Séparateur
 !URxvt.tabs.tab-divider        : -
 
-# Position (0 en haut, 1 en bas)
+! Position (0 en haut, 1 en bas)
 !URxvt.tabs.tab-position      : 1
