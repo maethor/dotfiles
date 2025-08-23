@@ -19,3 +19,5 @@
 	default = current
 [difftool "diffpdf"]
   cmd = diffpdf --view \"$LOCAL\" \"$REMOTE\"
+[url "https://github.com/"]
+  insteadOf = git://github.com/
