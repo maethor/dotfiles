@@ -5,6 +5,8 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
+HISTFILE="${ZDOTDIR:-$HOME}/.zhistory"
+
 source "${ZDOTDIR:-$HOME}/.zlong_alert.zsh"
 zlong_duration=30
 zlong_ignore_cmds="vim ssh neomutt most tmux ansible su pipenv"
