@@ -126,6 +126,7 @@ for_window [instance="pavucontrol"] floating enable
 
 for_window [class="Zathura"] border 1pixel
 for_window [class="URxvt"] border 1pixel
+for_window [class="Terminator"] border 1pixel
 for_window [class="Trello"] border 1pixel
 for_window [class="trello.com"] border 1pixel
 for_window [title="Tableaux | Trello"] border 1pixel floating disable
