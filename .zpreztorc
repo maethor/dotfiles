@@ -62,6 +62,11 @@ zstyle ':prezto:module:editor' dot-expansion 'yes'
 # Prompt
 #
 
+fpath=(
+  ${HOME}/.zprezto-themes
+  ${fpath}
+)
+
 # Set the prompt theme to load.
 zstyle ':prezto:module:prompt' theme 'maethor'
 

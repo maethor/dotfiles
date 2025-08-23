@@ -21,4 +21,4 @@
 	url = https://github.com/clvv/fasd.git
 [submodule ".zprezto"]
 	path = .zprezto
-	url = https://github.com/maethor/prezto.git
+	url = https://github.com/sorin-ionescu/prezto

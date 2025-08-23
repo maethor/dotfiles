@@ -1,0 +1,132 @@
+#
+# A simple theme that displays relevant, contextual information.
+#
+# Authors:
+#   Guillaume Subiron <maethor@subiron.org>
+#
+# Screenshots:
+#   http://i.imgur.com/nBEEZ.png
+#
+
+# Load dependencies.
+pmodload 'helper'
+
+function prompt_maethor_pwd {
+  local pwd="${PWD/#$HOME/~}"
+
+  if [[ "$pwd" == (#m)[/~] ]]; then
+    _prompt_maethor_pwd="$MATCH"
+    unset MATCH
+  else
+    _prompt_maethor_pwd="${${${${(@j:/:M)${(@s:/:)pwd}##.#?}:h}%/}//\%/%%}/${${pwd:t}//\%/%%}"
+  fi
+}
+
+function prompt_maethor_user {
+  if [ "$USER" = "root" ]; then
+    _prompt_user_color="red"
+  elif [ "$SSH_TTY" ]; then
+    _prompt_user_color="cyan"
+  else
+    _prompt_user_color="light_green"
+  fi
+
+  _prompt_maethor_user="%F{$_prompt_user_color}%n@%m"
+}
+
+function prompt_maethor_venv {
+  # Get Ruby info
+  if (( $+functions[ruby-info] )); then
+    ruby-info
+  fi
+
+  # Get Virtual env info
+  if (( $+functions[python-info] )); then
+    python-info
+  fi
+
+  # Get Node info
+  if (( $+functions[node-info] )); then
+    node-info
+  fi
+
+  _venv=$(echo "${ruby_info[version]} ${node_info[version]} ${python_info[virtualenv]}" | xargs)
+
+  if [[ -z "${_venv// }" ]]; then
+      _prompt_maethor_venv=""
+  else
+      _prompt_maethor_venv="%F{blue}─(%F{cyan}${_venv}%F{blue})"
+  fi
+}
+
+function prompt_maethor_precmd {
+  setopt LOCAL_OPTIONS
+  unsetopt XTRACE KSH_ARRAYS
+
+  # Get Git repository information.
+  if (( $+functions[git-info] )); then
+    git-info
+    # Ignore for home git
+    if [ "$(git rev-parse --show-toplevel 2>/dev/null)" != "$HOME" ]; then
+        git-info
+    fi
+  fi
+
+  # Format PWD.
+  prompt_maethor_pwd
+  prompt_maethor_user
+  prompt_maethor_venv
+}
+
+function prompt_maethor_setup {
+  setopt LOCAL_OPTIONS
+  unsetopt XTRACE KSH_ARRAYS
+  prompt_opts=(cr percent subst)
+
+  # Load required functions.
+  autoload -Uz add-zsh-hook
+
+  # Add hook for calling infos before each command.
+  add-zsh-hook precmd prompt_maethor_precmd
+
+  # Set editor-info parameters.
+  zstyle ':prezto:module:editor:info:completing' format '%B%F{red}...%f%b'
+  zstyle ':prezto:module:editor:info:keymap:primary' format '%B%F{red}>%F{yellow}>%F{green}>%f%b'
+  zstyle ':prezto:module:editor:info:keymap:primary:overwrite' format ' %F{red}♺%f'
+  zstyle ':prezto:module:editor:info:keymap:alternate' format ' %B%F{green}<%F{yellow}<%F{red}<%f%b'
+
+  # Set git-info parameters.
+  zstyle ':prezto:module:git:info' verbose 'yes'
+  zstyle ':prezto:module:git:info:action' format '%F{white}:%f%%B%F{yellow}%s%f%%b'
+  zstyle ':prezto:module:git:info:added' format ' %%B%F{green}✚%f%%b'
+  zstyle ':prezto:module:git:info:ahead' format ' %%B%F{yellow}⬆%f%%b'
+  zstyle ':prezto:module:git:info:behind' format ' %%B%F{yellow}⬇%f%%b'
+  zstyle ':prezto:module:git:info:branch' format ' %%B%F{green}%b%f%%b'
+  zstyle ':prezto:module:git:info:commit' format ' %%B%F{green}%.7c%f%%b'
+  zstyle ':prezto:module:git:info:deleted' format ' %%B%F{red}✖%f%%b'
+  zstyle ':prezto:module:git:info:modified' format ' %%B%F{blue}✱%f%%b'
+  zstyle ':prezto:module:git:info:position' format ' %%B%F{red}%p%f%%b'
+  zstyle ':prezto:module:git:info:renamed' format ' %%B%F{magenta}➜%f%%b'
+  zstyle ':prezto:module:git:info:stashed' format ' %%B%F{cyan}✭%f%%b'
+  zstyle ':prezto:module:git:info:unmerged' format ' %%B%F{yellow}═%f%%b'
+  zstyle ':prezto:module:git:info:untracked' format ' %%B%F{white}◼%f%%b'
+  zstyle ':prezto:module:git:info:keys' format \
+    'status' '$(coalesce "%b" "%p" "%c")%s%A%B%S%a%d%m%r%U%u'
+
+  # Set ruby-info parameters.
+  zstyle ':prezto:module:ruby:info:version' format '%F{red}rb:%v%f'
+
+  # Set python-info parameters.
+  zstyle ':prezto:module:python:info:virtualenv' format '%F{220}pyenv:%v%f'
+
+  # Set node-info parameters
+  zstyle ':prezto:module:node:info:version' format '%F{106}node:%v%f'
+
+  # Define prompts.
+  PROMPT='%B%F{blue}┌(%F{yellow}%D{%H:%M:%S}%F{blue})─(%F{magenta}${_prompt_maethor_pwd}%f%F{blue})${_prompt_maethor_venv}
+%F{blue}└(${_prompt_maethor_user}%f%F{blue}) %(!. %B%F{red}#%f%b.)${editor_info[keymap]} '
+  RPROMPT='${editor_info[overwrite]}%B%(?:: %F{red}%? ↵%f)${VIM:+" %B%F{green}V%f%b"} ${git_info:+${(e)git_info[status]}}'
+  SPROMPT='zsh: correct %F{red}%R%f to %F{green}%r%f [nyae]? '
+}
+
+prompt_maethor_setup "$@"
