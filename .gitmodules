@@ -22,3 +22,6 @@
 [submodule ".zprezto"]
 	path = .zprezto
 	url = https://github.com/sorin-ionescu/prezto
+[submodule "/home/maethor/.config/nvim/pack/minpac/opt/minpac"]
+	path = /home/maethor/.config/nvim/pack/minpac/opt/minpac
+	url = https://github.com/k-takata/minpac.git
