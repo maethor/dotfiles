@@ -1,0 +1,9 @@
+#!/bin/bash
+
+SYS=$(sys_status get -b $1)
+SYS_USER=$(echo $SYS | cut -d ';' -f 1)
+SYS_COLOR=$(echo $SYS | cut -d ';' -f 2)
+
+echo "$SYS_USER  "
+echo "$SYS_USER  "
+echo "$SYS_COLOR"

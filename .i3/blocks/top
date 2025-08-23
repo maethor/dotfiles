@@ -1,0 +1,41 @@
+[Sys Status Title]
+command=echo ' Status :'
+separator=false
+interval=300
+align=left
+
+[Sys Status Laeti]
+command=~/.i3/blocks/blocklets/sysnove_status ybordenave
+interval=60
+instance=
+markup=pango
+separator=false
+separator_block_width=2
+align=left
+
+[Sys Status Guillaume]
+command=~/.i3/blocks/blocklets/sysnove_status gsubiron
+interval=60
+instance=
+markup=pango
+separator=false
+separator_block_width=2
+align=left
+
+[Sys Status Julien]
+command=~/.i3/blocks/blocklets/sysnove_status jrabier
+interval=60
+instance=
+markup=pango
+separator=false
+separator_block_width=2
+align=left
+
+[Sys Status Alexis]
+command=~/.i3/blocks/blocklets/sysnove_status alahouze
+interval=60
+instance=
+markup=pango
+separator=false
+separator_block_width=2
+align=left
