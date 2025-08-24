@@ -65,7 +65,6 @@ function prompt_maethor_precmd {
 
   # Get Git repository information.
   if (( $+functions[git-info] )); then
-    git-info
     # Ignore for home git
     if [ "$(git rev-parse --show-toplevel 2>/dev/null)" != "$HOME" ]; then
         git-info
