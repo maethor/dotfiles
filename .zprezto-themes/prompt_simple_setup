@@ -1,0 +1,108 @@
+# vim: ft=zsh
+#
+# A simple theme that displays relevant, contextual information.
+#
+# Authors:
+#   Guillaume Subiron <simple@subiron.org>
+#
+# Screenshots:
+#   http://i.imgur.com/nBEEZ.png
+#
+
+# Load dependencies.
+pmodload 'helper'
+
+#function prompt_simple_pwd {
+#  local pwd="${PWD/#$HOME/~}"
+#
+#  if [[ "$pwd" == (#m)[/~] ]]; then
+#    _prompt_simple_pwd="$MATCH"
+#    unset MATCH
+#  else
+#    _prompt_simple_pwd="${${${${(@j:/:M)${(@s:/:)pwd}##.#?}:h}%/}//\%/%%}/${${pwd:t}//\%/%%}"
+#  fi
+#}
+
+function prompt_simple_user {
+  if [ "$USER" = "root" ]; then
+    _prompt_user_color="red"
+    _prompt_simple_keymap="%F{$_prompt_user_color}#"
+  else
+    _prompt_user_color="light_green"
+    _prompt_simple_keymap="%F{$_prompt_user_color}%%"
+  fi
+
+  if [ "$SSH_TTY" ]; then
+    _prompt_host_color="cyan"
+  else
+    _prompt_host_color="light_green"
+  fi
+
+  _prompt_simple_user="%F{$_prompt_user_color}%n%F{white}@%F{$_prompt_host_color}%m"
+}
+
+#function prompt_simple_venv {
+#  # Get Ruby info
+#  if (( $+functions[ruby-info] )); then
+#    ruby-info
+#  fi
+#
+#  # Get Virtual env info
+#  if (( $+functions[python-info] )); then
+#    python-info
+#  fi
+#
+#  # Get Node info
+#  if (( $+functions[node-info] )); then
+#    node-info
+#  fi
+#
+#  _venv=$(echo "${ruby_info[version]} ${node_info[version]} ${python_info[virtualenv]}" | xargs)
+#
+#  if [[ -z "${_venv// }" ]]; then
+#      _prompt_simple_venv=""
+#  else
+#      _prompt_simple_venv="%F{blue}─(%F{cyan}${_venv}%F{blue})"
+#  fi
+#}
+
+function prompt_simple_precmd {
+  setopt LOCAL_OPTIONS
+  unsetopt XTRACE KSH_ARRAYS
+
+  # Format PWD.
+  #prompt_simple_pwd
+  prompt_simple_user
+}
+
+function prompt_simple_setup {
+  setopt LOCAL_OPTIONS
+  unsetopt XTRACE KSH_ARRAYS
+  prompt_opts=(cr percent subst)
+
+  # Load required functions.
+  autoload -Uz add-zsh-hook
+
+  # Add hook for calling infos before each command.
+  add-zsh-hook precmd prompt_simple_precmd
+
+  # Tell prezto we can manage this prompt
+  zstyle ':prezto:module:prompt' managed 'yes'
+
+  # Set editor-info parameters.
+  zstyle ':prezto:module:editor:info:completing' format '%B%F{red}...%f%b'
+  zstyle ':prezto:module:editor:info:keymap:primary' format ' ${_prompt_simple_keymap}%f%b'
+  zstyle ':prezto:module:editor:info:keymap:primary:overwrite' format ' %F{red}♺%f'
+  zstyle ':prezto:module:editor:info:keymap:alternate' format ' %B%F{green}<%F{yellow}<%F{red}<%f%b'
+
+  # Define prompts.
+  # PS1='${debian_chroot:+($debian_chroot)}\[\e[1;33m\]\u\[\e[1;37m\]@\[\e[1;33m\]\h\[\e[1;37m\]:\[\e[1;31m\]\w \[\e[1;36m\][\D{%T}] \$ \[\033[00m\]'
+  PROMPT='%B%F{magenta}${_prompt_simple_user}%F{white}:%F{red}${PWD/#$HOME/~} %F{cyan}[%D{%H:%M:%S}] ${_prompt_simple_keymap}%f%b '
+  #PROMPT='%B%F{blue}┌(%F{yellow}%D{%H:%M:%S}%F{blue})─(%F{magenta}${_prompt_simple_pwd}%f%F{blue})${_prompt_simple_venv}
+#%F{blue}└(${_prompt_simple_user}%f%F{blue}) %(!. %B%F{red}#%f%b.)${editor_info[keymap]} '
+  #RPROMPT='${editor_info[overwrite]}%B%(?:: %F{red}%? ↵%f)${VIM:+" %B%F{green}V%f%b"} ${git_info:+${(e)git_info[status]}}'
+  RPROMPT=''
+  SPROMPT='zsh: correct %F{red}%R%f to %F{green}%r%f [nyae]? '
+}
+
+prompt_simple_setup "$@"
