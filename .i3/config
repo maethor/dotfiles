@@ -111,6 +111,7 @@ assign [class="Firefox"] → "$ws3"
 assign [class="Trello"] → "$ws9"
 assign [class="trello.com"] → "$ws9"
 assign [title="Tableaux | Trello"] → "$ws9"
+assign [title="PLANKA"] → "$ws9"
 assign [class="^Vlc$"] → "$ws12"
 assign [title="mutt"] → "$ws8"
 
@@ -130,6 +131,7 @@ for_window [class="Terminator"] border 1pixel
 for_window [class="Trello"] border 1pixel
 for_window [class="trello.com"] border 1pixel
 for_window [title="Tableaux | Trello"] border 1pixel floating disable
+for_window [title="PLANKA"] border 1pixel floating disable
 for_window [class="Rocket.Chat+"] border 1pixel
 for_window [class="Rocket"] border 1pixel
 for_window [class="kitty"] border 1pixel
