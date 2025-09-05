@@ -103,3 +103,10 @@ let g:ctrlp_prompt_mappings = {
     \ 'AcceptSelection("e")': ['<c-t>'],
     \ 'AcceptSelection("t")': ['<cr>', '<2-LeftMouse>'],
     \ }
+
+" Black
+command Black call Black()
+let g:black#settings = {
+    \ 'fast': 1,
+    \ 'line_length': 100
+\}
